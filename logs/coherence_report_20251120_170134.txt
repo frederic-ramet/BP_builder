@@ -1,0 +1,17 @@
+RAPPORT VALIDATION COHÉRENCE
+Date: 2025-11-20T17:01:34.140021
+Status: FAILED
+
+Erreurs: 4
+Warnings: 1
+
+ERREURS:
+- {'type': 'INCOHÉRENCE CRITIQUE', 'section': '1.3 Vision', 'donnee_actuelle': '200-300M€', 'probleme': 'Multiple 302.4x hors norme SaaS (standard 7-10x)', 'arr_reference': '0.83M€', 'impact': 5, 'context': "'IA en entreprise, avec une valorisation cible de 200-300M€ à horizon 2028.\n\n2. Analyse de marché\n2.1 Context"}
+- {'type': 'INCOHÉRENCE CRITIQUE', 'section': '1.3 Vision', 'donnee_actuelle': '15-15M€', 'probleme': 'Multiple 18.1x hors norme SaaS (standard 7-10x)', 'arr_reference': '0.83M€', 'impact': 5, 'context': 'Growth (probabilité 20%)\nTimeline: 2029-2030 avec 15M€+ ARR\nValorisation cible: 150-250M€\nNécessite lead'}
+- {'type': 'INCOHÉRENCE CRITIQUE', 'section': '1.3 Vision', 'donnee_actuelle': '150-250M€', 'probleme': 'Multiple 241.9x hors norme SaaS (standard 7-10x)', 'arr_reference': '0.83M€', 'impact': 5, 'context': 'ine: 2029-2030 avec 15M€+ ARR\nValorisation cible: 150-250M€\nNécessite leadership européen établi\nPartenariat'}
+- {'type': 'PATTERN ERREUR', 'pattern': '\\d{3,}-\\d{3,}M€', 'occurrences': 2, 'message': 'Pattern \\d{3,}-\\d{3,}M€ détecté'}
+
+CORRECTIONS PROPOSÉES:
+- {'section': '1.3 Vision', 'field': 'valorisation_2028', 'options': {'conservative': {'value': '5M€', 'multiple': 6, 'justification': 'Croissance <30%/an, marché mature'}, 'realistic': {'value': '8M€', 'multiple': 10, 'justification': 'Croissance 30-60%/an, marché stable'}, 'aggressive': {'value': '12M€', 'multiple': 15, 'justification': 'Croissance >100%/an, hyper-croissance démontrée'}}, 'recommendation': 'realistic'}
+- {'section': '1.3 Vision', 'field': 'valorisation_2028', 'options': {'conservative': {'value': '5M€', 'multiple': 6, 'justification': 'Croissance <30%/an, marché mature'}, 'realistic': {'value': '8M€', 'multiple': 10, 'justification': 'Croissance 30-60%/an, marché stable'}, 'aggressive': {'value': '12M€', 'multiple': 15, 'justification': 'Croissance >100%/an, hyper-croissance démontrée'}}, 'recommendation': 'realistic'}
+- {'section': '1.3 Vision', 'field': 'valorisation_2028', 'options': {'conservative': {'value': '5M€', 'multiple': 6, 'justification': 'Croissance <30%/an, marché mature'}, 'realistic': {'value': '8M€', 'multiple': 10, 'justification': 'Croissance 30-60%/an, marché stable'}, 'aggressive': {'value': '12M€', 'multiple': 15, 'justification': 'Croissance >100%/an, hyper-croissance démontrée'}}, 'recommendation': 'realistic'}

@@ -1,0 +1,195 @@
+# RÈGLES DE VALIDATION BUSINESS PLAN
+# Validation financière, cohérence KPIs, red flags investisseurs
+
+## 1. MULTIPLES DE VALORISATION SAAS B2B
+valuation_multiples:
+  description: "Multiples ARR pour valorisation entreprise SaaS B2B"
+  conservative:
+    min: 4
+    max: 6
+    context: "Croissance <30%/an, marché mature"
+  realistic:
+    min: 7
+    max: 10
+    context: "Croissance 30-60%/an, marché stable"
+  aggressive:
+    min: 11
+    max: 15
+    context: "Croissance >100%/an, hyper-croissance démontrée"
+  unrealistic:
+    threshold: 15
+    action: "FLAG ERROR - Multiple hors norme sans justification"
+
+## 2. COHÉRENCE INTER-SECTIONS
+coherence_checks:
+  - name: "Valorisation vs ARR"
+    section_source: "1.3 Vision"
+    section_target: "7.2 Projections financières"
+    formula: "valorisation_2028 = ARR_2028 × multiple (7-10x)"
+    error_threshold_pct: 50
+
+  - name: "Effectifs vs Charges personnel"
+    section_source: "5.3 Plan recrutement"
+    section_target: "7.2 Charges personnel"
+    formula: "charges_personnel = nb_effectifs × salaire_moyen_annuel"
+    error_threshold_pct: 15
+
+  - name: "Clients vs CA"
+    section_source: "4.1 Phases déploiement"
+    section_target: "7.1 CA total"
+    formula: "CA_total = nb_clients × ARPU"
+    error_threshold_pct: 10
+
+  - name: "Marketing vs Acquisitions"
+    section_source: "7.2 Charges marketing"
+    section_target: "4.1 Acquisition clients"
+    formula: "charges_marketing / acquisitions ≈ CAC"
+    error_threshold_pct: 20
+
+## 3. RED FLAGS INVESTISSEURS
+red_flags:
+  cac_ltv_ratio:
+    rule: "CAC < LTV/3"
+    critical: true
+    message: "CAC trop élevé par rapport à LTV (ratio < 1:3)"
+
+  churn_annual:
+    max: 0.15  # 15%
+    critical: true
+    message: "Churn annuel trop élevé (>15%) pour un SaaS B2B"
+
+  gross_margin:
+    min: 0.60  # 60%
+    critical: false
+    message: "Marge brute faible pour un SaaS (<60%)"
+
+  break_even_months:
+    max: 24
+    critical: false
+    message: "Break-even trop lointain (>24 mois post-seed)"
+
+  valuation_arr_multiple:
+    max: 12
+    critical: true
+    message: "Multiple valorisation/ARR > 12x sans justification croissance"
+
+  nps_score:
+    min: 40
+    critical: false
+    message: "NPS < 40 (risque satisfaction client)"
+
+  sales_cycle_days:
+    max: 120
+    critical: false
+    context: "PME/ETI uniquement"
+    message: "Cycle de vente > 120 jours pour PME/ETI"
+
+## 4. VALIDATION KPIS SAAS
+saas_kpis:
+  arr_growth:
+    description: "Croissance ARR annuelle"
+    early_stage_min: 1.5  # +150% minimum
+    growth_stage_min: 0.6  # +60% minimum
+
+  logo_retention:
+    description: "Rétention clients (logo)"
+    min: 0.85  # 85%
+    target: 0.90  # 90%
+
+  nrr:
+    description: "Net Revenue Retention"
+    min: 1.00  # 100%
+    target: 1.20  # 120%
+
+  rule_of_40:
+    description: "Growth Rate % + EBITDA Margin % ≥ 40"
+    threshold: 40
+
+  magic_number:
+    description: "ARR Growth / Sales&Marketing Spend"
+    min: 0.75
+    target: 1.00
+
+## 5. BENCHMARKS SECTORIELS
+benchmarks:
+  saas_b2b_france:
+    average_deal_size: 15000  # €
+    average_sales_cycle_days: 90
+    average_cac: 8000  # €
+    average_ltv: 40000  # €
+    average_gross_margin: 0.75
+    average_churn_annual: 0.12
+
+  ai_saas_2025:
+    valuation_multiple_median: 8.5
+    growth_rate_median: 0.80
+    burn_multiple_median: 1.5
+
+## 6. SECTIONS À VÉRIFIER
+sections_to_validate:
+  - id: "1.3"
+    name: "Vision"
+    contains: ["valorisation", "horizon", "ARR"]
+
+  - id: "3.2"
+    name: "Revenus"
+    contains: ["licences", "services", "marketplace"]
+
+  - id: "3.3"
+    name: "Structure coûts"
+    contains: ["R&D %", "Sales %", "G&A %"]
+
+  - id: "4.1"
+    name: "Phases déploiement"
+    contains: ["clients par an", "acquisition"]
+
+  - id: "5.3"
+    name: "Plan recrutement"
+    contains: ["effectifs", "2025", "2026", "2027", "2028"]
+
+  - id: "7.1"
+    name: "Hypothèses clés"
+    contains: ["pricing", "volumes", "conversion"]
+
+  - id: "7.2"
+    name: "Projections financières"
+    contains: ["CA", "charges", "EBITDA", "ARR"]
+
+## 7. PATTERNS D'ERREURS FRÉQUENTES
+error_patterns:
+  - pattern: "\\(à vérifier\\)"
+    severity: "WARNING"
+    message: "Données non confirmées présentes dans le document"
+
+  - pattern: "\\d{3,}-\\d{3,}M€"
+    context: "valorisation"
+    severity: "CRITICAL"
+    check: "Vérifier cohérence avec ARR × 7-10"
+
+  - pattern: "200%|300%|400%"
+    context: "croissance"
+    severity: "WARNING"
+    message: "Taux de croissance très élevé, vérifier faisabilité"
+
+  - pattern: "0€|0 €|TBD"
+    context: "projections"
+    severity: "ERROR"
+    message: "Données financières manquantes"
+
+## 8. ACTIONS AUTOMATIQUES
+auto_corrections:
+  enabled: false  # Ne pas corriger automatiquement par défaut
+  validation_only: true
+
+  rules:
+    - name: "Recalcul valorisation"
+      trigger: "valuation_multiple > 15"
+      action: "Proposer valorisation = ARR × [7, 10, 12]"
+
+    - name: "Cohérence effectifs"
+      trigger: "charges_personnel != effectifs × 65000"
+      action: "Recalculer charges avec salaire_moyen = 65K€"
+
+    - name: "Arrondir KPIs"
+      trigger: "decimals > 0 in M€"
+      action: "Arrondir à l'unité supérieure"

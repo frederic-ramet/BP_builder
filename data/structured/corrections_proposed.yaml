@@ -1,0 +1,16 @@
+- field: valorisation_2028
+  options:
+    aggressive:
+      justification: Croissance >100%/an, hyper-croissance démontrée
+      multiple: 15
+      value: 12M€
+    conservative:
+      justification: Croissance <30%/an, marché mature
+      multiple: 6
+      value: 5M€
+    realistic:
+      justification: Croissance 30-60%/an, marché stable
+      multiple: 10
+      value: 8M€
+  recommendation: realistic
+  section: 1.3 Vision
