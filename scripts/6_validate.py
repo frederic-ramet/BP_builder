@@ -258,7 +258,7 @@ class Validator:
             # ARR depuis Excel
             wb = openpyxl.load_workbook(excel_path, data_only=True)
             pl_sheet = wb['P&L']
-            arr_excel = pl_sheet['S16'].value  # Dernière colonne (M14), ligne ARR
+            arr_excel = pl_sheet['S19'].value  # Dernière colonne (M14), ligne ARR (row 19)
 
             if arr_excel is None:
                 arr_excel = 0

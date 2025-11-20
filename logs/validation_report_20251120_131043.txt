@@ -1,0 +1,20 @@
+============================================================
+🔍 RAPPORT VALIDATION - GenieFactory BP 14 Mois
+============================================================
+Date: 2025-11-20 13:10:43
+Status: ✅ PASSED (2 warnings)
+
+✅ CHECKS PASSED:
+  ✓ ARR M14: 826,809€ (target 800,000€ ±10%)
+  ✓ Cash min: 159,500€ (M1)
+  ✓ Burn rate max: 0€/mois (M1, limite 60,000€)
+  ✓ Équipe M14: 12 ETP (max 15)
+  ✓ Formules Excel actives: 1/2 vérifiées
+  ✓ Cohérence Excel: 0.0% écart
+  ✓ Cohérence Word: 0.0% écart
+
+⚠️ WARNINGS:
+  • ARR M11 faible: 342,670€ (min conseillé 400,000€)
+  • Conversion faible: 24.2% (min 25%)
+
+============================================================
