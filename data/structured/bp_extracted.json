@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "source_file": "BP FABRIQ_PRODUCT-OCT2025.xlsx",
+    "extracted_at": "2025-11-20T12:24:14.900561",
+    "sheets": [
+      "Synthèse",
+      "Stratégie de vente",
+      "Financement",
+      "P&L",
+      "Paramètres",
+      "GTMarket",
+      "Ventes",
+      "Sous traitance",
+      "Charges de personnel et FG",
+      "DIRECTION",
+      "Infrastructure technique",
+      "Fundings",
+      ">>",
+      "Positionnement",
+      "Marketing"
+    ]
+  },
+  "pricing": {
+    "hackathon": {
+      "price": 18000.0
+    },
+    "services": {
+      "price": 10000.0
+    },
+    "factory": {
+      "price": 75000.0
+    }
+  },
+  "pl_data": {
+    "revenue_lines": [],
+    "cost_lines": [],
+    "months": []
+  }
+}
