@@ -1,0 +1,82 @@
+# GenieFactory BP 14 Mois - Python Dependencies
+# Python 3.9+
+
+# ============================================================================
+# CORE DEPENDENCIES
+# ============================================================================
+
+# Excel manipulation
+openpyxl>=3.1.2          # Read/write Excel with formulas
+xlsxwriter>=3.1.9        # Alternative Excel writer (faster for large files)
+
+# Word document manipulation
+python-docx>=1.1.0       # Read/write Word documents (.docx)
+
+# YAML parsing
+pyyaml>=6.0.1            # Parse assumptions.yaml
+
+# Data manipulation
+pandas>=2.0.3            # DataFrame operations (optional but useful)
+numpy>=1.24.3            # Numerical operations
+
+# ============================================================================
+# VALIDATION & TESTING
+# ============================================================================
+
+pytest>=7.4.3            # Unit testing framework
+pytest-cov>=4.1.0        # Coverage reporting
+pytest-mock>=3.12.0      # Mocking for tests
+
+# ============================================================================
+# UTILITIES
+# ============================================================================
+
+# Logging & CLI
+rich>=13.7.0             # Beautiful terminal output
+click>=8.1.7             # CLI framework (if interactive prompts needed)
+tqdm>=4.66.1             # Progress bars
+
+# Date handling
+python-dateutil>=2.8.2   # Date parsing and manipulation
+
+# JSON schema validation
+jsonschema>=4.20.0       # Validate JSON structures
+
+# ============================================================================
+# OPTIONAL (Performance & Advanced Features)
+# ============================================================================
+
+# Faster JSON parsing (optional)
+# orjson>=3.9.10
+
+# Excel charts (if custom charts beyond openpyxl)
+# xlwings>=0.30.13  # Requires MS Excel installed
+
+# PDF generation (si besoin export PDF du BP)
+# reportlab>=4.0.7
+
+# ============================================================================
+# DEVELOPMENT DEPENDENCIES (optional)
+# ============================================================================
+
+# Code quality
+# black>=23.12.1           # Code formatter
+# flake8>=7.0.0            # Linter
+# mypy>=1.8.0              # Type checking
+# isort>=5.13.2            # Import sorting
+
+# ============================================================================
+# NOTES
+# ============================================================================
+
+# Installation rapide :
+# pip install -r requirements.txt
+
+# Installation dev (avec outils qualité) :
+# pip install -r requirements.txt -r requirements-dev.txt
+
+# Créer environnement virtuel :
+# python -m venv venv
+# source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate     # Windows
+# pip install -r requirements.txt

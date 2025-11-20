@@ -1,0 +1,574 @@
+# GenieFactory - Assumptions Business Plan 14 Mois
+# Version: 1.0
+# Période: Nov 2025 - Dec 2026
+# Sources: BP_FABRIQ_PRODUCT-OCT2025.xlsx, BM Word Sept 2025, Pacte v3
+
+---
+
+meta:
+  version: "1.0"
+  created_date: "2025-01-15"
+  author: "Claude Code"
+  sources:
+    - file: "BP_FABRIQ_PRODUCT-OCT2025.xlsx"
+      sheets: ["Paramètres", "P&L", "Ventes"]
+    - file: "Business_Plan_GenieFactory-SEPT2025.docx"
+      sections: ["7.2", "7.3", "7.4"]
+    - file: "GENIE_FACTORY_PACTE_AATL-v3.docx"
+      extracted: ["ARR milestones", "Earn-out conditions"]
+
+# ============================================================================
+# TIMELINE & MILESTONES
+# ============================================================================
+
+timeline:
+  start_month: "2025-11"  # Novembre 2025 = M1
+  duration_months: 14
+  fiscal_year_start: 11   # Année fiscale commence en novembre
+  
+  milestones:
+    - month: 1
+      name: "Pre-seed Closing"
+      amount_eur: 150000
+      breakdown:
+        autoposia_loan: 50000       # Prêt actionnaire principal
+        f_initiatives_innovation: 15000  # Prêt innovation
+        f_initiatives_creation: 25000    # Prêt création
+        cic_bank: 30000             # Prêt bancaire
+        bpi_bourse_french_tech: 30000   # Subvention BPI
+      notes: "Financement initial pour MVP et premiers clients"
+      
+    - month: 11
+      name: "Seed Round"
+      amount_eur: 500000
+      valuation_pre_money: 2500000  # 2.5M€ pre-money
+      dilution_pct: 16.7            # ~500K sur 3M post
+      target_arr_before: 450000     # ARR cible avant seed pour attractivité
+      notes: "Seed round pour scaling commercial et équipe"
+      
+    - month: 14
+      name: "ARR Milestone (Pacte Actionnaires)"
+      arr_target: 800000
+      source: "Pacte v3, Article X"
+      notes: "Milestone contractuel déclenchant earn-out fondateurs"
+
+# ============================================================================
+# PRICING STRATEGY
+# Source: BP Oct 2025, sheet "Paramètres", rows 3-13
+# ============================================================================
+
+pricing:
+  # --- Offre 1: GenieFactory Hackathon ---
+  # Programme 4 semaines culminant en événement 2 jours
+  hackathon:
+    description: "Programme accélération innovation IA (4 semaines)"
+    target_segment: "PME/ETI - équipes métier"
+    
+    # Évolution temporelle (+10%/an)
+    periods:
+      - start_month: 1   # Nov 2025
+        end_month: 6     # Avril 2026
+        price_eur: 18000
+        
+      - start_month: 7   # Mai 2026
+        end_month: 14    # Dec 2026
+        price_eur: 20000
+    
+    # Valorisation induite
+    indirect_revenue:
+      services_implementation: 10000  # Souvent bundlé
+      formation: 5000                 # Formation équipes
+    
+    conversion_rates:
+      to_factory: 0.30        # 30% deviennent projets Factory
+      to_enterprise_hub: 0.15 # 15% adoptent Hub ensuite
+      delay_factory_months: 2 # Délai signature Factory post-hackathon
+    
+    notes: |
+      Offre d'entrée pour valider PMF et générer pipeline.
+      Marge élevée (80%+) car standardisé.
+      Source principale revenus M1-M6.
+  
+  # --- Offre 2: GenieFactory Factory ---
+  # Développement accéléré post-hackathon (6-12 semaines)
+  factory:
+    description: "Industrialisation prototypes hackathon → production"
+    target_segment: "ETI/Grands comptes - projets stratégiques"
+    
+    periods:
+      - start_month: 1
+        end_month: 6
+        price_eur: 75000
+        
+      - start_month: 7
+        end_month: 14
+        price_eur: 82500  # +10%
+    
+    duration_weeks: "6-12"
+    team_allocation: "2-3 ETP GenieFactory + équipe client"
+    
+    indirect_revenue:
+      services_custom: 15000  # Customisation additionnelle
+    
+    margin_pct: 65  # Marge opérationnelle après coûts dev
+    
+    notes: |
+      Conversion naturelle des hackathons réussis.
+      Cycle vente plus long (2 mois post-hackathon).
+      Marge bonne mais nécessite allocation ressources tech.
+  
+  # --- Offre 3: Enterprise Hub (SaaS) ---
+  # Plateforme permanente gouvernance IA
+  enterprise_hub:
+    description: "Plateforme SaaS permanente innovation IA"
+    target_segment: "Grands comptes - DSI/CDO"
+    
+    launch_month: 8  # Juin 2026 (M8)
+    ramp_duration_months: 6  # 6 mois pour atteindre vitesse croisière
+    
+    tiers:
+      starter:
+        monthly_eur: 500
+        max_users: 10
+        max_use_cases: 2
+        target: "PME - 1 département"
+        
+      business:
+        monthly_eur: 2000
+        max_users: 25
+        max_use_cases: 5
+        target: "ETI - multi-départements"
+        
+      enterprise:
+        monthly_eur: 10000
+        max_users: 100
+        max_use_cases: "illimité"
+        deployment: "on-premise option"
+        target: "Grands comptes CAC40"
+    
+    # Évolution pricing (+10%/an après lancement)
+    yearly_increase_pct: 10
+    
+    # Métriques SaaS
+    churn_annual: 0.10  # 10% churn annuel (bon pour B2B)
+    upgrade_rates:
+      starter_to_business: 0.20  # 20% après 3 mois
+      business_to_enterprise: 0.10
+    
+    cac_eur: 15000  # Coût acquisition client Hub
+    ltv_eur: 120000 # LTV sur 3 ans
+    
+    notes: |
+      Offre stratégique pour ARR récurrent.
+      Lancement M8 après validation PMF hackathon/factory.
+      Clé pour atteindre ARR 800K€ à M14.
+  
+  # --- Offre 4: Services ---
+  # Implémentation, formation, customisation
+  services:
+    implementation:
+      periods:
+        - start_month: 1
+          end_month: 6
+          price_eur: 10000
+          
+        - start_month: 7
+          end_month: 14
+          price_eur: 17500  # +75% (maturité offre)
+      
+      typical_duration_days: "5-10"
+      margin_pct: 70  # Forte marge (expertise)
+    
+    formation:
+      price_per_session: 5000
+      duration_days: 2
+      max_participants: 15
+      
+      # Évolution +10%/an
+      price_m7_m14: 5500
+    
+    notes: |
+      Revenus complémentaires et récurrents.
+      Forte marge, renforce relation client.
+      Opportunités upsell vers Hub.
+
+  # --- Offres futures (non lancées dans 14 mois) ---
+  future_offerings:
+    academy:
+      description: "Programme formation structuré 3-6 mois"
+      launch_target: "2027"
+      price_range_eur: "60000-80000"
+      
+    vertical_solutions:
+      description: "Templates sectoriels prêts à l'emploi"
+      launch_target: "2027"
+      verticals: ["Industrie", "Finance", "RH"]
+      price_range_eur: "25000-40000"
+      
+    ai_governance:
+      description: "Programme conformité AI Act"
+      launch_target: "2027"
+      price_range_eur: "35000-50000"
+
+# ============================================================================
+# SALES ASSUMPTIONS
+# ============================================================================
+
+sales_assumptions:
+  # --- Volumes Hackathons par période ---
+  # Progression: démarrage lent → ramping → acceleration post-seed
+  hackathon:
+    volumes_monthly:
+      # M1-M3: Démarrage (1-2 hackathons/mois)
+      m1: 1.5   # Nov 2025: Mi-mois lancement
+      m2: 2     # Dec 2025
+      m3: 2     # Jan 2026
+      
+      # M4-M6: Montée en charge (2-3/mois)
+      m4: 2.5
+      m5: 2.5
+      m6: 3
+      
+      # M7-M10: PMF validé (3/mois stable)
+      m7: 3
+      m8: 3
+      m9: 3
+      m10: 3
+      
+      # M11-M14: Post-seed acceleration (4/mois)
+      m11: 4
+      m12: 4
+      m13: 4
+      m14: 4
+    
+    notes: |
+      Total 14 mois: ~39 hackathons
+      Conversion 30% → ~12 Factory
+      Pipeline robuste pour Hub
+  
+  # --- Factory : Conversions décalées ---
+  factory:
+    conversion_rate: 0.30  # 30% hackathons → Factory
+    delay_months: 2        # Signature 2 mois après hackathon
+    
+    # Exemple calcul M5:
+    # M5 Factory = (M3 hackathons × 30%) = 2 × 0.3 = 0.6 → arrondi 1
+    
+    notes: |
+      Commence réellement M3 (conversion hackathons M1).
+      Délai commercial: qualification, scoping, signature.
+      Ratio conservateur 30% (bon hackathons ~50% convertissent).
+  
+  # --- Enterprise Hub : Lancement progressif M8 ---
+  enterprise_hub:
+    # Nouveaux clients par mois (starter uniquement au départ)
+    new_customers_monthly:
+      m1: 0   # Pas encore lancé
+      m2: 0
+      m3: 0
+      m4: 0
+      m5: 0
+      m6: 0
+      m7: 0
+      m8: 2   # Juin 2026: Lancement avec 2 early adopters
+      m9: 2
+      m10: 3
+      m11: 4  # Post-seed: acceleration
+      m12: 4
+      m13: 5
+      m14: 6  # Dec 2026: 6 nouveaux/mois
+    
+    # Répartition par tier (début conservateur sur Starter)
+    tier_distribution_at_launch:
+      starter: 0.70   # 70% commencent Starter
+      business: 0.25  # 25% directement Business
+      enterprise: 0.05 # 5% grands comptes Enterprise
+    
+    # Évolution tier dans le temps
+    upgrade_patterns:
+      starter_to_business_after_months: 3
+      starter_to_business_rate: 0.20  # 20% upgradent
+      
+      business_to_enterprise_after_months: 6
+      business_to_enterprise_rate: 0.10
+    
+    # Churn
+    churn_monthly: 0.008  # ~10% annuel = 0.8% mensuel
+    
+    notes: |
+      Lancement M8 après 7 mois de validation.
+      Démarrage conservateur: 2 clients/mois.
+      Ramping post-seed: 6 clients/mois à M14.
+      
+      Calcul ARR M14:
+      - Cumul clients: ~26 (avec churn)
+      - Mix tiers: 18 Starter (9K€/mois) + 5 Business (10K€/mois) + 3 Enterprise (30K€/mois)
+      - MRR ≈ 9K + 10K + 30K = 49K€
+      - ARR = 49K × 12 = 588K€
+      
+      PROBLÈME: 588K€ < 800K€ target !
+      → Ajuster: soit volumes, soit upgrades, soit pricing
+
+# ============================================================================
+# COST STRUCTURE
+# ============================================================================
+
+costs:
+  # --- Personnel ---
+  personnel:
+    # Évolution effectifs sur 14 mois
+    team_evolution:
+      m1: 5    # Fondateurs (FRT, PCO, MAM, JBT) + 1 dev
+      m2: 5
+      m3: 7    # +2 dev (scaling tech)
+      m4: 7
+      m5: 7
+      m6: 7
+      m7: 9    # +2 commercial (scaling sales)
+      m8: 9
+      m9: 9
+      m10: 9
+      m11: 11  # +2 customer success (post-seed, Hub growth)
+      m12: 11
+      m13: 12  # +1 ops/admin
+      m14: 12
+    
+    # Salaires chargés moyens
+    salaries:
+      founders_monthly: 0     # Pas de salaire année 1 (sacrifice)
+      employee_monthly: 6000  # 6K€ chargé (4K€ net ~60K€ brut annuel)
+      
+      # Par rôle (futur, si granularité nécessaire)
+      roles:
+        developer_senior: 7000
+        developer_junior: 5000
+        sales_ae: 6500  # Base + variable
+        customer_success: 5500
+        ops_admin: 5000
+    
+    # Freelance & externe
+    freelance_monthly_budget: 5000  # Dev + design freelance
+    
+    # Recrutement costs (one-time par poste)
+    hiring_cost_per_role: 3000  # Sourcing, onboarding
+    
+    notes: |
+      Croissance contrôlée: 5 → 12 ETP sur 14 mois.
+      Fondateurs non payés = économie ~150K€ vs marché.
+      Freelance buffer pour pics de charge.
+  
+  # --- Infrastructure & Tech ---
+  infrastructure:
+    base_monthly: 2000  # Servers, SaaS tools (AWS, Stripe, etc.)
+    
+    # Scaling cost par client actif
+    per_client_monthly: 200  # Infra additionnelle/client
+    
+    # Licences SaaS outils
+    tools_monthly:
+      development: 500   # GitHub, Vercel, monitoring
+      sales_marketing: 800  # HubSpot, Mailchimp, analytics
+      ops: 300           # Slack, Notion, Figma
+      security: 400      # Auth, backups, compliance
+    
+    # Infrastructure pics (hackathons)
+    hackathon_infra_per_event: 500  # Capacity burst
+    
+    notes: |
+      Base fixe + variable par client.
+      Exemple M14: 2K base + (30 clients × 200€) = 8K€/mois.
+  
+  # --- Marketing & Commercial ---
+  marketing:
+    # Budget mensuel de base
+    base_monthly: 5000  # Content, ads, SEO/SEM
+    
+    # Campagnes trimestrielles
+    events_quarterly: 15000  # Salons, webinars, sponsorships
+    
+    # Content production
+    content_monthly: 2000  # Articles, videos, case studies
+    
+    # CAC (Cost Acquisition Client)
+    cac_targets:
+      hackathon: 5000   # Leads hackathons (ads + events)
+      factory: 10000    # Pipeline nurturing
+      hub: 15000        # Enterprise sales cycle
+    
+    notes: |
+      Budget controlé phase early-stage.
+      Focus content marketing (coût/lead faible).
+      Events stratégiques pour notoriété.
+  
+  # --- Office & Admin ---
+  office_admin:
+    monthly: 3000  # Locaux, assurances, comptabilité, legal
+    
+    # One-time costs
+    incorporation_costs: 5000  # Création SAS, pacte, etc.
+    
+    notes: |
+      Structure légère.
+      Possibilité coworking jusqu'à M11.
+
+# ============================================================================
+# FINANCIAL TARGETS & VALIDATION RULES
+# ============================================================================
+
+financial_kpis:
+  # --- ARR Targets (contractuel pacte) ---
+  target_arr_dec_2026: 800000   # M14: Milestone earn-out
+  target_arr_sept_2026: 450000  # M11: Avant seed (attractivité)
+  
+  # --- Revenue Mix Target (sur 14 mois) ---
+  revenue_mix_target:
+    hackathon: 0.40      # 40% du CA total
+    factory: 0.30        # 30%
+    enterprise_hub: 0.20 # 20% (ARR)
+    services: 0.10       # 10%
+  
+  # --- Marges Opérationnelles Cibles ---
+  margin_targets:
+    gross_margin_pct: 70   # Marge brute
+    ebitda_margin_pct: -15 # Négatif OK phase croissance
+  
+  # --- Cash Management ---
+  cash_management:
+    min_cash_runway_months: 12  # Minimum 12 mois runway
+    acceptable_burn_rate_monthly: 50000  # Max burn acceptable
+    
+    # Funding events
+    fundings:
+      - month: 1
+        amount: 150000
+        source: "Pre-seed (prêts + BPI)"
+        
+      - month: 11
+        amount: 500000
+        source: "Seed Round"
+  
+  # --- SaaS Metrics (pour Hub) ---
+  saas_metrics:
+    target_arr_m14: 600000  # ARR Hub seul
+    target_mrr_m14: 50000
+    target_ltv_cac_ratio: 8  # LTV/CAC > 8 excellent
+    max_churn_annual: 0.15   # <15% churn
+
+# ============================================================================
+# VALIDATION RULES (automatisées par validate.py)
+# ============================================================================
+
+validation_rules:
+  # --- ARR ---
+  arr_tolerance_pct: 0.10  # ±10% vs target acceptable
+  arr_m14_min: 720000      # 800K - 10%
+  arr_m14_max: 880000      # 800K + 10%
+  arr_m11_min: 400000      # Minimum avant seed pour attractivité
+  
+  # --- Équipe ---
+  max_team_size: 15        # Hard limit phase early
+  min_team_size_m1: 4      # Au moins fondateurs
+  
+  # --- Burn Rate ---
+  max_burn_monthly: 60000  # Alert si burn >60K€
+  avg_burn_acceptable: 40000
+  
+  # --- Conversion Rates ---
+  min_conversion_hackathon_factory: 0.25  # Minimum 25%
+  max_churn_hub_monthly: 0.015            # <1.5%/mois
+  
+  # --- Cash ---
+  min_cash_balance: 50000  # Jamais en-dessous 50K€
+  
+  # --- Cohérence Documents ---
+  max_deviation_excel_word_pct: 0.05  # <5% écart entre Excel et Word
+
+# ============================================================================
+# SCENARIOS & SENSITIVITY
+# ============================================================================
+
+scenarios:
+  # Scenario par défaut (ci-dessus)
+  base_case:
+    arr_m14: 800000
+    probability: 0.60
+    
+  # Scenario optimiste
+  upside:
+    hackathon_volume_multiplier: 1.2  # +20% volumes
+    conversion_factory: 0.35          # 35% au lieu de 30%
+    hub_adoption_faster: true         # Démarrage M7 au lieu M8
+    arr_m14: 950000
+    probability: 0.20
+    
+  # Scenario pessimiste
+  downside:
+    hackathon_volume_multiplier: 0.8  # -20% volumes
+    conversion_factory: 0.25          # 25%
+    hub_launch_delay_months: 2        # M10 au lieu M8
+    arr_m14: 650000
+    probability: 0.20
+    
+  notes: |
+    Scenario base = hypothèses conservatrices.
+    Upside = si exécution excellente.
+    Downside = si friction commerciale.
+
+# ============================================================================
+# NOTES & HYPOTHÈSES CRITIQUES
+# ============================================================================
+
+critical_assumptions:
+  - assumption: "Conversion hackathon → factory 30%"
+    risk_level: "MEDIUM"
+    mitigation: "Améliorer suivi post-hackathon, PoC gratuits"
+    
+  - assumption: "Lancement Hub M8 sans retard"
+    risk_level: "HIGH"
+    mitigation: "Dev parallèle dès M3, beta testing M6-M7"
+    
+  - assumption: "Seed 500K€ en Sept 2026"
+    risk_level: "MEDIUM"
+    mitigation: "Prep fundraising dès M6, pipeline investisseurs dès M8"
+    
+  - assumption: "Churn Hub 10% annuel"
+    risk_level: "LOW"
+    mitigation: "Customer success dédié dès M11, NPS tracking"
+    
+  - assumption: "Équipe 5 → 12 ETP sans turnover"
+    risk_level: "MEDIUM"
+    mitigation: "BSPCE attractif, culture forte, onboarding structuré"
+
+# ============================================================================
+# REVISION HISTORY
+# ============================================================================
+
+revision_history:
+  - version: "1.0"
+    date: "2025-01-15"
+    author: "Claude Code"
+    changes: "Initial version - extraction BP Oct 2025"
+    
+  # Ajouter ici les futures modifications
+  # - version: "1.1"
+  #   date: "2025-XX-XX"
+  #   author: "User"
+  #   changes: "Ajusté volumes hackathons M1-M3"
+
+# ============================================================================
+# NOTES D'UTILISATION
+# ============================================================================
+
+usage_notes: |
+  Ce fichier est la SOURCE UNIQUE DE VÉRITÉ pour les projections BP 14 mois.
+  
+  Workflow:
+  1. Modifier assumptions.yaml selon hypothèses business
+  2. Lancer: python scripts/3_calculate_projections.py
+  3. Vérifier: python scripts/6_validate.py
+  4. Si OK, générer docs: python scripts/4_generate_bp_excel.py
+  
+  Chaque valeur est sourcée et commentée.
+  En cas de doute, consulter BP source ou documents Word.
+  
+  Git-friendly: ce fichier suit les best practices YAML pour versionning.
