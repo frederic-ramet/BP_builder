@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "source_file": "Business Plan GenieFactory-SEPT2025.docx",
+    "extracted_at": "2025-11-20T12:24:14.931361",
+    "paragraphs_count": 423,
+    "tables_count": 3
+  },
+  "tables": [
+    {
+      "index": 0,
+      "rows": 11,
+      "cols": 5,
+      "content": [
+        [
+          "Métrique (K€)",
+          "11/2025\n-2026",
+          "2027",
+          "2028",
+          "2029"
+        ],
+        [
+          "Chiffre d'affaires",
+          "105",
+          "300",
+          "800",
+          "1,200"
+        ],
+        [
+          "- Licences SaaS",
+          "84",
+          "240",
+          "640",
+          "960"
+        ],
+        [
+          "- Services",
+          "21",
+          "60",
+          "160",
+          "240"
+        ],
+        [
+          "Charges",
+          "180",
+          "420",
+          "650",
+          "950"
+        ],
+        [
+          "- Personnel",
+          "120",
+          "250",
+          "400",
+          "600"
+        ],
+        [
+          "- Marketing/Commercial",
+          "30",
+          "100",
+          "150",
+          "200"
+        ],
+        [
+          "- Infrastructure",
+          "15",
+          "40",
+          "60",
+          "80"
+        ],
+        [
+          "- G&A",
+          "15",
+          "30",
+          "40",
+          "70"
+        ],
+        [
+          "EBITDA",
+          "-75",
+          "-120",
+          "150",
+          "250"
+        ],
+        [
+          "Burn mensuel",
+          "6",
+          "10",
+          "8",
+          "5"
+        ]
+      ]
+    },
+    {
+      "index": 1,
+      "rows": 4,
+      "cols": 4,
+      "content": [
+        [
+          "Phase",
+          "Montant",
+          "Valorisation pre-money",
+          "Utilisation"
+        ],
+        [
+          "Pre-seed Q4 2025",
+          "100K€",
+          "-",
+          "MVP, premiers clients"
+        ],
+        [
+          "Seed Q3 2026",
+          "500K€",
+          "2.5M€",
+          "Équipe, commercial, R&D"
+        ],
+        [
+          "Series A Q4 2027",
+          "1.5M€",
+          "8M€",
+          "Scale, international"
+        ]
+      ]
+    },
+    {
+      "index": 2,
+      "rows": 4,
+      "cols": 4,
+      "content": [
+        [
+          "Phase",
+          "ARR",
+          "Valorisation",
+          "Multiple"
+        ],
+        [
+          "Seed 2026",
+          "500K€",
+          "2.5M€",
+          "8x ARR"
+        ],
+        [
+          "Series A 2026",
+          "800K€",
+          "8M€",
+          "10x ARR"
+        ],
+        [
+          "Series B 2028",
+          "5M€",
+          "50M€",
+          "10x ARR"
+        ]
+      ]
+    }
+  ],
+  "metrics": {
+    "arr_values": [
+      105000
+    ],
+    "ca_values": [
+      60000,
+      20000
+    ],
+    "conversion_rates": [
+      0.3
+    ]
+  }
+}
