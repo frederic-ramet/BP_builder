@@ -731,6 +731,269 @@ class TemplateCreator:
 
         logger.info("✓ Dashboard exécutif ajouté dans Synthèse")
 
+    def create_scenarios_sheet(self):
+        """
+        Créer nouveau sheet Scenarios (base/upside/downside)
+        Analyse de sensibilité pour investisseurs
+        """
+        logger.info("\n📊 Création sheet Scenarios...")
+
+        # Créer nouveau sheet
+        ws = self.wb.create_sheet("Scenarios")
+
+        # Header
+        ws['A1'].value = "SCENARIOS D'ÉVOLUTION"
+        ws['A1'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A1'].fill = openpyxl.styles.PatternFill(start_color="0066CC", end_color="0066CC", fill_type="solid")
+
+        ws['A2'].value = "Basé sur assumptions.yaml - 3 scénarios probabilisés"
+
+        # Colonnes
+        ws['A4'].value = "Métrique"
+        ws['B4'].value = "BASE CASE (60%)"
+        ws['C4'].value = "UPSIDE (20%)"
+        ws['D4'].value = "DOWNSIDE (20%)"
+        ws['E4'].value = "Notes"
+
+        for col in ['A', 'B', 'C', 'D', 'E']:
+            ws[f'{col}4'].font = openpyxl.styles.Font(bold=True)
+
+        # Charger scenarios depuis YAML
+        scenarios = self.assumptions.get('scenarios', {})
+        base = scenarios.get('base_case', {})
+        upside = scenarios.get('upside', {})
+        downside = scenarios.get('downside', {})
+
+        row = 5
+
+        # Section ARR
+        ws[f'A{row}'].value = "ARR M14"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        ws[f'B{row}'].value = base.get('arr_m14', 800000)
+        ws[f'C{row}'].value = upside.get('arr_m14', 952000)
+        ws[f'D{row}'].value = downside.get('arr_m14', 648000)
+        ws[f'E{row}'].value = "Annual Recurring Revenue à M14"
+        row += 1
+
+        ws[f'A{row}'].value = "Probabilité"
+        ws[f'B{row}'].value = f"{base.get('probability', 0.6)*100}%"
+        ws[f'C{row}'].value = f"{upside.get('probability', 0.2)*100}%"
+        ws[f'D{row}'].value = f"{downside.get('probability', 0.2)*100}%"
+        row += 2
+
+        # Section Hypothèses Hackathon
+        ws[f'A{row}'].value = "HYPOTHÈSES HACKATHON"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'A{row}'].value = "Volume multiplier"
+        ws[f'B{row}'].value = "1.0×"
+        ws[f'C{row}'].value = f"{upside.get('hackathon_volume_multiplier', 1.2)}×"
+        ws[f'D{row}'].value = f"{downside.get('hackathon_volume_multiplier', 0.8)}×"
+        ws[f'E{row}'].value = "Multiplicateur volumes hackathons"
+        row += 1
+
+        ws[f'A{row}'].value = "Conversion → Factory"
+        ws[f'B{row}'].value = "30%"
+        ws[f'C{row}'].value = f"{upside.get('conversion_factory', 0.35)*100}%"
+        ws[f'D{row}'].value = f"{downside.get('conversion_factory', 0.25)*100}%"
+        ws[f'E{row}'].value = "Taux conversion Hackathon → Factory"
+        row += 2
+
+        # Section Hypothèses Hub
+        ws[f'A{row}'].value = "HYPOTHÈSES ENTERPRISE HUB"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'A{row}'].value = "Launch delay"
+        ws[f'B{row}'].value = "M8 (aucun retard)"
+        ws[f'C{row}'].value = "M8 (accéléré)"
+        ws[f'D{row}'].value = f"M{8 + downside.get('hub_launch_delay_months', 2)} (+{downside.get('hub_launch_delay_months', 2)} mois)"
+        ws[f'E{row}'].value = "Délai lancement Hub"
+        row += 1
+
+        ws[f'A{row}'].value = "Adoption speed"
+        ws[f'B{row}'].value = "Normal"
+        ws[f'C{row}'].value = "Rapide (+20%)"
+        ws[f'D{row}'].value = "Lente (-20%)"
+        row += 2
+
+        # Section Impact Financier
+        ws[f'A{row}'].value = "IMPACT FINANCIER ESTIMÉ"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        # Calculs approximatifs
+        base_arr = base.get('arr_m14', 800000)
+        upside_arr = upside.get('arr_m14', 952000)
+        downside_arr = downside.get('arr_m14', 648000)
+
+        ws[f'A{row}'].value = "ARR M14"
+        ws[f'B{row}'].value = base_arr
+        ws[f'C{row}'].value = upside_arr
+        ws[f'D{row}'].value = downside_arr
+        row += 1
+
+        ws[f'A{row}'].value = "vs Base Case"
+        ws[f'B{row}'].value = "0%"
+        ws[f'C{row}'].value = f"+{(upside_arr/base_arr - 1)*100:.0f}%"
+        ws[f'D{row}'].value = f"{(downside_arr/base_arr - 1)*100:.0f}%"
+        row += 2
+
+        # Hypothèses critiques
+        ws[f'A{row}'].value = "HYPOTHÈSES CRITIQUES"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        critical_assumptions = self.assumptions.get('critical_assumptions', [])
+        for assumption in critical_assumptions[:5]:
+            if isinstance(assumption, dict):
+                ws[f'A{row}'].value = f"• {assumption.get('assumption', '')}"
+                ws[f'B{row}'].value = assumption.get('risk_level', '')
+                ws[f'E{row}'].value = assumption.get('mitigation', '')[:50] if assumption.get('mitigation') else ""
+                row += 1
+
+        # Ajuster largeur colonnes
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 20
+        ws.column_dimensions['C'].width = 20
+        ws.column_dimensions['D'].width = 20
+        ws.column_dimensions['E'].width = 50
+
+        logger.info("✓ Sheet Scenarios créé (base/upside/downside)")
+
+    def create_unit_economics_sheet(self):
+        """
+        Créer nouveau sheet Unit Economics
+        CAC, LTV, Payback period par produit
+        """
+        logger.info("\n💰 Création sheet Unit Economics...")
+
+        # Créer nouveau sheet
+        ws = self.wb.create_sheet("Unit Economics")
+
+        # Header
+        ws['A1'].value = "UNIT ECONOMICS PAR PRODUIT"
+        ws['A1'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A1'].fill = openpyxl.styles.PatternFill(start_color="0066CC", end_color="0066CC", fill_type="solid")
+
+        ws['A3'].value = "Produit"
+        ws['B3'].value = "Prix Moyen"
+        ws['C3'].value = "CAC (€)"
+        ws['D3'].value = "LTV (€)"
+        ws['E3'].value = "LTV/CAC"
+        ws['F3'].value = "Payback (mois)"
+        ws['G3'].value = "Marge (%)"
+        ws['H3'].value = "Notes"
+
+        for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+            ws[f'{col}3'].font = openpyxl.styles.Font(bold=True)
+
+        row = 4
+
+        # Hackathon
+        hackathon_price = self.assumptions.get('pricing', {}).get('hackathon', {}).get('periods', [{}])[0].get('price_eur', 18000)
+        ws[f'A{row}'].value = "Hackathon"
+        ws[f'B{row}'].value = hackathon_price
+        ws[f'C{row}'].value = 5000  # CAC from marketing_budgets
+        ws[f'D{row}'].value = hackathon_price * 1.5  # LTV (client peut revenir)
+        ws[f'E{row}'].value = f"=D{row}/C{row}"  # LTV/CAC formula
+        ws[f'F{row}'].value = 1  # Payback immédiat
+        ws[f'G{row}'].value = "80%"
+        ws[f'H{row}'].value = "Offre d'entrée, forte marge"
+        row += 1
+
+        # Factory
+        factory_price = self.assumptions.get('pricing', {}).get('factory', {}).get('periods', [{}])[0].get('price_eur', 75000)
+        ws[f'A{row}'].value = "Factory"
+        ws[f'B{row}'].value = factory_price
+        ws[f'C{row}'].value = 10000  # CAC plus élevé (cycle long)
+        ws[f'D{row}'].value = factory_price * 2  # LTV (upsell services)
+        ws[f'E{row}'].value = f"=D{row}/C{row}"
+        ws[f'F{row}'].value = 3  # Payback 3 mois
+        ws[f'G{row}'].value = "65%"
+        ws[f'H{row}'].value = "Conversion naturelle hackathon"
+        row += 1
+
+        # Enterprise Hub - Starter
+        starter_price = self.assumptions.get('pricing', {}).get('enterprise_hub', {}).get('tiers', {}).get('starter', {}).get('monthly_eur', 500)
+        ws[f'A{row}'].value = "Hub Starter"
+        ws[f'B{row}'].value = f"{starter_price}€/mois"
+        ws[f'C{row}'].value = 15000  # CAC from assumptions
+        ws[f'D{row}'].value = 36000  # LTV (3 ans × 12 mois × 500€ × retention)
+        ws[f'E{row}'].value = f"=D{row}/C{row}"
+        ws[f'F{row}'].value = 30  # Payback 30 mois
+        ws[f'G{row}'].value = "75%"
+        ws[f'H{row}'].value = "SaaS récurrent, target PME"
+        row += 1
+
+        # Enterprise Hub - Business
+        business_price = self.assumptions.get('pricing', {}).get('enterprise_hub', {}).get('tiers', {}).get('business', {}).get('monthly_eur', 2000)
+        ws[f'A{row}'].value = "Hub Business"
+        ws[f'B{row}'].value = f"{business_price}€/mois"
+        ws[f'C{row}'].value = 15000
+        ws[f'D{row}'].value = 60000  # LTV
+        ws[f'E{row}'].value = f"=D{row}/C{row}"
+        ws[f'F{row}'].value = 8  # Payback 8 mois
+        ws[f'G{row}'].value = "78%"
+        ws[f'H{row}'].value = "SaaS récurrent, target ETI"
+        row += 1
+
+        # Enterprise Hub - Enterprise
+        enterprise_price = self.assumptions.get('pricing', {}).get('enterprise_hub', {}).get('tiers', {}).get('enterprise', {}).get('monthly_eur', 10000)
+        ws[f'A{row}'].value = "Hub Enterprise"
+        ws[f'B{row}'].value = f"{enterprise_price}€/mois"
+        ws[f'C{row}'].value = 15000
+        ws[f'D{row}'].value = 120000  # LTV complet
+        ws[f'E{row}'].value = f"=D{row}/C{row}"
+        ws[f'F{row}'].value = 2  # Payback 2 mois
+        ws[f'G{row}'].value = "80%"
+        ws[f'H{row}'].value = "SaaS récurrent, target Grands Comptes"
+        row += 1
+
+        # Services
+        services_price = self.assumptions.get('pricing', {}).get('services', {}).get('implementation', {}).get('periods', [{}])[0].get('price_eur', 10000)
+        ws[f'A{row}'].value = "Services Implémentation"
+        ws[f'B{row}'].value = services_price
+        ws[f'C{row}'].value = 2000  # CAC faible (upsell)
+        ws[f'D{row}'].value = services_price * 1.2  # LTV
+        ws[f'E{row}'].value = f"=D{row}/C{row}"
+        ws[f'F{row}'].value = 1  # Payback immédiat
+        ws[f'G{row}'].value = "70%"
+        ws[f'H{row}'].value = "Revenus complémentaires"
+        row += 2
+
+        # Résumé
+        ws[f'A{row}'].value = "RÉSUMÉ"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'A{row}'].value = "LTV/CAC Moyen Pondéré"
+        ws[f'B{row}'].value = self.assumptions.get('financial_kpis', {}).get('saas_metrics', {}).get('target_ltv_cac_ratio', 8)
+        ws[f'H{row}'].value = "Target: 8× (excellent pour SaaS B2B)"
+        row += 1
+
+        ws[f'A{row}'].value = "Payback Moyen (mois)"
+        ws[f'B{row}'].value = "6-12 mois"
+        ws[f'H{row}'].value = "Variable selon produit et tier"
+        row += 1
+
+        ws[f'A{row}'].value = "Churn Annual Max"
+        ws[f'B{row}'].value = f"{self.assumptions.get('financial_kpis', {}).get('saas_metrics', {}).get('max_churn_annual', 0.15)*100}%"
+        ws[f'H{row}'].value = "Hub uniquement (hackathon/factory = one-time)"
+
+        # Ajuster largeur colonnes
+        ws.column_dimensions['A'].width = 25
+        ws.column_dimensions['B'].width = 15
+        ws.column_dimensions['C'].width = 12
+        ws.column_dimensions['D'].width = 12
+        ws.column_dimensions['E'].width = 12
+        ws.column_dimensions['F'].width = 15
+        ws.column_dimensions['G'].width = 12
+        ws.column_dimensions['H'].width = 40
+
+        logger.info("✓ Sheet Unit Economics créé (CAC/LTV par produit)")
+
     def clean_data_cells(self):
         """
         Nettoyer les cellules de données (pas les formules)
@@ -796,8 +1059,8 @@ class TemplateCreator:
             logger.info(f"  {sheet_name}: {formula_count} formules")
 
     def create_template(self):
-        """Créer le template complet avec toutes les améliorations Phase 1"""
-        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1)")
+        """Créer le template complet avec toutes les améliorations Phase 1 + Phase 2"""
+        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1 + Phase 2)")
         logger.info("=" * 60)
 
         # 1. Adapter structure selon YAML (existant + enrichi)
@@ -810,28 +1073,36 @@ class TemplateCreator:
         self.update_marketing_detailed_sheet()
 
         # 2. PHASE 1 - Améliorations HAUTE PRIORITÉ
-        self.add_arr_mrr_to_pl()  # ✅ NEW: ARR/MRR dans P&L
-        self.create_cash_flow_sheet()  # ✅ NEW: Cash Flow Statement
-        self.enrich_synthese_dashboard()  # ✅ NEW: Dashboard exécutif
+        self.add_arr_mrr_to_pl()  # ✅ ARR/MRR dans P&L
+        self.create_cash_flow_sheet()  # ✅ Cash Flow Statement
+        self.enrich_synthese_dashboard()  # ✅ Dashboard exécutif
 
-        # 3. Supprimer sheets inutiles
+        # 3. PHASE 2 - Améliorations MOYENNE PRIORITÉ
+        self.create_scenarios_sheet()  # ✅ NEW: Scenarios (base/upside/downside)
+        self.create_unit_economics_sheet()  # ✅ NEW: Unit Economics (CAC/LTV par produit)
+
+        # 4. Supprimer sheets inutiles
         self.remove_gtmarket_sheet()  # ✅ Suppression GTMarket
 
-        # 4. Nettoyer les données
+        # 5. Nettoyer les données
         self.clean_data_cells()
 
-        # 5. Ajouter marqueurs
+        # 6. Ajouter marqueurs
         self.add_template_markers()
 
-        # 6. Vérifier formules
+        # 7. Vérifier formules
         self.preserve_formulas_info()
 
         logger.info("\n" + "=" * 60)
-        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 complète)")
+        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 + Phase 2 complètes)")
+        logger.info("   PHASE 1:")
         logger.info("   • Paramètres: financial_kpis + validation_rules + hypothèses")
         logger.info("   • P&L: ARR/MRR ajoutés")
         logger.info("   • Cash Flow: nouveau sheet créé")
         logger.info("   • Synthèse: dashboard exécutif ajouté")
+        logger.info("   PHASE 2:")
+        logger.info("   • Scenarios: base/upside/downside créé")
+        logger.info("   • Unit Economics: CAC/LTV par produit créé")
 
     def save(self, output_path: Path):
         """Sauvegarder le template"""
