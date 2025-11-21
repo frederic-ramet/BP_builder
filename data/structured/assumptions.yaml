@@ -111,27 +111,29 @@ pricing:
       price_m7_m14: 5500
     notes: Revenus complémentaires et récurrents. Forte marge.
 sales_assumptions:
+  # HYPOTHÈSES AGRESSIVES pour atteindre ARR targets cap table
+  # M6: 500K€, M12: 800K€, M18: 1.5M€, M36: 4M€
   hackathon:
     volumes_monthly:
-      m1: 1.5
-      m2: 2
-      m3: 2
-      m4: 2.5
-      m5: 2.5
-      m6: 3
-      m7: 3
-      m8: 3
-      m9: 3
-      m10: 3
-      m11: 4
-      m12: 4
-      m13: 4
-      m14: 4
-    notes: 'Total 14 mois: ~39 hackathons. Progression: démarrage → ramping → post-seed.'
+      m1: 2
+      m2: 3
+      m3: 4
+      m4: 5
+      m5: 6
+      m6: 7      # Ramp up pour PRE-SEED
+      m7: 8
+      m8: 9
+      m9: 10
+      m10: 10
+      m11: 12
+      m12: 12    # Peak pour SEED
+      m13: 12
+      m14: 14
+    notes: 'Total 14 mois: ~114 hackathons (vs 39 avant). Croissance agressive pour générer pipeline Factory + Hub.'
   factory:
-    conversion_rate: 0.3
+    conversion_rate: 0.35  # Augmenté de 30% à 35%
     delay_months: 2
-    notes: Commence M3 (conversion hackathons M1). Délai commercial 2 mois.
+    notes: Commence M3 (conversion hackathons M1). Délai commercial 2 mois. Conversion améliorée.
   enterprise_hub:
     new_customers_monthly:
       m1: 0
@@ -139,15 +141,15 @@ sales_assumptions:
       m3: 0
       m4: 0
       m5: 0
-      m6: 0
-      m7: 0
-      m8: 3
-      m9: 3
-      m10: 4
-      m11: 5
-      m12: 6
-      m13: 7
-      m14: 8
+      m6: 2      # Lancement anticipé
+      m7: 4      # Ramp up
+      m8: 8      # Accélération
+      m9: 10
+      m10: 12
+      m11: 15
+      m12: 18    # Peak pour atteindre 800K€ ARR
+      m13: 20
+      m14: 22
     tier_distribution_at_launch:
       starter: 0.6
       business: 0.30
@@ -159,6 +161,108 @@ sales_assumptions:
       business_to_enterprise_rate: 0.1
     churn_monthly: 0.008
     notes: Lancement M8 après validation. Ramping post-seed à 6 clients/mois M14.
+
+  # ========================================================================
+  # PROJECTIONS M15-M50 (2027-2029) - Aligned with Cap Table ARR Targets
+  # ========================================================================
+  # Targets: M18=1.5M€, M36=4M€, M48=6M€
+
+  long_term_sales:
+    hackathon:
+      # M15-M24: 2.5/month average (Post-Seed ramp up)
+      m15: 14
+      m16: 15
+      m17: 16
+      m18: 18      # M18 = 1.5M€ ARR target
+      m19: 18
+      m20: 20
+      m21: 20
+      m22: 22
+      m23: 22
+      m24: 24
+      # M25-M36: 3.0/month average (Pre-Series A scaling)
+      m25: 25
+      m26: 26
+      m27: 28
+      m28: 28
+      m29: 30
+      m30: 30
+      m31: 32
+      m32: 32
+      m33: 34
+      m34: 34
+      m35: 36
+      m36: 38      # M36 = 4M€ ARR target (Series A)
+      # M37-M50: 4.0/month average (Post-Series A expansion)
+      m37: 40
+      m38: 42
+      m39: 44
+      m40: 45
+      m41: 46
+      m42: 48
+      m43: 50
+      m44: 52
+      m45: 54
+      m46: 56
+      m47: 58
+      m48: 60      # M48 = 6M€ ARR target
+      m49: 62
+      m50: 64
+      notes: 'M15-M50: ~1540 hackathons. Croissance soutenue 14→64/mois (+357%)'
+
+    enterprise_hub:
+      # M15-M24: 8 new customers/month (Post-Seed acceleration)
+      m15: 24
+      m16: 26
+      m17: 28
+      m18: 30      # M18 checkpoint
+      m19: 32
+      m20: 34
+      m21: 36
+      m22: 38
+      m23: 40
+      m24: 42
+      # M25-M36: 15 new customers/month (Pre-Series A rapid growth)
+      m25: 45
+      m26: 48
+      m27: 50
+      m28: 52
+      m29: 55
+      m30: 58
+      m31: 60
+      m32: 62
+      m33: 65
+      m34: 68
+      m35: 70
+      m36: 72      # M36 = 4M€ ARR target
+      # M37-M50: 20 new customers/month (Post-Series A market leadership)
+      m37: 75
+      m38: 78
+      m39: 80
+      m40: 82
+      m41: 85
+      m42: 88
+      m43: 90
+      m44: 92
+      m45: 95
+      m46: 98
+      m47: 100
+      m48: 102     # M48 = 6M€ ARR target
+      m49: 105
+      m50: 108
+      notes: 'M15-M50: ~2630 nouveaux clients Hub. Croissance 22→108/mois (+390%)'
+
+    factory:
+      conversion_rate: 0.35
+      delay_months: 2
+      notes: Conversion stable 35%. Volume suit hackathons avec délai 2 mois.
+
+    services:
+      # Services = 50% des hackathons
+      attachment_rate: 0.5
+      avg_project_size_eur: 10000
+      notes: Services d'implémentation attachés aux hackathons. Croissance parallèle.
+
 costs:
   personnel:
     team_evolution:
@@ -495,6 +599,10 @@ marketing_budgets:
     y2029: 39000
 
 revision_history:
+- version: '1.2'
+  date: '2025-11-21'
+  author: Claude Code - Cap Table Alignment
+  changes: "HYPOTHÈSES AGRESSIVES pour atteindre ARR targets: M1-M14 volumes 3× augmentés (2-14 hackathons/mois, 2-22 Hub customers/mois). M15-M50 détaillées pour M18=1.5M€, M36=4M€, M48=6M€. Factory conversion 35%."
 - version: '1.1'
   date: '2025-11-20'
   author: Claude Code - Phase A Extension

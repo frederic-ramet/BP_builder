@@ -125,6 +125,137 @@ class TemplateCreator:
 
         logger.info("✓ Financement adapté avec funding YAML")
 
+    def update_fundings_sheet_with_captable(self):
+        """
+        Adapter le sheet Fundings avec la cap table détaillée
+        - Dilution par phase (Bootstrap → Series A)
+        - ARR targets alignés avec funding rounds
+        """
+        logger.info("\n📊 Adaptation sheet Fundings avec Cap Table...")
+
+        if 'Fundings' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Fundings' introuvable, création skippée")
+            return
+
+        ws = self.wb['Fundings']
+
+        # Charger funding_captable.yaml
+        base_path = Path(__file__).parent.parent
+        captable_path = base_path / "data" / "structured" / "funding_captable.yaml"
+
+        if not captable_path.exists():
+            logger.warning("⚠️ funding_captable.yaml introuvable, cap table skippée")
+            return
+
+        with open(captable_path, 'r', encoding='utf-8') as f:
+            captable_data = yaml.safe_load(f)
+
+        # Section 1: Timeline de financement avec ARR targets (lignes 1-10)
+        ws['A1'].value = "TIMELINE DE FINANCEMENT"
+        ws['A2'].value = "Phase"
+        ws['B2'].value = "Mois"
+        ws['C2'].value = "Montant Levé"
+        ws['D2'].value = "Valorisation Post"
+        ws['E2'].value = "ARR Target"
+
+        funding_rounds = captable_data.get('funding_rounds', {})
+        row = 3
+
+        for phase_key in ['bootstrap', 'love_money', 'pre_seed', 'seed', 'post_seed', 'series_a']:
+            if phase_key not in funding_rounds:
+                continue
+
+            phase_data = funding_rounds[phase_key]
+            ws[f'A{row}'].value = phase_data.get('phase', phase_key.upper())
+            ws[f'B{row}'].value = f"M{phase_data.get('month', 0)}"
+            ws[f'C{row}'].value = phase_data.get('amount', 0)
+            ws[f'D{row}'].value = phase_data.get('valuation_post', 0)
+            ws[f'E{row}'].value = phase_data.get('arr_target', 0)
+            row += 1
+
+        # Section 2: Cap table dilution (lignes 15+)
+        ws['A15'].value = "CAP TABLE - DILUTION PROGRESSIVE"
+        ws['A16'].value = "Phase"
+        ws['B16'].value = "FRT (%)"
+        ws['C16'].value = "PCO (%)"
+        ws['D16'].value = "MAM (%)"
+        ws['E16'].value = "BSPCE (%)"
+        ws['F16'].value = "Investisseurs"
+
+        captable = captable_data.get('captable', {})
+        dilution_stages = captable.get('dilution_stages', {})
+
+        row = 17
+        for stage_key in ['bootstrap', 'post_pre_seed', 'post_seed', 'post_series_a']:
+            if stage_key not in dilution_stages:
+                continue
+
+            stage_data = dilution_stages[stage_key]
+            equity = stage_data.get('equity', {})
+
+            ws[f'A{row}'].value = stage_data.get('phase', stage_key)
+
+            # Formatter les equity (gérer floats ou strings déjà formatés)
+            def format_equity(value):
+                if isinstance(value, str):
+                    return value  # Déjà formaté
+                return f"{value:.1f}%" if value > 0 else "0.0%"
+
+            ws[f'B{row}'].value = format_equity(equity.get('FRT', 0))
+            ws[f'C{row}'].value = format_equity(equity.get('PCO', 0))
+            ws[f'D{row}'].value = format_equity(equity.get('MAM', 0))
+            ws[f'E{row}'].value = format_equity(equity.get('BSPCE', 0))
+
+            # Investisseurs combinés
+            inv_seed = equity.get('Investisseurs_Seed', 0)
+            inv_a = equity.get('Investisseurs_Series_A', 0)
+            inv_b = equity.get('Investisseurs_Series_B', 0)
+
+            # Convertir en float si string
+            if isinstance(inv_seed, str): inv_seed = 0
+            if isinstance(inv_a, str): inv_a = 0
+            if isinstance(inv_b, str): inv_b = 0
+
+            inv_total = inv_seed + inv_a + inv_b
+            ws[f'F{row}'].value = f"{inv_total:.1f}%" if inv_total > 0 else "-"
+
+            row += 1
+
+        # Section 3: ARR Milestones (lignes 25+)
+        ws['A25'].value = "ARR MILESTONES CRITIQUES"
+        ws['A26'].value = "Mois"
+        ws['B26'].value = "ARR Target"
+        ws['C26'].value = "Phase"
+
+        arr_targets = captable_data.get('arr_targets', {})
+        row = 27
+
+        for month_key in ['M1', 'M6', 'M12', 'M18', 'M36', 'M48']:
+            if month_key in arr_targets:
+                ws[f'A{row}'].value = month_key
+                ws[f'B{row}'].value = arr_targets[month_key]
+
+                # Associer la phase
+                if month_key == 'M1':
+                    phase = "Bootstrap"
+                elif month_key == 'M6':
+                    phase = "PRE-SEED"
+                elif month_key == 'M12':
+                    phase = "SEED (contractuel)"
+                elif month_key == 'M18':
+                    phase = "Post Seed"
+                elif month_key == 'M36':
+                    phase = "SERIE A"
+                elif month_key == 'M48':
+                    phase = "Pre-Series B"
+                else:
+                    phase = "-"
+
+                ws[f'C{row}'].value = phase
+                row += 1
+
+        logger.info("✓ Cap Table intégrée dans Fundings (Timeline + Dilution + ARR targets)")
+
     def update_strategie_vente_sheet(self):
         """
         Adapter le sheet Stratégie de vente selon assumptions.yaml
@@ -261,6 +392,18 @@ class TemplateCreator:
 
         logger.info(f"✓ Marketing adapté ({len(channels)} canaux)")
 
+    def remove_gtmarket_sheet(self):
+        """
+        Supprimer le sheet GTMarket (110 cols × 1000 rows, peu de valeur ajoutée)
+        """
+        logger.info("\n🗑️ Suppression sheet GTMarket...")
+
+        if 'GTMarket' in self.wb.sheetnames:
+            del self.wb['GTMarket']
+            logger.info("✓ Sheet GTMarket supprimé")
+        else:
+            logger.warning("⚠️ Sheet GTMarket introuvable, skip")
+
     def clean_data_cells(self):
         """
         Nettoyer les cellules de données (pas les formules)
@@ -333,18 +476,22 @@ class TemplateCreator:
         # 1. Adapter structure selon YAML
         self.update_parametres_sheet()
         self.update_financement_sheet()
+        self.update_fundings_sheet_with_captable()  # NEW: Cap table détaillée
         self.update_strategie_vente_sheet()
         self.update_charges_personnel_sheet()
         self.update_infrastructure_detailed_sheet()
         self.update_marketing_detailed_sheet()
 
-        # 2. Nettoyer les données
+        # 2. Supprimer sheets inutiles
+        self.remove_gtmarket_sheet()  # NEW: Suppression GTMarket
+
+        # 3. Nettoyer les données
         self.clean_data_cells()
 
-        # 3. Ajouter marqueurs
+        # 4. Ajouter marqueurs
         self.add_template_markers()
 
-        # 4. Vérifier formules
+        # 5. Vérifier formules
         self.preserve_formulas_info()
 
         logger.info("\n" + "=" * 60)
