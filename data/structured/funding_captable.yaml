@@ -1,0 +1,237 @@
+# ============================================================================
+# CAP TABLE ET FINANCEMENT - GenieFactory
+# Source: Cap table fournie par FRT
+# ============================================================================
+
+# Timeline de financement alignée avec ARR targets
+funding_rounds:
+  bootstrap:
+    month: 0
+    phase: "Bootstrap"
+    arr_target: 10000  # 10K€
+    valuation: 1000  # 1K€ symbolique
+    notes: "Lancement fondateurs"
+
+  love_money:
+    month: 2
+    phase: "Love Money"
+    arr_target: 50000  # 50K€
+    amount: 50000  # Estimate
+    notes: "Financement amis/famille"
+
+  pre_seed:
+    month: 6  # ~M6
+    phase: "PRE-SEED"
+    amount: 400000  # 400K€
+    valuation_post: 2900000  # 2.9M€
+    arr_target: 500000  # 500K€
+    quarter: "Q2 2026"
+    notes: "Financement initial institutionnel"
+
+  dilution_seed_prep:
+    month: 11  # ~M11
+    phase: "Dilution Seed (preparation)"
+    arr_target: 800000  # 800K€
+    notes: "ARR milestone avant Seed"
+
+  seed:
+    month: 12  # ~M12-13
+    phase: "SEED"
+    amount: 1500000  # 1.5M€
+    valuation_post: 8000000  # 8M€
+    arr_target: 800000  # 800K€ (milestone atteint)
+    quarter: "Q4 2026"
+    notes: "Seed round pour scaling commercial"
+
+  post_seed:
+    month: 18  # ~M18
+    phase: "Post Seed"
+    arr_target: 1500000  # 1.5M€
+    notes: "Croissance post-Seed"
+
+  series_a:
+    month: 36  # ~M36
+    phase: "SERIE A"
+    amount: 2500000  # 2.5M€
+    valuation_post: 32600000  # 32.6M€
+    arr_target: 4000000  # 4M€
+    quarter: "Q4 2028"
+    notes: "Series A pour expansion"
+
+  redistribution_series_a:
+    month: 39
+    phase: "Redistribution + Dilution Series A"
+    notes: "Ajustement cap table post Series A"
+
+  dilution_series_b:
+    month: 48
+    phase: "Dilution Series B"
+    notes: "Preparation Series B"
+
+# Cap table détaillée avec dilution
+captable:
+  shareholders:
+    - name: "Frédéric (FRT)"
+      role: "Fondateur CEO"
+      type: "fondateur"
+
+    - name: "Paul (PCO)"
+      role: "Fondateur CTO"
+      type: "fondateur"
+
+    - name: "Mazen (MAM)"
+      role: "Fondateur CPO"
+      type: "fondateur"
+
+    - name: "BSPCE Pool"
+      role: "Stock options employés"
+      type: "bspce"
+
+    - name: "Investisseurs Seed"
+      role: "Investisseurs institutionnels Seed"
+      type: "investisseur"
+
+    - name: "Investisseurs Series A"
+      role: "Investisseurs institutionnels Series A"
+      type: "investisseur"
+
+    - name: "Investisseurs Series B"
+      role: "Investisseurs institutionnels Series B"
+      type: "investisseur"
+
+  # Dilution par phase
+  dilution_stages:
+    bootstrap:
+      phase: "Bootstrap"
+      total_shares: 1000
+      equity:
+        FRT: 70.00%  # 700 actions
+        PCO: 15.00%  # 150 actions
+        MAM: 15.00%  # 150 actions
+
+    post_pre_seed:
+      phase: "Post Pre-Seed (avant Seed)"
+      total_shares: 1000
+      equity:
+        FRT: 68.60%
+        PCO: 14.70%
+        MAM: 14.70%
+        BSPCE: 2.00%
+
+    pre_seed:
+      phase: "PRE-SEED Levée"
+      amount_raised: 400000
+      valuation: 2900000
+      new_shares: 100
+      total_shares: 1100
+
+    post_pre_seed_seed_dilution:
+      phase: "Post Pre-Seed (Dilution Seed)"
+      total_shares: 1100
+      equity:
+        FRT: 53.80%
+        PCO: 11.50%
+        MAM: 11.50%
+        BSPCE: 6.20%
+        Investisseurs_Seed: 17.00%
+
+    seed:
+      phase: "SEED Levée"
+      amount_raised: 1500000
+      valuation: 8000000
+      new_shares: 180
+      total_shares: 1280
+
+    post_seed:
+      phase: "Post Seed"
+      total_shares: 1280
+      equity:
+        FRT: 34.50%  # 560 actions après dilution
+        PCO: 17.10%  # 210 actions (augmentation?)
+        MAM: 15.60%  # 210 actions
+        BSPCE: 4.90%
+        Investisseurs_Seed: 13.40%  # 100 actions
+        Investisseurs_Series_A: 16.00%  # 180 actions (anticipation)
+      notes: "Dilution post-Seed avec anticipation Series A"
+
+    series_a:
+      phase: "SERIE A Levée"
+      amount_raised: 2500000
+      valuation: 32600000
+      new_shares: 140
+      total_shares: 1420
+
+    post_series_a:
+      phase: "Post Series A"
+      total_shares: 1420
+      equity:
+        FRT: 27.70%  # 392 actions
+        PCO: 19.80%  # 271.5 actions
+        MAM: 17.20%  # 271.5 actions
+        BSPCE: 3.90%  # 65 actions
+        Investisseurs_Seed: 10.70%  # 100 actions
+        Investisseurs_Series_A: 12.80%  # 180 actions
+        Investisseurs_Series_B: 7.90%  # 140 actions (anticipation)
+      notes: "Cap table finale post Series A"
+
+# ARR Targets par mois (pour projections)
+arr_targets:
+  # Aligné avec funding rounds
+  M1: 10000      # Bootstrap
+  M2: 50000      # Love Money
+  M6: 500000     # PRE-SEED
+  M11: 800000    # Dilution Seed
+  M12: 800000    # SEED
+  M18: 1500000   # Post Seed
+  M36: 4000000   # SERIE A
+  M48: 6000000   # Target avant Series B (estimation)
+
+# Hypothèses de croissance agressives pour atteindre ces ARR
+growth_assumptions:
+  hackathon:
+    volume_monthly:
+      M1_M6: 1.5  # 1.5 hackathons/mois en moyenne
+      M7_M12: 2.0  # 2/mois
+      M13_M24: 2.5  # 2.5/mois
+      M25_M36: 3.0  # 3/mois
+      M37_M50: 4.0  # 4/mois
+
+  factory:
+    conversion_from_hackathon: 0.30
+    delay_months: 2
+    price_increase_yearly: 0.05  # +5%/an
+
+  enterprise_hub:
+    launch_month: 8
+    initial_customers: 5
+    monthly_new_customers:
+      M8_M14: 3    # 3 nouveaux clients/mois
+      M15_M24: 8   # 8/mois
+      M25_M36: 15  # 15/mois
+      M37_M50: 20  # 20/mois
+
+    distribution_tiers:
+      starter: 0.50   # 50% Starter
+      business: 0.35  # 35% Business
+      enterprise: 0.15  # 15% Enterprise
+
+    churn_monthly: 0.008  # 0.8%/mois = ~10%/an
+
+  services:
+    volume_multiplier: 0.5  # 50% des hackathons → services
+    price_daily: 800
+    days_per_project: 12.5  # ~10K€ par projet
+
+# Notes stratégiques
+notes: |
+  Cette cap table reflète:
+  1. Dilution progressive des fondateurs (70% → 27%)
+  2. BSPCE pool pour attirer talents (2% → 3.9%)
+  3. Levées de fonds alignées avec ARR milestones
+  4. Valorisations cohérentes avec SaaS B2B multiples (7-10x ARR)
+
+  ARR Milestones critiques:
+  - M6: 500K€ (PRE-SEED)
+  - M11-12: 800K€ (SEED - contractuel pacte actionnaires)
+  - M18: 1.5M€ (Post-Seed scaling)
+  - M36: 4M€ (SERIE A)
