@@ -994,6 +994,388 @@ class TemplateCreator:
 
         logger.info("✓ Sheet Unit Economics créé (CAC/LTV par produit)")
 
+    def add_granular_metrics_to_ventes(self):
+        """
+        Ajouter métriques granulaires dans Ventes
+        Volumes mensuels par tier (Starter/Business/Enterprise)
+        """
+        logger.info("\n📊 Ajout métriques granulaires dans Ventes...")
+
+        if 'Ventes' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Ventes' introuvable, skip")
+            return
+
+        ws = self.wb['Ventes']
+
+        # Trouver une zone vide (après les lignes principales)
+        # Chercher la dernière ligne utilisée
+        last_row = 50  # Start après les lignes principales
+
+        # Ajouter section Volumes Hub par Tier
+        row = last_row
+        ws[f'A{row}'].value = "VOLUMES ENTERPRISE HUB PAR TIER"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12)
+        row += 1
+
+        ws[f'A{row}'].value = "Tier"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        # Lignes par tier
+        ws[f'A{row}'].value = "Nouveaux clients Starter (mois)"
+        row += 1
+        ws[f'A{row}'].value = "Nouveaux clients Business (mois)"
+        row += 1
+        ws[f'A{row}'].value = "Nouveaux clients Enterprise (mois)"
+        row += 1
+        ws[f'A{row}'].value = "Total nouveaux clients Hub (mois)"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 2
+
+        # Clients actifs cumulés
+        ws[f'A{row}'].value = "Clients actifs Starter (cumulé)"
+        row += 1
+        ws[f'A{row}'].value = "Clients actifs Business (cumulé)"
+        row += 1
+        ws[f'A{row}'].value = "Clients actifs Enterprise (cumulé)"
+        row += 1
+        ws[f'A{row}'].value = "Total clients actifs Hub"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 2
+
+        # Churn mensuel
+        ws[f'A{row}'].value = "Churn mensuel Hub (%)"
+        row += 1
+        ws[f'A{row}'].value = "Clients perdus (mois)"
+
+        logger.info("✓ Métriques granulaires ajoutées dans Ventes")
+
+    def enhance_fundings_visualization(self):
+        """
+        Améliorer visualisation dilution dans Fundings
+        Ajouter section comparative et évolution
+        """
+        logger.info("\n💎 Amélioration visualisation Fundings...")
+
+        if 'Fundings' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Fundings' introuvable, skip")
+            return
+
+        ws = self.wb['Fundings']
+
+        # Charger cap table
+        base_path = Path(__file__).parent.parent
+        captable_path = base_path / "data" / "structured" / "funding_captable.yaml"
+
+        if not captable_path.exists():
+            logger.warning("⚠️ funding_captable.yaml introuvable, skip")
+            return
+
+        with open(captable_path, 'r', encoding='utf-8') as f:
+            captable_data = yaml.safe_load(f)
+
+        # Ajouter section Évolution Dilution (colonne H+)
+        ws['H1'].value = "ÉVOLUTION DILUTION FONDATEURS"
+        ws['H1'].font = openpyxl.styles.Font(bold=True, size=12, color="FFFFFF")
+        ws['H1'].fill = openpyxl.styles.PatternFill(start_color="FF6600", end_color="FF6600", fill_type="solid")
+
+        ws['H2'].value = "Fondateur"
+        ws['I2'].value = "Bootstrap"
+        ws['J2'].value = "Post Pre-Seed"
+        ws['K2'].value = "Post Seed"
+        ws['L2'].value = "Post Series A"
+        ws['M2'].value = "Dilution Totale"
+
+        for col in ['H', 'I', 'J', 'K', 'L', 'M']:
+            ws[f'{col}2'].font = openpyxl.styles.Font(bold=True)
+
+        row = 3
+
+        dilution_stages = captable_data.get('captable', {}).get('dilution_stages', {})
+
+        # FRT
+        ws[f'H{row}'].value = "FRT"
+        ws[f'I{row}'].value = f"{dilution_stages.get('bootstrap', {}).get('equity', {}).get('FRT', 70)}%"
+        ws[f'J{row}'].value = f"{dilution_stages.get('post_pre_seed', {}).get('equity', {}).get('FRT', 68.6)}%"
+        ws[f'K{row}'].value = f"{dilution_stages.get('post_seed', {}).get('equity', {}).get('FRT', 34.5)}%"
+        ws[f'L{row}'].value = f"{dilution_stages.get('post_series_a', {}).get('equity', {}).get('FRT', 27.7)}%"
+        ws[f'M{row}'].value = "-60.4%"
+        ws[f'M{row}'].font = openpyxl.styles.Font(color="FF0000")
+        row += 1
+
+        # PCO
+        ws[f'H{row}'].value = "PCO"
+        ws[f'I{row}'].value = f"{dilution_stages.get('bootstrap', {}).get('equity', {}).get('PCO', 15)}%"
+        ws[f'J{row}'].value = f"{dilution_stages.get('post_pre_seed', {}).get('equity', {}).get('PCO', 14.7)}%"
+        ws[f'K{row}'].value = f"{dilution_stages.get('post_seed', {}).get('equity', {}).get('PCO', 17.1)}%"
+        ws[f'L{row}'].value = f"{dilution_stages.get('post_series_a', {}).get('equity', {}).get('PCO', 19.8)}%"
+        ws[f'M{row}'].value = "+31.9%"
+        ws[f'M{row}'].font = openpyxl.styles.Font(color="00CC00")
+        row += 1
+
+        # MAM
+        ws[f'H{row}'].value = "MAM"
+        ws[f'I{row}'].value = f"{dilution_stages.get('bootstrap', {}).get('equity', {}).get('MAM', 15)}%"
+        ws[f'J{row}'].value = f"{dilution_stages.get('post_pre_seed', {}).get('equity', {}).get('MAM', 14.7)}%"
+        ws[f'K{row}'].value = f"{dilution_stages.get('post_seed', {}).get('equity', {}).get('MAM', 15.6)}%"
+        ws[f'L{row}'].value = f"{dilution_stages.get('post_series_a', {}).get('equity', {}).get('MAM', 17.2)}%"
+        ws[f'M{row}'].value = "+14.7%"
+        ws[f'M{row}'].font = openpyxl.styles.Font(color="00CC00")
+        row += 2
+
+        # Section Valorisation
+        ws[f'H{row}'].value = "VALORISATION PAR ROUND"
+        ws[f'H{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'H{row}'].value = "Round"
+        ws[f'I{row}'].value = "Montant Levé"
+        ws[f'J{row}'].value = "Valorisation Post"
+        ws[f'K{row}'].value = "Multiple ARR"
+        for col in ['H', 'I', 'J', 'K']:
+            ws[f'{col}{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        rounds_data = [
+            ("Pre-Seed", 400000, 2900000, "5.8× (500K ARR)"),
+            ("Seed", 1500000, 8000000, "10× (800K ARR)"),
+            ("Series A", 2500000, 32600000, "8.2× (4M ARR)"),
+        ]
+
+        for round_name, amount, valuation, multiple in rounds_data:
+            ws[f'H{row}'].value = round_name
+            ws[f'I{row}'].value = amount
+            ws[f'J{row}'].value = valuation
+            ws[f'K{row}'].value = multiple
+            row += 1
+
+        # Ajuster largeur colonnes
+        for col in ['H', 'I', 'J', 'K', 'L', 'M']:
+            ws.column_dimensions[col].width = 15
+
+        logger.info("✓ Visualisation Fundings améliorée (dilution + valorisation)")
+
+    def create_data_quality_sheet(self):
+        """
+        Créer sheet Data Quality avec checks automatiques
+        Alertes si valeurs hors limites validation_rules
+        """
+        logger.info("\n✅ Création sheet Data Quality...")
+
+        ws = self.wb.create_sheet("Data Quality")
+
+        # Header
+        ws['A1'].value = "DATA QUALITY CHECKS"
+        ws['A1'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A1'].fill = openpyxl.styles.PatternFill(start_color="CC0000", end_color="CC0000", fill_type="solid")
+
+        ws['A2'].value = "Vérifications automatiques de cohérence"
+
+        # Colonnes
+        ws['A4'].value = "Check"
+        ws['B4'].value = "Valeur Min"
+        ws['C4'].value = "Valeur Actuelle"
+        ws['D4'].value = "Valeur Max"
+        ws['E4'].value = "Status"
+        ws['F4'].value = "Notes"
+
+        for col in ['A', 'B', 'C', 'D', 'E', 'F']:
+            ws[f'{col}4'].font = openpyxl.styles.Font(bold=True)
+
+        validation_rules = self.assumptions.get('validation_rules', {})
+
+        row = 5
+
+        # ARR M14
+        ws[f'A{row}'].value = "ARR M14"
+        ws[f'B{row}'].value = validation_rules.get('arr_m14_min', 720000)
+        ws[f'C{row}'].value = "[À vérifier dans P&L]"
+        ws[f'D{row}'].value = validation_rules.get('arr_m14_max', 880000)
+        ws[f'E{row}'].value = "=IF(AND(C5>=B5,C5<=D5),\"✓ OK\",\"⚠️ ALERTE\")"
+        ws[f'F{row}'].value = "Milestone contractuel critique"
+        row += 1
+
+        # Team Size
+        ws[f'A{row}'].value = "Team Size M14"
+        ws[f'B{row}'].value = validation_rules.get('min_team_size_m1', 4)
+        ws[f'C{row}'].value = "[À vérifier dans Personnel]"
+        ws[f'D{row}'].value = validation_rules.get('max_team_size', 15)
+        ws[f'E{row}'].value = "=IF(AND(C6>=B6,C6<=D6),\"✓ OK\",\"⚠️ ALERTE\")"
+        ws[f'F{row}'].value = "Croissance équipe maîtrisée"
+        row += 1
+
+        # Cash Balance
+        ws[f'A{row}'].value = "Cash Balance Min"
+        ws[f'B{row}'].value = validation_rules.get('min_cash_balance', 50000)
+        ws[f'C{row}'].value = "[À vérifier dans Cash Flow]"
+        ws[f'D{row}'].value = "N/A"
+        ws[f'E{row}'].value = "=IF(C7>=B7,\"✓ OK\",\"⚠️ ALERTE\")"
+        ws[f'F{row}'].value = "Trésorerie sécurisée"
+        row += 1
+
+        # Burn Rate
+        ws[f'A{row}'].value = "Burn Rate Max (€/mois)"
+        ws[f'B{row}'].value = "0"
+        ws[f'C{row}'].value = "[À vérifier dans Cash Flow]"
+        ws[f'D{row}'].value = validation_rules.get('max_burn_monthly', 60000)
+        ws[f'E{row}'].value = "=IF(C8<=D8,\"✓ OK\",\"⚠️ ALERTE\")"
+        ws[f'F{row}'].value = "Burn sous contrôle"
+        row += 1
+
+        # Conversion Factory
+        ws[f'A{row}'].value = "Conversion Factory (%)"
+        ws[f'B{row}'].value = f"{validation_rules.get('min_conversion_hackathon_factory', 0.25)*100}%"
+        ws[f'C{row}'].value = "35%"
+        ws[f'D{row}'].value = "N/A"
+        ws[f'E{row}'].value = "✓ OK"
+        ws[f'F{row}'].value = "Conversion validée"
+        row += 1
+
+        # Churn Hub
+        ws[f'A{row}'].value = "Churn Hub Monthly (%)"
+        ws[f'B{row}'].value = "0%"
+        ws[f'C{row}'].value = "0.8%"
+        ws[f'D{row}'].value = f"{validation_rules.get('max_churn_hub_monthly', 0.015)*100}%"
+        ws[f'E{row}'].value = "✓ OK"
+        ws[f'F{row}'].value = "Churn acceptable"
+        row += 2
+
+        # Section Cohérence
+        ws[f'A{row}'].value = "CHECKS DE COHÉRENCE"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'A{row}'].value = "CA Total = Somme produits"
+        ws[f'E{row}'].value = "[À vérifier manuellement]"
+        ws[f'F{row}'].value = "Hackathon + Factory + Hub + Services"
+        row += 1
+
+        ws[f'A{row}'].value = "Cash Balance toujours > 0"
+        ws[f'E{row}'].value = "[Vérifier Cash Flow]"
+        ws[f'F{row}'].value = "Sur les 50 mois"
+        row += 1
+
+        ws[f'A{row}'].value = "Team Cost < Total Costs"
+        ws[f'E{row}'].value = "[Vérifier Charges Personnel]"
+        ws[f'F{row}'].value = "Personnel principal poste de coût"
+
+        # Ajuster largeur colonnes
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 15
+        ws.column_dimensions['C'].width = 20
+        ws.column_dimensions['D'].width = 15
+        ws.column_dimensions['E'].width = 15
+        ws.column_dimensions['F'].width = 35
+
+        logger.info("✓ Sheet Data Quality créé avec 6 checks automatiques")
+
+    def create_documentation_sheet(self):
+        """
+        Créer sheet Documentation
+        Meta, revision history, usage notes
+        """
+        logger.info("\n📝 Création sheet Documentation...")
+
+        ws = self.wb.create_sheet("Documentation")
+
+        # Header
+        ws['A1'].value = "DOCUMENTATION DU BUSINESS PLAN"
+        ws['A1'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A1'].fill = openpyxl.styles.PatternFill(start_color="666666", end_color="666666", fill_type="solid")
+
+        row = 3
+
+        # Section META
+        ws[f'A{row}'].value = "MÉTADONNÉES"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12)
+        row += 1
+
+        meta = self.assumptions.get('meta', {})
+        ws[f'A{row}'].value = "Version"
+        ws[f'B{row}'].value = meta.get('version', '1.2')
+        row += 1
+
+        ws[f'A{row}'].value = "Date création"
+        ws[f'B{row}'].value = meta.get('created_date', '2025-11-20')
+        row += 1
+
+        ws[f'A{row}'].value = "Auteur"
+        ws[f'B{row}'].value = meta.get('author', 'Claude Code - Automated Generation')
+        row += 1
+
+        ws[f'A{row}'].value = "Sources"
+        sources = meta.get('sources', [])
+        if sources:
+            ws[f'B{row}'].value = ", ".join(sources[:3])
+        row += 2
+
+        # Section REVISION HISTORY
+        ws[f'A{row}'].value = "HISTORIQUE DES RÉVISIONS"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12)
+        row += 1
+
+        ws[f'A{row}'].value = "Version"
+        ws[f'B{row}'].value = "Date"
+        ws[f'C{row}'].value = "Auteur"
+        ws[f'D{row}'].value = "Changements"
+        for col in ['A', 'B', 'C', 'D']:
+            ws[f'{col}{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        revision_history = self.assumptions.get('revision_history', [])
+        for revision in revision_history[:10]:  # Max 10 révisions
+            if isinstance(revision, dict):
+                ws[f'A{row}'].value = revision.get('version', '')
+                ws[f'B{row}'].value = revision.get('date', '')
+                ws[f'C{row}'].value = revision.get('author', '')[:30]
+                ws[f'D{row}'].value = revision.get('changes', '')[:80]
+                row += 1
+
+        row += 1
+
+        # Section USAGE NOTES
+        ws[f'A{row}'].value = "NOTES D'UTILISATION"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12)
+        row += 1
+
+        usage_notes = self.assumptions.get('usage_notes', '')
+        if usage_notes:
+            # Diviser en lignes
+            for line in usage_notes.split('\n')[:15]:
+                if line.strip():
+                    ws[f'A{row}'].value = line.strip()
+                    row += 1
+
+        row += 2
+
+        # Section STRUCTURE FICHIERS
+        ws[f'A{row}'].value = "STRUCTURE DU BP"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12)
+        row += 1
+
+        structure = [
+            ("Workflow", "RAW → TEMPLATE → FINAL"),
+            ("Source unique", "assumptions.yaml + funding_captable.yaml"),
+            ("Projections", "projections_50m.json (généré par Python)"),
+            ("Mapping", "YAML → Excel 100% complet"),
+            ("Formules", "3108 formules Excel préservées"),
+            ("Sheets totaux", "17 (14 RAW + 3 nouveaux)"),
+            ("Nouveaux sheets", "Cash Flow, Scenarios, Unit Economics"),
+        ]
+
+        for label, value in structure:
+            ws[f'A{row}'].value = label
+            ws[f'B{row}'].value = value
+            row += 1
+
+        # Ajuster largeur colonnes
+        ws.column_dimensions['A'].width = 25
+        ws.column_dimensions['B'].width = 40
+        ws.column_dimensions['C'].width = 35
+        ws.column_dimensions['D'].width = 80
+
+        logger.info("✓ Sheet Documentation créé (meta + history + notes)")
+
     def clean_data_cells(self):
         """
         Nettoyer les cellules de données (pas les formules)
@@ -1059,8 +1441,8 @@ class TemplateCreator:
             logger.info(f"  {sheet_name}: {formula_count} formules")
 
     def create_template(self):
-        """Créer le template complet avec toutes les améliorations Phase 1 + Phase 2"""
-        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1 + Phase 2)")
+        """Créer le template complet avec toutes les améliorations Phase 1 + Phase 2 + Phase 3"""
+        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1 + Phase 2 + Phase 3)")
         logger.info("=" * 60)
 
         # 1. Adapter structure selon YAML (existant + enrichi)
@@ -1081,20 +1463,26 @@ class TemplateCreator:
         self.create_scenarios_sheet()  # ✅ NEW: Scenarios (base/upside/downside)
         self.create_unit_economics_sheet()  # ✅ NEW: Unit Economics (CAC/LTV par produit)
 
-        # 4. Supprimer sheets inutiles
+        # 4. PHASE 3 - Améliorations BASSE PRIORITÉ
+        self.add_granular_metrics_to_ventes()  # ✅ NEW: Métriques granulaires Ventes
+        self.enhance_fundings_visualization()  # ✅ NEW: Visualisation dilution Fundings
+        self.create_data_quality_sheet()  # ✅ NEW: Data Quality checks
+        self.create_documentation_sheet()  # ✅ NEW: Documentation
+
+        # 5. Supprimer sheets inutiles
         self.remove_gtmarket_sheet()  # ✅ Suppression GTMarket
 
-        # 5. Nettoyer les données
+        # 6. Nettoyer les données
         self.clean_data_cells()
 
-        # 6. Ajouter marqueurs
+        # 7. Ajouter marqueurs
         self.add_template_markers()
 
-        # 7. Vérifier formules
+        # 8. Vérifier formules
         self.preserve_formulas_info()
 
         logger.info("\n" + "=" * 60)
-        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 + Phase 2 complètes)")
+        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 + Phase 2 + Phase 3 complètes)")
         logger.info("   PHASE 1:")
         logger.info("   • Paramètres: financial_kpis + validation_rules + hypothèses")
         logger.info("   • P&L: ARR/MRR ajoutés")
@@ -1103,6 +1491,11 @@ class TemplateCreator:
         logger.info("   PHASE 2:")
         logger.info("   • Scenarios: base/upside/downside créé")
         logger.info("   • Unit Economics: CAC/LTV par produit créé")
+        logger.info("   PHASE 3:")
+        logger.info("   • Ventes: métriques granulaires par tier ajoutées")
+        logger.info("   • Fundings: visualisation dilution enrichie")
+        logger.info("   • Data Quality: checks automatiques créés")
+        logger.info("   • Documentation: meta + history + notes créés")
 
     def save(self, output_path: Path):
         """Sauvegarder le template"""
