@@ -89,7 +89,77 @@ class TemplateCreator:
         ws['E4'] = "=D4*1.05"
         ws['F4'] = "=E4*1.05"
 
-        logger.info("✓ Paramètres adaptés avec pricing YAML")
+        # NOUVELLE SECTION: Financial KPIs (colonne H+)
+        financial_kpis = self.assumptions.get('financial_kpis', {})
+
+        ws['H1'].value = "FINANCIAL KPIs"
+        ws['H2'].value = "Métrique"
+        ws['I2'].value = "Valeur"
+
+        row = 3
+        kpis_data = [
+            ("ARR Target M14", financial_kpis.get('target_arr_dec_2026', 800000)),
+            ("ARR Target M11", financial_kpis.get('target_arr_sept_2026', 450000)),
+            ("Marge Brute Target", f"{financial_kpis.get('margin_targets', {}).get('gross_margin_pct', 70)}%"),
+            ("EBITDA Margin Target", f"{financial_kpis.get('margin_targets', {}).get('ebitda_margin_pct', -15)}%"),
+            ("Min Cash Runway (mois)", financial_kpis.get('cash_management', {}).get('min_cash_runway_months', 12)),
+            ("Burn Rate Max (€/mois)", financial_kpis.get('cash_management', {}).get('acceptable_burn_rate_monthly', 50000)),
+            ("Target LTV/CAC", financial_kpis.get('saas_metrics', {}).get('target_ltv_cac_ratio', 8)),
+            ("Max Churn Annual", f"{financial_kpis.get('saas_metrics', {}).get('max_churn_annual', 0.15)*100}%"),
+        ]
+
+        for label, value in kpis_data:
+            ws[f'H{row}'].value = label
+            ws[f'I{row}'].value = value
+            row += 1
+
+        # NOUVELLE SECTION: Validation Rules (colonne K+)
+        validation_rules = self.assumptions.get('validation_rules', {})
+
+        ws['K1'].value = "VALIDATION RULES"
+        ws['K2'].value = "Règle"
+        ws['L2'].value = "Min"
+        ws['M2'].value = "Max"
+
+        row = 3
+        rules_data = [
+            ("ARR M14", validation_rules.get('arr_m14_min', 720000), validation_rules.get('arr_m14_max', 880000)),
+            ("ARR M11", validation_rules.get('arr_m11_min', 400000), None),
+            ("Team Size M14", validation_rules.get('min_team_size_m1', 4), validation_rules.get('max_team_size', 15)),
+            ("Burn Monthly", None, validation_rules.get('max_burn_monthly', 60000)),
+            ("Cash Balance Min", validation_rules.get('min_cash_balance', 50000), None),
+            ("Conversion Hackathon→Factory", f"{validation_rules.get('min_conversion_hackathon_factory', 0.25)*100}%", None),
+            ("Churn Hub Monthly Max", None, f"{validation_rules.get('max_churn_hub_monthly', 0.015)*100}%"),
+        ]
+
+        for label, min_val, max_val in rules_data:
+            ws[f'K{row}'].value = label
+            ws[f'L{row}'].value = min_val if min_val else "-"
+            ws[f'M{row}'].value = max_val if max_val else "-"
+            row += 1
+
+        # NOUVELLE SECTION: Hypothèses critiques (colonne O+)
+        ws['O1'].value = "HYPOTHÈSES BUSINESS"
+        ws['O2'].value = "Hypothèse"
+        ws['P2'].value = "Valeur"
+
+        row = 3
+        business_assumptions = [
+            ("Conversion Hackathon→Factory", f"{self.assumptions.get('sales_assumptions', {}).get('factory', {}).get('conversion_rate', 0.35)*100}%"),
+            ("Churn Hub Monthly", f"{self.assumptions.get('sales_assumptions', {}).get('enterprise_hub', {}).get('churn_monthly', 0.008)*100}%"),
+            ("Launch Hub", f"M{self.assumptions.get('pricing', {}).get('enterprise_hub', {}).get('launch_month', 8)}"),
+            ("Délai Factory (mois)", self.assumptions.get('sales_assumptions', {}).get('factory', {}).get('delay_months', 2)),
+            ("Tier Starter %", f"{self.assumptions.get('sales_assumptions', {}).get('enterprise_hub', {}).get('tier_distribution_at_launch', {}).get('starter', 0.6)*100}%"),
+            ("Tier Business %", f"{self.assumptions.get('sales_assumptions', {}).get('enterprise_hub', {}).get('tier_distribution_at_launch', {}).get('business', 0.3)*100}%"),
+            ("Tier Enterprise %", f"{self.assumptions.get('sales_assumptions', {}).get('enterprise_hub', {}).get('tier_distribution_at_launch', {}).get('enterprise', 0.1)*100}%"),
+        ]
+
+        for label, value in business_assumptions:
+            ws[f'O{row}'].value = label
+            ws[f'P{row}'].value = value
+            row += 1
+
+        logger.info("✓ Paramètres enrichis avec financial_kpis, validation_rules, et hypothèses business")
 
     def update_financement_sheet(self):
         """
@@ -392,6 +462,158 @@ class TemplateCreator:
 
         logger.info(f"✓ Marketing adapté ({len(channels)} canaux)")
 
+    def add_arr_mrr_to_pl(self):
+        """
+        Ajouter lignes ARR et MRR en haut du P&L
+        Pour tracking des milestones SaaS
+        """
+        logger.info("\n📈 Ajout ARR/MRR dans P&L...")
+
+        if 'P&L' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'P&L' introuvable, skip")
+            return
+
+        ws = self.wb['P&L']
+
+        # Insérer 3 nouvelles lignes en haut (après les headers)
+        # On va ajouter après la ligne "CA Total" qui est typiquement en ligne 2-3
+
+        # Trouver la ligne "CA Total" ou similaire
+        ca_row = None
+        for row in range(1, 20):
+            cell_value = ws[f'A{row}'].value
+            if cell_value and isinstance(cell_value, str) and 'CA' in cell_value.upper():
+                ca_row = row
+                break
+
+        if not ca_row:
+            ca_row = 5  # Défaut
+
+        insert_row = ca_row + 1
+
+        # Insérer 3 lignes
+        ws.insert_rows(insert_row, 3)
+
+        # Ligne ARR
+        ws[f'A{insert_row}'].value = "ARR (Annual Recurring Revenue)"
+        ws[f'A{insert_row}'].font = openpyxl.styles.Font(bold=True)
+
+        # Ligne MRR
+        ws[f'A{insert_row+1}'].value = "MRR (Monthly Recurring Revenue)"
+        ws[f'A{insert_row+1}'].font = openpyxl.styles.Font(bold=True)
+
+        # Ligne séparatrice
+        ws[f'A{insert_row+2}'].value = "---"
+
+        logger.info(f"✓ ARR/MRR ajoutés en lignes {insert_row}-{insert_row+1} du P&L")
+
+    def create_cash_flow_sheet(self):
+        """
+        Créer un nouveau sheet Cash Flow Statement
+        Essential pour fundraising et suivi trésorerie
+        """
+        logger.info("\n💰 Création sheet Cash Flow...")
+
+        # Créer nouveau sheet
+        ws = self.wb.create_sheet("Cash Flow")
+
+        # Headers
+        ws['A1'].value = "CASH FLOW STATEMENT"
+        ws['A1'].font = openpyxl.styles.Font(bold=True, size=14)
+
+        ws['A2'].value = "Catégorie"
+        ws['B2'].value = "Description"
+
+        # Colonnes mois: C=M1, D=M2, etc.
+        for month in range(1, 51):
+            col_letter = openpyxl.utils.get_column_letter(month + 2)  # +2 car A,B = labels
+            ws[f'{col_letter}2'].value = f"M{month}"
+
+        # Section Operating Activities
+        row = 3
+        ws[f'A{row}'].value = "OPERATING ACTIVITIES"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        operating_items = [
+            ("CA Encaissé", "Revenue collected"),
+            ("Charges Personnel", "Salaries and social charges"),
+            ("Charges Infrastructure", "Cloud + SaaS tools"),
+            ("Charges Marketing", "Marketing spend"),
+            ("Autres Charges", "Other operating expenses"),
+        ]
+
+        for label, desc in operating_items:
+            ws[f'A{row}'].value = f"  {label}"
+            ws[f'B{row}'].value = desc
+            row += 1
+
+        ws[f'A{row}'].value = "= Cash Flow Opérationnel"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 2
+
+        # Section Investing Activities
+        ws[f'A{row}'].value = "INVESTING ACTIVITIES"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'A{row}'].value = "  CAPEX (équipements)"
+        ws[f'B{row}'].value = "Equipment and infrastructure"
+        row += 1
+
+        ws[f'A{row}'].value = "= Cash Flow Investissement"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 2
+
+        # Section Financing Activities
+        ws[f'A{row}'].value = "FINANCING ACTIVITIES"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        financing_items = [
+            ("Pre-Seed", "M1: 150K€"),
+            ("Seed", "M11: 500K€"),
+            ("Series A", "M36: 2.5M€"),
+        ]
+
+        for label, desc in financing_items:
+            ws[f'A{row}'].value = f"  {label}"
+            ws[f'B{row}'].value = desc
+            row += 1
+
+        ws[f'A{row}'].value = "= Cash Flow Financement"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 2
+
+        # Total et balance
+        ws[f'A{row}'].value = "TOTAL CASH FLOW (mois)"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, color="0000FF")
+        row += 1
+
+        ws[f'A{row}'].value = "CASH BALANCE (cumulé)"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12, color="FF0000")
+        ws[f'B{row}'].value = "Trésorerie disponible"
+        row += 2
+
+        # Métriques
+        ws[f'A{row}'].value = "MÉTRIQUES"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        ws[f'A{row}'].value = "  Burn Rate (€/mois)"
+        ws[f'B{row}'].value = "Operating CF négatif"
+        row += 1
+
+        ws[f'A{row}'].value = "  Cash Runway (mois)"
+        ws[f'B{row}'].value = "Cash balance / Burn rate"
+        row += 1
+
+        # Ajuster largeur colonnes
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 40
+
+        logger.info("✓ Sheet Cash Flow créé avec structure complète")
+
     def remove_gtmarket_sheet(self):
         """
         Supprimer le sheet GTMarket (110 cols × 1000 rows, peu de valeur ajoutée)
@@ -403,6 +625,111 @@ class TemplateCreator:
             logger.info("✓ Sheet GTMarket supprimé")
         else:
             logger.warning("⚠️ Sheet GTMarket introuvable, skip")
+
+    def enrich_synthese_dashboard(self):
+        """
+        Enrichir le sheet Synthèse avec dashboard KPIs
+        Vue exécutive pour investisseurs et board
+        """
+        logger.info("\n📊 Enrichissement Synthèse avec dashboard...")
+
+        if 'Synthèse' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Synthèse' introuvable, skip")
+            return
+
+        ws = self.wb['Synthèse']
+
+        # Trouver une zone vide (colonne Y+ par exemple)
+        start_col = 'Y'
+
+        # Dashboard header
+        ws[f'{start_col}1'].value = "DASHBOARD EXÉCUTIF"
+        ws[f'{start_col}1'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws[f'{start_col}1'].fill = openpyxl.styles.PatternFill(start_color="0066CC", end_color="0066CC", fill_type="solid")
+
+        # Section 1: ARR Milestones
+        row = 3
+        ws[f'{start_col}{row}'].value = "ARR MILESTONES"
+        ws[f'{start_col}{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        # Charger cap table pour les targets
+        base_path = Path(__file__).parent.parent
+        captable_path = base_path / "data" / "structured" / "funding_captable.yaml"
+
+        if captable_path.exists():
+            with open(captable_path, 'r', encoding='utf-8') as f:
+                captable_data = yaml.safe_load(f)
+            arr_targets = captable_data.get('arr_targets', {})
+        else:
+            arr_targets = {}
+
+        arr_milestones = [
+            ("M1 (Bootstrap)", arr_targets.get('M1', 10000)),
+            ("M6 (PRE-SEED)", arr_targets.get('M6', 500000)),
+            ("M12 (SEED)", arr_targets.get('M12', 800000)),
+            ("M18 (Post Seed)", arr_targets.get('M18', 1500000)),
+            ("M36 (Series A)", arr_targets.get('M36', 4000000)),
+            ("M48 (Pre Series B)", arr_targets.get('M48', 6000000)),
+        ]
+
+        ws[f'{start_col}{row}'].value = "Milestone"
+        next_col = openpyxl.utils.get_column_letter(openpyxl.utils.column_index_from_string(start_col) + 1)
+        ws[f'{next_col}{row}'].value = "ARR Target"
+        row += 1
+
+        for milestone, target in arr_milestones:
+            ws[f'{start_col}{row}'].value = milestone
+            ws[f'{next_col}{row}'].value = target
+            row += 1
+
+        row += 1
+
+        # Section 2: KPIs Critiques
+        ws[f'{start_col}{row}'].value = "KPIs CRITIQUES"
+        ws[f'{start_col}{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        financial_kpis = self.assumptions.get('financial_kpis', {})
+
+        kpis = [
+            ("Target LTV/CAC", financial_kpis.get('saas_metrics', {}).get('target_ltv_cac_ratio', 8)),
+            ("Max Churn Annual", f"{financial_kpis.get('saas_metrics', {}).get('max_churn_annual', 0.15)*100}%"),
+            ("Marge Brute Target", f"{financial_kpis.get('margin_targets', {}).get('gross_margin_pct', 70)}%"),
+            ("EBITDA Margin Target", f"{financial_kpis.get('margin_targets', {}).get('ebitda_margin_pct', -15)}%"),
+            ("Min Cash Runway", f"{financial_kpis.get('cash_management', {}).get('min_cash_runway_months', 12)} mois"),
+            ("Max Burn Rate", f"{financial_kpis.get('cash_management', {}).get('acceptable_burn_rate_monthly', 50000):,}€/mois"),
+        ]
+
+        ws[f'{start_col}{row}'].value = "KPI"
+        ws[f'{next_col}{row}'].value = "Valeur"
+        row += 1
+
+        for kpi, value in kpis:
+            ws[f'{start_col}{row}'].value = kpi
+            ws[f'{next_col}{row}'].value = value
+            row += 1
+
+        row += 1
+
+        # Section 3: Hypothèses Critiques
+        ws[f'{start_col}{row}'].value = "HYPOTHÈSES CRITIQUES"
+        ws[f'{start_col}{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        critical_assumptions = self.assumptions.get('critical_assumptions', [])
+        if critical_assumptions:
+            for assumption in critical_assumptions[:5]:  # Top 5
+                if isinstance(assumption, dict):
+                    ws[f'{start_col}{row}'].value = f"• {assumption.get('assumption', '')}"
+                    ws[f'{next_col}{row}'].value = assumption.get('risk_level', '')
+                    row += 1
+
+        # Ajuster largeur colonnes
+        ws.column_dimensions[start_col].width = 25
+        ws.column_dimensions[next_col].width = 20
+
+        logger.info("✓ Dashboard exécutif ajouté dans Synthèse")
 
     def clean_data_cells(self):
         """
@@ -469,33 +796,42 @@ class TemplateCreator:
             logger.info(f"  {sheet_name}: {formula_count} formules")
 
     def create_template(self):
-        """Créer le template complet"""
-        logger.info("\n🔨 CRÉATION TEMPLATE")
+        """Créer le template complet avec toutes les améliorations Phase 1"""
+        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1)")
         logger.info("=" * 60)
 
-        # 1. Adapter structure selon YAML
-        self.update_parametres_sheet()
+        # 1. Adapter structure selon YAML (existant + enrichi)
+        self.update_parametres_sheet()  # ✅ Enrichi avec financial_kpis, validation_rules, hypothèses
         self.update_financement_sheet()
-        self.update_fundings_sheet_with_captable()  # NEW: Cap table détaillée
+        self.update_fundings_sheet_with_captable()  # ✅ Cap table détaillée
         self.update_strategie_vente_sheet()
         self.update_charges_personnel_sheet()
         self.update_infrastructure_detailed_sheet()
         self.update_marketing_detailed_sheet()
 
-        # 2. Supprimer sheets inutiles
-        self.remove_gtmarket_sheet()  # NEW: Suppression GTMarket
+        # 2. PHASE 1 - Améliorations HAUTE PRIORITÉ
+        self.add_arr_mrr_to_pl()  # ✅ NEW: ARR/MRR dans P&L
+        self.create_cash_flow_sheet()  # ✅ NEW: Cash Flow Statement
+        self.enrich_synthese_dashboard()  # ✅ NEW: Dashboard exécutif
 
-        # 3. Nettoyer les données
+        # 3. Supprimer sheets inutiles
+        self.remove_gtmarket_sheet()  # ✅ Suppression GTMarket
+
+        # 4. Nettoyer les données
         self.clean_data_cells()
 
-        # 4. Ajouter marqueurs
+        # 5. Ajouter marqueurs
         self.add_template_markers()
 
-        # 5. Vérifier formules
+        # 6. Vérifier formules
         self.preserve_formulas_info()
 
         logger.info("\n" + "=" * 60)
-        logger.info("✅ TEMPLATE CRÉÉ")
+        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 complète)")
+        logger.info("   • Paramètres: financial_kpis + validation_rules + hypothèses")
+        logger.info("   • P&L: ARR/MRR ajoutés")
+        logger.info("   • Cash Flow: nouveau sheet créé")
+        logger.info("   • Synthèse: dashboard exécutif ajouté")
 
     def save(self, output_path: Path):
         """Sauvegarder le template"""
