@@ -277,7 +277,228 @@ critical_assumptions:
 - assumption: Équipe 5 → 12 ETP sans turnover
   risk_level: MEDIUM
   mitigation: BSPCE attractif, culture forte, onboarding structuré
+# ============================================================================
+# EXTENSIONS LONG TERME (2027-2029) - Phase A Implementation
+# ============================================================================
+
+long_term_projections:
+  description: "Hypothèses 2027-2029 pour extension 50 mois"
+  years:
+    2027:
+      arr_growth_rate: 0.70  # +70%/an (ARR passe de 827K€ à 1.4M€)
+      team_growth: 5  # +5 ETP (12 → 17 ETP)
+      pricing_increase_pct: 0.10  # +10% sur tous les prix
+      new_customers_hub_monthly: 8  # Moyenne mensuelle
+      burn_rate_max: 60000  # €/mois max
+      notes: "Année de scaling commercial post-Seed"
+
+    2028:
+      arr_growth_rate: 0.60  # +60%/an (ARR passe de 1.4M€ à 2.2M€)
+      team_growth: 5  # +5 ETP (17 → 22 ETP)
+      pricing_increase_pct: 0.10
+      new_customers_hub_monthly: 12
+      marketplace_launch: true  # Lancement marketplace fin 2028
+      series_a_month: 48  # Mois 48 = Dec 2028
+      series_a_amount: 2000000  # 2M€
+      notes: "Préparation Series A, lancement marketplace"
+
+    2029:
+      arr_growth_rate: 0.50  # +50%/an (ARR passe de 2.2M€ à 3.3M€)
+      team_growth: 4  # +4 ETP (22 → 26 ETP)
+      pricing_increase_pct: 0.05
+      new_customers_hub_monthly: 15
+      international_expansion: true  # Expansion EU
+      notes: "Consolidation, préparation Series B"
+
+# Détails personnel par rôle (pour sheet Charges Personnel)
+personnel_details:
+  salary_base_year: 2025
+  charges_sociales_rate: 0.45  # 45% charges patronales
+  yearly_salary_increase: 0.03  # 3%/an inflation
+
+  roles:
+    directeur_general:
+      title: "Directeur Général / CEO"
+      salary_brut_annual: 50000  # Scenario mini 2025-2026
+      fte_timeline:
+        m1_m14: 1.0
+        y2027: 1.0
+        y2028: 1.0
+        y2029: 1.0
+      scenario_upgrade:
+        intermediate:  # 2 directeurs
+          year: 2027
+          salary_brut_annual: 60000
+          fte: 2.0
+        target:  # 3 directeurs
+          year: 2028
+          salary_brut_annual: 75000
+          fte: 3.0
+
+    product_owner:
+      title: "Product Owner"
+      salary_brut_annual: 50000
+      fte_timeline:
+        m1_m6: 0.75
+        m7_m14: 1.0
+        y2027: 2.0
+        y2028: 3.0
+        y2029: 3.0
+
+    tech_senior:
+      title: "Développeur Senior"
+      salary_brut_annual: 65000
+      fte_timeline:
+        m1_m14: 0.0
+        y2027: 1.0
+        y2028: 2.0
+        y2029: 3.0
+
+    tech_junior:
+      title: "Développeur Junior"
+      salary_brut_annual: 40000
+      fte_timeline:
+        m1_m14: 0.0
+        y2027: 1.0
+        y2028: 2.0
+        y2029: 2.0
+
+    commercial:
+      title: "Responsable Commercial"
+      salary_brut_annual: 55000
+      fte_timeline:
+        m1_m14: 0.0
+        y2027: 1.0
+        y2028: 2.0
+        y2029: 3.0
+
+    bd_junior:
+      title: "Business Developer Junior"
+      salary_brut_annual: 38000
+      fte_timeline:
+        m1_m7: 1.0
+        m8_m14: 1.0
+        y2027: 2.0
+        y2028: 2.0
+        y2029: 3.0
+
+    stagiaire:
+      title: "Stagiaire / Apprenti"
+      salary_brut_annual: 12000
+      fte_timeline:
+        m1_m14: 1.0
+        y2027: 1.0
+        y2028: 2.0
+        y2029: 2.0
+
+    consultant:
+      title: "Consultant Senior"
+      salary_brut_annual: 70000
+      fte_timeline:
+        m1_m14: 0.0
+        y2027: 0.5
+        y2028: 1.0
+        y2029: 1.0
+
+# Infrastructure technique (coûts scaling avec clients)
+infrastructure_costs:
+  cloud:
+    provider: "AWS / Azure"
+    base_monthly: 1000  # Coût fixe minimum
+    cost_per_client: 50  # €/mois par client Hub
+    cost_per_user: 5  # €/mois par utilisateur actif
+    scaling_tiers:
+      tier1:  # 0-50 clients
+        cost_per_client: 50
+      tier2:  # 51-100 clients
+        cost_per_client: 40
+      tier3:  # 101+ clients
+        cost_per_client: 30
+    notes: "Coûts dégressifs avec volume"
+
+  saas_tools:
+    notion:
+      cost_per_user: 10
+      min_users: 5
+    slack:
+      cost_per_user: 7
+      min_users: 5
+    github:
+      cost_per_developer: 20
+      min_users: 2
+    analytics:
+      monthly_flat: 200
+    crm:
+      cost_per_user: 50
+      min_users: 2
+    total_base_monthly: 500
+
+  licenses:
+    forgeai:
+      monthly: 500
+      scaling: "Inclus dans coûts cloud"
+    security:
+      monthly: 300
+    monitoring:
+      monthly: 200
+
+  total_base_monthly: 2500  # Base avant scaling
+
+# Marketing (budgets par canal)
+marketing_budgets:
+  digital_ads:
+    description: "Google Ads, LinkedIn Ads"
+    monthly_budgets:
+      y2025: 2000
+      y2026: 5000
+      y2027: 10000
+      y2028: 15000
+      y2029: 20000
+    expected_cac: 1500
+    conversion_rate: 0.05
+
+  events:
+    description: "Salons, conférences, networking"
+    monthly_budgets:
+      y2025: 1000
+      y2026: 3000
+      y2027: 5000
+      y2028: 8000
+      y2029: 10000
+    cost_per_event: 2000
+    leads_per_event: 20
+
+  content:
+    description: "Blog, newsletter, webinars"
+    monthly_budgets:
+      y2025: 1000
+      y2026: 2000
+      y2027: 3000
+      y2028: 4000
+      y2029: 5000
+    team_cost: true
+
+  partnerships:
+    description: "Partenariats stratégiques"
+    monthly_budgets:
+      y2025: 500
+      y2026: 1000
+      y2027: 2000
+      y2028: 3000
+      y2029: 4000
+
+  total_monthly:
+    y2025: 4500
+    y2026: 11000
+    y2027: 20000
+    y2028: 30000
+    y2029: 39000
+
 revision_history:
+- version: '1.1'
+  date: '2025-11-20'
+  author: Claude Code - Phase A Extension
+  changes: "Extension 50 mois (2027-2029): personnel détail, infrastructure, marketing, projections LT"
 - version: '1.0'
   date: '2025-11-20'
   author: Claude Code - Automated
