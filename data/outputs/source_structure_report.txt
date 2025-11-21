@@ -1,0 +1,639 @@
+════════════════════════════════════════════════════════════════════════════════
+STRUCTURE COMPLÈTE DU FICHIER SOURCE
+Fichier: BP FABRIQ_PRODUCT-OCT2025.xlsx
+════════════════════════════════════════════════════════════════════════════════
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Synthèse
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 26 colonnes × 987 lignes
+Formules: 100
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  C: 2025-26
+  E: 2027.0
+  G: =E1+1
+  I: =G1+1
+  K: =I1+1
+  Q: =C1
+  R: =E1
+  S: =R1+1
+  T: =S1+1
+
+Exemples de formules:
+  G1: =E1+1
+  I1: =G1+1
+  K1: =I1+1
+  Q1: =C1
+  R1: =E1
+  S1: =R1+1
+  T1: =S1+1
+  U1: =T1+1
+  A3: ='P&L'!A2
+  E3: =indirect(R3)
+
+Structure lignes (labels colonne A):
+  L3: ='P&L'!A2
+  L4: ='P&L'!A3
+  L5: ='P&L'!A4
+  L6: ='P&L'!A5
+  L7: ='P&L'!A6
+  L8: ='P&L'!A7
+  L10: ='P&L'!A9
+  L11: ='P&L'!A10
+  L12: ='P&L'!A11
+  L13: ='P&L'!A12
+  L15: ='P&L'!A14
+  L16: ='P&L'!A15
+  L17: ='P&L'!A17
+  L18: ='P&L'!A18
+  L19: ='P&L'!A19
+  L20: ='P&L'!A20
+  L22: EBITDA
+  L23: CAPEX
+  L24: CASH FLOW
+  L25: CASH FLOW CUMULE
+  L28: KPIs
+  L29: ETP
+  L30: CA/ETP
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Stratégie de vente
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 35 colonnes × 1020 lignes
+Formules: 100
+Cellules fusionnées: 17
+
+En-têtes colonnes (Ligne 1 - Années):
+  E: Small Market
+  J: Mid Market
+  M: Top Market
+
+Exemples de formules:
+  E6: =SUM(E3:E5)
+  F6: =SUM(F3:F5)
+  G6: =SUM(G3:G5)
+  H6: =SUM(H3:H5)
+  J6: =SUM(J3:J5)
+  K6: =SUM(K3:K5)
+  L6: =SUM(L3:L5)
+  N6: =SUM(N3:N5)
+  O6: =SUM(O3:O5)
+  E7: =E8-E6
+
+Structure lignes (labels colonne A):
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Financement
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 12 colonnes × 19 lignes
+Formules: 3
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  C: 2025-26
+  E: 2027.0
+  G: =E1+1
+  I: =G1+1
+  K: =I1+1
+
+Exemples de formules:
+  G1: =E1+1
+  I1: =G1+1
+  K1: =I1+1
+
+Structure lignes (labels colonne A):
+  L2: Phase
+  L3: Acteur
+  L4: Batch 1
+  L5: Autoposia
+  L6: F-Initiatives
+  L8: CIC
+  L11: BPI
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: P&L
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 122 colonnes × 1004 lignes
+Formules: 100
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  C: 2025-2026
+  D: 11.0
+  E: 12.0
+  F: 1.0
+  G: =F1+1
+  H: =G1+1
+  I: =H1+1
+  J: =I1+1
+  K: =J1+1
+  L: =K1+1
+  M: =L1+1
+  N: =M1+1
+  O: =N1+1
+  P: =O1+1
+  Q: =P1+1
+  R: 2027.0
+  S: 1.0
+  T: =S1+1
+
+Exemples de formules:
+  G1: =F1+1
+  H1: =G1+1
+  I1: =H1+1
+  J1: =I1+1
+  K1: =J1+1
+  L1: =K1+1
+  M1: =L1+1
+  N1: =M1+1
+  O1: =N1+1
+  P1: =O1+1
+
+Structure lignes (labels colonne A):
+  L2: CA TOTAL
+  L3: =Ventes!A2
+  L4: =Ventes!A5
+  L5: =Ventes!A10
+  L6: =Ventes!A24
+  L7: =Ventes!A27
+  L9: DEPENSES OPERATIONNELLES
+  L10: Sous traitance
+  L11: Infrastructure technique
+  L12: Charges de personnel
+  L13: Licence ForgeAI
+  L14: RESULTAT OPERATIONNEL
+  L17: DEPENSES FONCTIONNELLES
+  L18: Marketing
+  L19: Charges de personnel
+  L20: Frais généraux
+  L22: Charges de personnel
+  L24: Total Charges fixes (hors sous traitance)
+  L25: Cumul
+  L26: Tréso
+  L27: Tréso cumulée
+  L29: A
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Paramètres
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 24 colonnes × 99 lignes
+Formules: 16
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: Paramètres
+
+Exemples de formules:
+  C2: =B2+1
+  D2: =C2+1
+  E2: =D2+1
+  F2: =E2+1
+  C7: =B7+10%*B7
+  D7: =C7+10%*C7
+  E7: =D7+10%*D7
+  F7: =E7+10%*E7
+  C8: =B8+10%*B8
+  D8: =C8+10%*C8
+
+Structure lignes (labels colonne A):
+  L1: Paramètres
+  L3: Prix Hackathon
+  L4: Services implémentation
+  L5: Formation utilisateurs
+  L7: Starter (mensuel)
+  L8: Business (mensuel)
+  L9: Enterprise (mensuel)
+  L10: Prix Factory
+  L11: Prix Academy
+  L12: Prix Vertical Solutions
+  L13: Prix AI Governance
+  L15: Commission marketplace
+  L16: Conso marketplace
+  L22: Scénario
+  L23: General
+  L24: Commercial
+  L25: Ressources
+  L26: Produit
+  L27: Financement
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: GTMarket
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 110 colonnes × 1000 lignes
+Formules: 39
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: 2025.0
+  B: 9.0
+  C: =B1+1
+  D: =C1+1
+  E: =D1+1
+  F: 2026.0
+  G: 1.0
+  H: =G1+1
+  I: =H1+1
+  J: =I1+1
+  K: =J1+1
+  L: =K1+1
+  M: =L1+1
+  N: =M1+1
+  O: =N1+1
+  P: =O1+1
+  Q: =P1+1
+  R: =Q1+1
+  S: 2027.0
+  T: 1.0
+
+Exemples de formules:
+  C1: =B1+1
+  D1: =C1+1
+  E1: =D1+1
+  H1: =G1+1
+  I1: =H1+1
+  J1: =I1+1
+  K1: =J1+1
+  L1: =K1+1
+  M1: =L1+1
+  N1: =M1+1
+
+Structure lignes (labels colonne A):
+  L1: 2025.0
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Ventes
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 70 colonnes × 967 lignes
+Formules: 100
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: OFFRES
+  C: 2025-2026
+  D: 11.0
+  E: 12.0
+  F: 1.0
+  G: =F1+1
+  H: =G1+1
+  I: =H1+1
+  J: =I1+1
+  K: =J1+1
+  L: =K1+1
+  M: =L1+1
+  N: =M1+1
+  O: =N1+1
+  P: =O1+1
+  Q: =P1+1
+  R: 2027.0
+  S: 1.0
+  T: =S1+1
+
+Exemples de formules:
+  G1: =F1+1
+  H1: =G1+1
+  I1: =H1+1
+  J1: =I1+1
+  K1: =J1+1
+  L1: =K1+1
+  M1: =L1+1
+  N1: =M1+1
+  O1: =N1+1
+  P1: =O1+1
+
+Structure lignes (labels colonne A):
+  L1: OFFRES
+  L2: GenieFactory Hackathon
+  L5: Services d'implémentation
+  L10: Enterprise Hub
+  L24: GenieFactory Factory
+  L27: Marketplace
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Sous traitance
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 70 colonnes × 30 lignes
+Formules: 100
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: Achats
+  C: 2025-2026
+  D: 11.0
+  E: 12.0
+  F: 1.0
+  G: =F1+1
+  H: =G1+1
+  I: =H1+1
+  J: =I1+1
+  K: =J1+1
+  L: =K1+1
+  M: =L1+1
+  N: =M1+1
+  O: =N1+1
+  P: =O1+1
+  Q: =P1+1
+  R: 2027.0
+  S: 1.0
+  T: =S1+1
+
+Exemples de formules:
+  G1: =F1+1
+  H1: =G1+1
+  I1: =H1+1
+  J1: =I1+1
+  K1: =J1+1
+  L1: =K1+1
+  M1: =L1+1
+  N1: =M1+1
+  O1: =N1+1
+  P1: =O1+1
+
+Structure lignes (labels colonne A):
+  L1: Achats
+  L2: Formation
+  L3: PM
+  L4: besoin free
+  L5: # interventions
+  L6: charge % consulting
+  L7: capa interne
+  L8: Audits
+  L9: TJM
+  L10: # interventions
+  L11: charge % consulting
+  L12: capa interne
+  L13: Accompagnement
+  L15: TJM
+  L16: # interventions
+  L17: charge % consulting
+  L18: capa interne
+  L19: Projet
+  L20: TJM
+  L21: # interventions
+  L22: capa interne
+  L23: Usine
+  L24: Montant Intervention
+  L25: # interventions
+  L27: ressources internes consulting
+  L28: ressources internes dev
+  L30: Total
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Charges de personnel et FG
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 72 colonnes × 1010 lignes
+Formules: 100
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  E: 2025-2026
+  F: 11.0
+  G: 12.0
+  H: 1.0
+  I: =H1+1
+  J: =I1+1
+  K: =J1+1
+  L: =K1+1
+  M: =L1+1
+  N: =M1+1
+  O: =N1+1
+  P: =O1+1
+  Q: =P1+1
+  R: =Q1+1
+  S: =R1+1
+  T: 2027.0
+
+Exemples de formules:
+  I1: =H1+1
+  J1: =I1+1
+  K1: =J1+1
+  L1: =K1+1
+  M1: =L1+1
+  N1: =M1+1
+  O1: =N1+1
+  P1: =O1+1
+  Q1: =P1+1
+  R1: =Q1+1
+
+Structure lignes (labels colonne A):
+  L2: Directeur (mini)
+  L3: Directeur (intermédiaire)
+  L4: Directeur (cible)
+  L5: Consultant
+  L6: Responsable Commercial
+  L7: Product owner
+  L8: Tech Senior
+  L9: Tech Junior (intermédiaire)
+  L10: BD (junior)
+  L11: Stagiaire
+  L13: ETP
+  L16: =A2
+  L17: =A3
+  L18: =A4
+  L19: =A5
+  L20: =A6
+  L21: =A7
+  L22: =A8
+  L23: =A9
+  L24: =A10
+  L25: =A11
+  L27: TOTAL
+  L28: Frais Généraux, sur une base/ETP
+  L29: Frais de Gestion
+  L30: Frais de licence de marque
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: DIRECTION
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 7 colonnes × 19 lignes
+Formules: 5
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: Scenario SALAIRES DIR
+
+Exemples de formules:
+  C8: =C6+C7
+  D8: =D6+D7
+  E8: =E6+E7
+  F8: =F6+F7
+  G8: =G6+G7
+
+Structure lignes (labels colonne A):
+  L1: Scenario SALAIRES DIR
+  L2: Directeur (mini)
+  L3: Directeur (intermédiaire)
+  L4: Directeur (cible)
+  L6: Salaires (incluant 1 stagiaire + apprenti)
+  L7: Charges
+  L13: Directeur (mini)
+  L14: Directeur (intermédiaire)
+  L15: Directeur (cible)
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Infrastructure technique
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 70 colonnes × 24 lignes
+Formules: 100
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  C: 2025-2026
+  D: 11.0
+  E: 12.0
+  F: 1.0
+  G: =F1+1
+  H: =G1+1
+  I: =H1+1
+  J: =I1+1
+  K: =J1+1
+  L: =K1+1
+  M: =L1+1
+  N: =M1+1
+  O: =N1+1
+  P: =O1+1
+  Q: =P1+1
+  R: 2027.0
+  S: 1.0
+  T: =S1+1
+
+Exemples de formules:
+  G1: =F1+1
+  H1: =G1+1
+  I1: =H1+1
+  J1: =I1+1
+  K1: =J1+1
+  L1: =K1+1
+  M1: =L1+1
+  N1: =M1+1
+  O1: =N1+1
+  P1: =O1+1
+
+Structure lignes (labels colonne A):
+  L2: Hosting
+  L5: Licences logicielles
+  L11: total
+  L16: Framer
+  L17: GetSales
+  L18: Hubspot
+  L19: Google Workspace
+  L20: Github
+  L21: LinkedIn
+  L22: Claude
+  L23: Minari
+  L24: Salesbot
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Fundings
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 25 colonnes × 1001 lignes
+Formules: 4
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: Plannning
+  B: Phase 
+  C: Funding Source
+  D: Montant (K)
+  E: Who
+  F: Délai
+  G: Critères
+  I: Cash
+  J: Budget
+
+Exemples de formules:
+  I9: =SUM(I2:I8)
+  J9: =SUM(J2:J8)
+  I13: =I11+I9
+  J13: =J11+J9
+
+Structure lignes (labels colonne A):
+  L1: Plannning
+  L2: M0
+  L5: M1 M6
+  L11: M6 M12
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: >>
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 1 colonnes × 1 lignes
+Formules: 0
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+
+Exemples de formules:
+
+Structure lignes (labels colonne A):
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Positionnement
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 12 colonnes × 45 lignes
+Formules: 0
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+
+Exemples de formules:
+
+Structure lignes (labels colonne A):
+
+
+────────────────────────────────────────────────────────────────────────────────
+SHEET: Marketing
+────────────────────────────────────────────────────────────────────────────────
+Dimensions: 26 colonnes × 231 lignes
+Formules: 27
+Cellules fusionnées: 0
+
+En-têtes colonnes (Ligne 1 - Années):
+  A: Ventes
+  B: ='P&L'!F1
+  C: ='P&L'!G1
+  D: ='P&L'!H1
+  E: ='P&L'!I1
+  F: ='P&L'!J1
+  G: ='P&L'!K1
+  H: ='P&L'!L1
+  I: ='P&L'!M1
+  J: ='P&L'!N1
+  K: ='P&L'!O1
+  L: ='P&L'!P1
+  M: ='P&L'!Q1
+  N: TOTAL
+
+Exemples de formules:
+  B1: ='P&L'!F1
+  C1: ='P&L'!G1
+  D1: ='P&L'!H1
+  E1: ='P&L'!I1
+  F1: ='P&L'!J1
+  G1: ='P&L'!K1
+  H1: ='P&L'!L1
+  I1: ='P&L'!M1
+  J1: ='P&L'!N1
+  K1: ='P&L'!O1
+
+Structure lignes (labels colonne A):
+  L1: Ventes
+  L2: Budget Marketing
+  L3: Campagnes Collaboration
+  L4: Campagnes Notoriété
+  L5: Campagnes Ciblées
+
