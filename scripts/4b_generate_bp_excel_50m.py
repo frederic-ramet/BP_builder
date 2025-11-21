@@ -1062,6 +1062,430 @@ class BPExcel50MGenerator:
 
         logger.info("✓ Sheet Financement créée")
 
+    def create_strategie_vente_sheet(self):
+        """Créer sheet Stratégie de vente"""
+        logger.info("🎯 Création sheet Stratégie de vente...")
+
+        ws = self.wb.create_sheet("Stratégie de vente")
+
+        ws['A1'] = "Stratégie de Vente - Pipeline & Conversion"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "PHASES DE VENTE"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        phases = [
+            ("Phase 1: Hackathon", "Découverte client, POC technique", "18-20K€"),
+            ("Phase 2: Factory", "Projet structurant, 6-9 mois", "75-82K€"),
+            ("Phase 3: Hub Subscription", "Récurrence, scaling", "500-10K€/mois"),
+        ]
+
+        ws['A4'] = "Phase"
+        ws['B4'] = "Description"
+        ws['C4'] = "Pricing"
+        for col in ['A', 'B', 'C']:
+            self.apply_style(ws[f'{col}4'], self.style_header_month)
+
+        row = 5
+        for phase, desc, price in phases:
+            ws[f'A{row}'] = phase
+            ws[f'B{row}'] = desc
+            ws[f'C{row}'] = price
+            row += 1
+
+        row += 2
+        ws[f'A{row}'] = "TAUX DE CONVERSION"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        conversions = [
+            ("Hackathon → Factory", "30%"),
+            ("Factory → Hub", "50%"),
+            ("Hub Starter → Business", "20% (upgrade)"),
+        ]
+
+        for label, rate in conversions:
+            ws[f'A{row}'] = label
+            ws[f'B{row}'] = rate
+            row += 1
+
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 40
+        ws.column_dimensions['C'].width = 20
+
+        logger.info("✓ Sheet Stratégie de vente créée")
+
+    def create_gtmarket_sheet(self):
+        """Créer sheet GTMarket (Go-to-Market)"""
+        logger.info("🚀 Création sheet GTMarket...")
+
+        ws = self.wb.create_sheet("GTMarket")
+
+        ws['A1'] = "Go-to-Market Strategy - Phases de Déploiement"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "PHASES DE DÉPLOIEMENT"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        phases = [
+            ("Nov 2025 - Mars 2026", "Phase 1: Pre-seed", "Lancement Hackathons, premiers clients pilotes"),
+            ("Avr 2026 - Sept 2026", "Phase 2: Traction", "Factory projects, préparation Hub"),
+            ("Oct 2026 - Dec 2026", "Phase 3: Hub Launch", "Lancement Enterprise Hub, scaling MRR"),
+            ("2027", "Phase 4: Scaling", "Croissance clients Hub, équipe 10+ ETP"),
+            ("2028", "Phase 5: Consolidation", "ARR 5M€+, préparation Series A"),
+            ("2029", "Phase 6: Expansion", "ARR 7M€+, expansion EU"),
+        ]
+
+        ws['A5'] = "Période"
+        ws['B5'] = "Phase"
+        ws['C5'] = "Objectifs"
+        for col in ['A', 'B', 'C']:
+            self.apply_style(ws[f'{col}5'], self.style_header_month)
+
+        row = 6
+        for period, phase, obj in phases:
+            ws[f'A{row}'] = period
+            ws[f'B{row}'] = phase
+            ws[f'C{row}'] = obj
+            row += 1
+
+        ws.column_dimensions['A'].width = 25
+        ws.column_dimensions['B'].width = 25
+        ws.column_dimensions['C'].width = 50
+
+        logger.info("✓ Sheet GTMarket créée")
+
+    def create_sous_traitance_sheet(self):
+        """Créer sheet Sous-traitance"""
+        logger.info("🔧 Création sheet Sous-traitance...")
+
+        ws = self.wb.create_sheet("Sous-traitance")
+
+        ws['A1'] = "Coûts de Sous-traitance & Freelances"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        # Headers
+        ws['D1'] = "2025-2026"
+        ws.merge_cells('D1:Q1')
+        self.apply_style(ws['D1'], self.style_header_year)
+
+        ws['S1'] = "2027"
+        ws.merge_cells('S1:AD1')
+        self.apply_style(ws['S1'], self.style_header_year)
+
+        ws['AF1'] = "2028"
+        ws.merge_cells('AF1:AQ1')
+        self.apply_style(ws['AF1'], self.style_header_year)
+
+        ws['AS1'] = "2029"
+        ws.merge_cells('AS1:BD1')
+        self.apply_style(ws['AS1'], self.style_header_year)
+
+        ws['A2'] = "Type de prestation"
+        ws['B2'] = "Description"
+        ws['C2'] = "Total 25-26"
+
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            ws[f'{col}2'] = f"M{month}"
+            self.apply_style(ws[f'{col}2'], self.style_header_month)
+
+        row = 3
+
+        ws[f'A{row}'] = "Freelances / Consultants"
+        ws[f'B{row}'] = "Dev, Design, Conseil"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            costs_personnel = self.projections[month - 1]['costs']['personnel']
+            value = costs_personnel.get('freelance', 0)
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        ws[f'A{row}'] = "Total Sous-traitance"
+        self.apply_style(ws[f'A{row}'], self.style_total)
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            costs_personnel = self.projections[month - 1]['costs']['personnel']
+            value = costs_personnel.get('freelance', 0)
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].font = Font(bold=True)
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 30
+
+        logger.info("✓ Sheet Sous-traitance créée")
+
+    def create_direction_sheet(self):
+        """Créer sheet DIRECTION (scénarios management)"""
+        logger.info("👔 Création sheet DIRECTION...")
+
+        ws = self.wb.create_sheet("DIRECTION")
+
+        ws['A1'] = "Équipe de Direction - Scénarios de Rémunération"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "SCÉNARIOS SALAIRES DIRECTION"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        scenarios = [
+            ("Scénario Conservateur", "Salaires minimaux fondateurs", "Total: 200K€/an"),
+            ("Scénario Réaliste", "Salaires marché -20%", "Total: 280K€/an"),
+            ("Scénario Marché", "Salaires marché complets", "Total: 350K€/an"),
+        ]
+
+        ws['A5'] = "Scénario"
+        ws['B5'] = "Description"
+        ws['C5'] = "Budget annuel"
+        for col in ['A', 'B', 'C']:
+            self.apply_style(ws[f'{col}5'], self.style_header_month)
+
+        row = 6
+        for scenario, desc, budget in scenarios:
+            ws[f'A{row}'] = scenario
+            ws[f'B{row}'] = desc
+            ws[f'C{row}'] = budget
+            row += 1
+
+        row += 2
+        ws[f'A{row}'] = "ÉQUIPE DIRECTION 2025-2029"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        direction = [
+            ("CEO", "50K€/an", "Fondateur, salaire progressif"),
+            ("CTO", "45K€/an", "Fondateur, salaire progressif"),
+            ("CPO", "40K€/an", "Fondateur, salaire progressif"),
+            ("CMO", "45K€/an", "Recrutement 2027"),
+        ]
+
+        for role, salary, note in direction:
+            ws[f'A{row}'] = role
+            ws[f'B{row}'] = salary
+            ws[f'C{row}'] = note
+            row += 1
+
+        ws.column_dimensions['A'].width = 20
+        ws.column_dimensions['B'].width = 20
+        ws.column_dimensions['C'].width = 40
+
+        logger.info("✓ Sheet DIRECTION créée")
+
+    def create_fundings_detailed_sheet(self):
+        """Créer sheet Fundings (détaillé avec dilution)"""
+        logger.info("💰 Création sheet Fundings (détaillé)...")
+
+        ws = self.wb.create_sheet("Fundings")
+
+        ws['A1'] = "Plan de Financement Détaillé - Levées et Dilution"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "TOURS DE FINANCEMENT"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws['A5'] = "Tour"
+        ws['B5'] = "Date"
+        ws['C5'] = "Montant"
+        ws['D5'] = "Valorisation pré"
+        ws['E5'] = "Valorisation post"
+        ws['F5'] = "Dilution"
+        for col in ['A', 'B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}5'], self.style_header_month)
+
+        row = 6
+
+        # Pre-seed
+        ws[f'A{row}'] = "Pre-seed"
+        ws[f'B{row}'] = "Nov 2025 (M1)"
+        ws[f'C{row}'] = 250000
+        ws[f'D{row}'] = 1250000
+        ws[f'E{row}'] = 1500000
+        ws[f'F{row}'] = "16.7%"
+        for col in ['C', 'D', 'E']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Seed
+        ws[f'A{row}'] = "Seed"
+        ws[f'B{row}'] = "Sept 2026 (M11)"
+        ws[f'C{row}'] = 500000
+        ws[f'D{row}'] = 3500000
+        ws[f'E{row}'] = 4000000
+        ws[f'F{row}'] = "12.5%"
+        for col in ['C', 'D', 'E']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Series A (prévisionnel)
+        ws[f'A{row}'] = "Series A (prévisionnel)"
+        ws[f'B{row}'] = "Dec 2028 (M38)"
+        ws[f'C{row}'] = 2000000
+        ws[f'D{row}'] = 18000000
+        ws[f'E{row}'] = 20000000
+        ws[f'F{row}'] = "10.0%"
+        for col in ['C', 'D', 'E']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        row += 2
+        ws[f'A{row}'] = "UTILISATION DES FONDS"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        utilisation = [
+            ("Pre-seed (250K€)", "40% Produit, 30% Sales/Marketing, 20% Ops, 10% Légal"),
+            ("Seed (500K€)", "30% Tech, 40% Commercial, 20% Marketing, 10% Admin"),
+            ("Series A (2M€)", "35% R&D, 40% Go-to-market, 15% Intl, 10% Ops"),
+        ]
+
+        for tour, usage in utilisation:
+            ws[f'A{row}'] = tour
+            ws[f'B{row}'] = usage
+            row += 1
+
+        ws.column_dimensions['A'].width = 25
+        ws.column_dimensions['B'].width = 50
+        for col in ['C', 'D', 'E', 'F']:
+            ws.column_dimensions[col].width = 18
+
+        logger.info("✓ Sheet Fundings (détaillé) créée")
+
+    def create_navigation_sheet(self):
+        """Créer sheet >> (navigation)"""
+        logger.info("🧭 Création sheet Navigation...")
+
+        ws = self.wb.create_sheet(">>")
+
+        ws['A1'] = "Navigation - Accès Rapide aux Sheets"
+        ws['A1'].font = Font(bold=True, size=16, color='1F4E78')
+
+        row = 3
+        ws[f'A{row}'] = "📊 SHEETS PRINCIPALES"
+        ws[f'A{row}'].font = Font(bold=True, size=12, color='1F4E78')
+        row += 2
+
+        main_sheets = [
+            ("1. Synthèse", "Dashboard annuel consolidé"),
+            ("2. P&L", "Compte de résultat 50 mois"),
+            ("3. Ventes", "Pipeline commercial détaillé"),
+            ("4. Charges Personnel", "Détail par rôle et FTE"),
+        ]
+
+        for sheet_name, description in main_sheets:
+            ws[f'A{row}'] = sheet_name
+            ws[f'B{row}'] = description
+            ws[f'A{row}'].font = Font(bold=True, color='4472C4')
+            row += 1
+
+        row += 1
+        ws[f'A{row}'] = "💰 SHEETS FINANCIÈRES"
+        ws[f'A{row}'].font = Font(bold=True, size=12, color='548235')
+        row += 2
+
+        finance_sheets = [
+            ("5. Infrastructure", "Coûts Cloud + SaaS"),
+            ("6. Marketing", "Budget par canal"),
+            ("7. Sous-traitance", "Freelances & consultants"),
+            ("8. Financement", "Plan de financement simple"),
+            ("9. Fundings", "Levées détaillées + dilution"),
+        ]
+
+        for sheet_name, description in finance_sheets:
+            ws[f'A{row}'] = sheet_name
+            ws[f'B{row}'] = description
+            row += 1
+
+        row += 1
+        ws[f'A{row}'] = "📈 SHEETS STRATÉGIE"
+        ws[f'A{row}'].font = Font(bold=True, size=12, color='C00000')
+        row += 2
+
+        strategy_sheets = [
+            ("10. Stratégie de vente", "Pipeline & conversion"),
+            ("11. GTMarket", "Go-to-market phases"),
+            ("12. DIRECTION", "Scénarios rémunération"),
+            ("13. Positionnement", "Analyse concurrentielle"),
+            ("14. Paramètres", "Pricing & KPIs"),
+        ]
+
+        for sheet_name, description in strategy_sheets:
+            ws[f'A{row}'] = sheet_name
+            ws[f'B{row}'] = description
+            row += 1
+
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 50
+
+        logger.info("✓ Sheet Navigation créée")
+
+    def create_positionnement_sheet(self):
+        """Créer sheet Positionnement (analyse concurrentielle)"""
+        logger.info("🎯 Création sheet Positionnement...")
+
+        ws = self.wb.create_sheet("Positionnement")
+
+        ws['A1'] = "Positionnement & Analyse Concurrentielle"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "DIFFÉRENCIATION GÉNIEFACTORY"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        differentiation = [
+            ("USP 1", "Approche hybride Hackathon → Factory → Hub"),
+            ("USP 2", "No-code/Low-code adapté secteurs régulés"),
+            ("USP 3", "Accompagnement end-to-end de l'idée au scaling"),
+        ]
+
+        for usp, desc in differentiation:
+            ws[f'A{row}'] = usp
+            ws[f'B{row}'] = desc
+            row += 1
+
+        row += 2
+        ws[f'A{row}'] = "MATRICE CONCURRENTIELLE"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "Concurrent"
+        ws[f'B{row}'] = "Positionnement"
+        ws[f'C{row}'] = "Forces"
+        ws[f'D{row}'] = "Faiblesses"
+        for col in ['A', 'B', 'C', 'D']:
+            self.apply_style(ws[f'{col}{row}'], self.style_header_month)
+        row += 1
+
+        competitors = [
+            ("Agences digitales", "Services custom", "Expertise métier", "Coûts élevés, pas scalable"),
+            ("Plateformes no-code", "Self-service", "Prix accessible", "Peu d'accompagnement"),
+            ("ESN classiques", "Conseil + Dev", "Crédibilité", "Lenteur, innovation limitée"),
+        ]
+
+        for name, pos, strength, weakness in competitors:
+            ws[f'A{row}'] = name
+            ws[f'B{row}'] = pos
+            ws[f'C{row}'] = strength
+            ws[f'D{row}'] = weakness
+            row += 1
+
+        ws.column_dimensions['A'].width = 25
+        ws.column_dimensions['B'].width = 25
+        ws.column_dimensions['C'].width = 30
+        ws.column_dimensions['D'].width = 35
+
+        logger.info("✓ Sheet Positionnement créée")
+
     def generate(self):
         """Générer le workbook complet"""
         logger.info("\n🔨 Génération workbook BP 50 mois complet...")
@@ -1069,33 +1493,54 @@ class BPExcel50MGenerator:
         self.create_styles()
 
         # Créer les sheets dans l'ordre
-        logger.info("\n📑 Création de 8 sheets principales...")
+        logger.info("\n📑 Création de 15 sheets complètes...")
 
         # 1. Synthèse (en premier pour être la première tab)
         self.create_synthese_sheet()
 
-        # 2. P&L (sheet principale)
-        self.create_pl_sheet()
+        # 2. Stratégie de vente (phases et conversions)
+        self.create_strategie_vente_sheet()
 
-        # 3. Ventes (pipeline commercial)
-        self.create_ventes_sheet()
-
-        # 4. Charges Personnel (détail par rôle)
-        self.create_charges_personnel_sheet()
-
-        # 5. Infrastructure (Cloud + SaaS)
-        self.create_infrastructure_sheet()
-
-        # 6. Marketing (budget par canal)
-        self.create_marketing_sheet()
-
-        # 7. Paramètres (pricing et KPIs)
-        self.create_parametres_sheet()
-
-        # 8. Financement (funding rounds)
+        # 3. Financement simple (rounds principaux)
         self.create_financement_sheet()
 
-        logger.info("\n✓ Workbook complet généré")
+        # 4. P&L (sheet principale détaillée 50M)
+        self.create_pl_sheet()
+
+        # 5. Paramètres (pricing et KPIs)
+        self.create_parametres_sheet()
+
+        # 6. GTMarket (phases déploiement)
+        self.create_gtmarket_sheet()
+
+        # 7. Ventes (pipeline commercial)
+        self.create_ventes_sheet()
+
+        # 8. Sous-traitance (coûts freelance)
+        self.create_sous_traitance_sheet()
+
+        # 9. Charges Personnel (détail par rôle)
+        self.create_charges_personnel_sheet()
+
+        # 10. DIRECTION (scénarios management)
+        self.create_direction_sheet()
+
+        # 11. Infrastructure (Cloud + SaaS)
+        self.create_infrastructure_sheet()
+
+        # 12. Fundings détaillé (dilution)
+        self.create_fundings_detailed_sheet()
+
+        # 13. >> (Navigation)
+        self.create_navigation_sheet()
+
+        # 14. Positionnement (analyse concurrentielle)
+        self.create_positionnement_sheet()
+
+        # 15. Marketing (budget par canal)
+        self.create_marketing_sheet()
+
+        logger.info("\n✓ Workbook complet généré - 15 sheets")
         logger.info(f"  Sheets: {len(self.wb.sheetnames)}")
         logger.info(f"  Ordre: {', '.join(self.wb.sheetnames)}")
         return self.wb
