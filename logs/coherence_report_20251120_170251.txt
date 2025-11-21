@@ -1,0 +1,12 @@
+RAPPORT VALIDATION COHÉRENCE
+Date: 2025-11-20T17:02:51.386684
+Status: FAILED
+
+Erreurs: 1
+Warnings: 1
+
+ERREURS:
+- {'type': 'INCOHÉRENCE CRITIQUE', 'section': '1.3 Vision', 'donnee_actuelle': '15-15M€', 'probleme': 'Multiple 18.1x hors norme SaaS (standard 7-10x)', 'arr_reference': '0.83M€', 'impact': 5, 'context': 'Growth (probabilité 20%)\nTimeline: 2029-2030 avec 15M€+ ARR\nValorisation cible: 8M€\nNécessite leadership'}
+
+CORRECTIONS PROPOSÉES:
+- {'section': '1.3 Vision', 'field': 'valorisation_2028', 'options': {'conservative': {'value': '5M€', 'multiple': 6, 'justification': 'Croissance <30%/an, marché mature'}, 'realistic': {'value': '8M€', 'multiple': 10, 'justification': 'Croissance 30-60%/an, marché stable'}, 'aggressive': {'value': '12M€', 'multiple': 15, 'justification': 'Croissance >100%/an, hyper-croissance démontrée'}}, 'recommendation': 'realistic'}

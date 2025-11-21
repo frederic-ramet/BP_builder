@@ -194,8 +194,9 @@ class BPExcelGenerator:
         arr_row = row
         ws[f'E{row}'] = "ARR (Run Rate)"
         for idx, col in enumerate(self.month_cols):
-            # ARR = MRR Hub × 12 (ligne 7 = enterprise hub)
-            ws[f'{col}{row}'] = f'={col}7*12'
+            # ARR = MRR Hub × 12
+            arr_value = self.projections[idx]['metrics']['arr']
+            ws[f'{col}{row}'] = arr_value
             self.apply_style(ws[f'{col}{row}'], self.style_arr)
 
         # Cash position
@@ -293,6 +294,44 @@ class BPExcelGenerator:
         ws.column_dimensions['B'].width = 20
 
         logger.info("✓ Sheet Synthèse créée")
+
+    def add_charts_to_synthese(self, ws):
+        """Ajouter graphiques à la sheet Synthèse"""
+        logger.info("📈 Ajout graphiques...")
+
+        # Graphique 1: Évolution ARR
+        chart_arr = LineChart()
+        chart_arr.title = "Évolution ARR (€)"
+        chart_arr.style = 10
+        chart_arr.y_axis.title = "ARR (€)"
+        chart_arr.x_axis.title = "Mois"
+
+        # Données depuis sheet Monitoring
+        monitoring_sheet = self.wb['Monitoring']
+        data = Reference(monitoring_sheet, min_col=6, min_row=4, max_col=19, max_row=4)  # ARR row
+        cats = Reference(monitoring_sheet, min_col=6, min_row=2, max_col=19)  # Months
+        chart_arr.add_data(data, titles_from_data=False)
+        chart_arr.set_categories(cats)
+
+        ws.add_chart(chart_arr, "D4")
+
+        # Graphique 2: CA mensuel
+        chart_ca = LineChart()
+        chart_ca.title = "CA Mensuel (€)"
+        chart_ca.style = 12
+        chart_ca.y_axis.title = "CA (€)"
+        chart_ca.x_axis.title = "Mois"
+
+        # Données depuis sheet P&L
+        pl_sheet = self.wb['P&L']
+        data_ca = Reference(pl_sheet, min_col=6, min_row=4, max_col=19, max_row=4)  # CA Total row
+        cats_ca = Reference(pl_sheet, min_col=6, min_row=2, max_col=19)
+        chart_ca.add_data(data_ca, titles_from_data=False)
+        chart_ca.set_categories(cats_ca)
+
+        ws.add_chart(chart_ca, "D18")
+
+        logger.info("✓ Graphiques ajoutés")
 
     def create_ventes_sheet(self):
         """Créer sheet Ventes (pipeline détaillé)"""
@@ -480,6 +519,9 @@ class BPExcelGenerator:
         self.create_parametres_sheet()
         self.create_financement_sheet()
         self.create_monitoring_sheet()
+
+        # Ajouter les graphiques après création de toutes les sheets
+        self.add_charts_to_synthese(self.wb['Synthèse'])
 
         logger.info("\n✓ Workbook complet généré")
         return self.wb

@@ -29,19 +29,32 @@ geniefactory-bp-14m/
 │   │   ├── assumptions.yaml           ← ⭐ SOURCE UNIQUE VÉRITÉ
 │   │   ├── bp_extracted.json
 │   │   ├── word_extracted.json
-│   │   └── projections.json
+│   │   ├── projections.json
+│   │   └── corrections_proposed.yaml  ← Corrections suggérées
+│   │
+│   ├── validation_rules.yaml          ← ⚠️ RÈGLES VALIDATION FINANCIÈRE
 │   │
 │   └── outputs/                       ← 📦 Livrables finaux
 │       ├── BP_14M_Nov2025-Dec2026.xlsx
-│       └── BM_Updated_14M.docx
+│       ├── BM_Updated_14M.docx
+│       └── charts/                    ← Graphiques PNG
+│           ├── arr_evolution.png
+│           ├── ca_mensuel.png
+│           ├── ebitda.png
+│           ├── cash_position.png
+│           ├── revenue_mix.png
+│           └── team_evolution.png
 │
 ├── scripts/
 │   ├── 1_extract.py                   ← Extraction BP/BM/Pacte
 │   ├── 2_generate_assumptions.py     ← Création assumptions.yaml
 │   ├── 3_calculate_projections.py    ← Calculs financiers M1-M14
-│   ├── 4_generate_bp_excel.py        ← Génération BP Excel
-│   ├── 5_update_bm_word.py           ← Update BM Word
-│   └── 6_validate.py                 ← Validation cohérence
+│   ├── 4_generate_bp_excel.py        ← Génération BP Excel + charts
+│   ├── 5_update_bm_word.py           ← Update BM Word + visuals
+│   ├── 6_validate.py                 ← Validation basique
+│   ├── 7_validate_coherence.py       ← ⚠️ Validation cohérence avancée
+│   ├── 8_fix_coherence.py            ← Correction automatique incohérences
+│   └── generate_charts.py            ← Génération graphiques PNG
 │
 ├── templates/
 │   └── assumptions_template.yaml     ← Template avec commentaires
@@ -90,14 +103,26 @@ python scripts/4_generate_bp_excel.py
 python scripts/5_update_bm_word.py
 # → Génère data/outputs/BM_Updated_14M.docx
 
-# 6. Validation finale
+# 6. Validation basique
 python scripts/6_validate.py
 # → Checks ARR target, cohérence, formules Excel
+
+# 7. Validation cohérence avancée ⚠️ CRITIQUE
+python scripts/7_validate_coherence.py
+# → Détecte incohérences valorisation, red flags investisseurs
+
+# 8. Correction automatique (si nécessaire)
+python scripts/8_fix_coherence.py
+# → Corrige valorisations incohérentes, applique règles SaaS B2B
+
+# 9. Re-validation
+python scripts/7_validate_coherence.py
+# → Vérifier Status: ✅ SUCCÈS
 ```
 
 **OU** exécution d'un coup :
 ```bash
-python run.py  # Enchaîne scripts 1-6
+python run.py  # Enchaîne scripts 1-8 avec validation complète
 ```
 
 ## 📊 Métriques Clés
@@ -168,7 +193,9 @@ timeline:
 
 ## ✅ Validation
 
-Le script `6_validate.py` effectue les checks suivants :
+### Validation Standard (6_validate.py)
+
+Le script `6_validate.py` effectue les checks basiques suivants :
 
 ### Checks Financiers
 
@@ -208,6 +235,131 @@ Le script `6_validate.py` effectue les checks suivants :
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STATUS: ✅ PASSED (2 warnings)
 ```
+
+### Validation Cohérence Avancée (7_validate_coherence.py)
+
+⚠️ **IMPORTANT** : Ce script détecte les incohérences **critiques** qui tuent la crédibilité investisseurs.
+
+```bash
+python scripts/7_validate_coherence.py
+```
+
+#### Règles de Validation Financière
+
+Le script applique les règles du marché SaaS B2B définies dans `data/validation_rules.yaml` :
+
+**1. Multiples de Valorisation**
+```
+Conservative (4-6x ARR)   : Croissance <30%/an
+Realistic (7-10x ARR)     : Croissance 30-60%/an ✅ RECOMMANDÉ
+Aggressive (11-15x ARR)   : Croissance >100%/an (justification requise)
+ERREUR (>15x ARR)         : Incohérent sans hyper-croissance démontrée
+```
+
+**2. Red Flags Investisseurs**
+- ❌ CAC > LTV/3
+- ❌ Churn annuel > 15%
+- ❌ Marge brute < 60% (SaaS)
+- ❌ Break-even > 24 mois post-seed
+- ❌ Valorisation/ARR > 12x sans justification
+- ⚠️ NPS < 40
+- ⚠️ Cycle de vente > 120 jours (PME/ETI)
+
+**3. Cohérence Inter-Sections**
+
+Le script vérifie automatiquement :
+
+| Section Source | Section Cible | Formule |
+|----------------|---------------|---------|
+| 1.3 Vision | 7.2 Projections | Valorisation 2028 = ARR 2028 × 7-10 |
+| 5.3 Recrutement | 7.2 Charges personnel | Charges = Effectifs × 65K€ |
+| 4.1 Déploiement | 7.1 CA total | CA = Nb clients × ARPU |
+| 7.2 Marketing | 4.1 Acquisitions | Charges marketing / acquisitions ≈ CAC |
+
+#### Exemple Output
+
+```
+🔍 VALIDATION COHÉRENCE AVANCÉE
+============================================================
+
+💰 VALIDATION VALORISATION VS ARR
+  ✗ Valorisation 200-300M€: Multiple 302.4x INCOHÉRENT
+    ARR M14: 827K€
+    Valorisation réaliste: 8M€ (10x)
+
+✅ CORRECTIONS PROPOSÉES
+╭────────────────────────────────────────────────╮
+│ Section: 1.3 Vision                            │
+│ Champ: valorisation_2028                       │
+│                                                │
+│ CONSERVATIVE: 5M€ (6x ARR)                     │
+│   → Croissance <30%/an, marché mature          │
+│                                                │
+│ REALISTIC: 8M€ (10x ARR) ✅ RECOMMANDÉ         │
+│   → Croissance 30-60%/an, marché stable        │
+│                                                │
+│ AGGRESSIVE: 12M€ (15x ARR)                     │
+│   → Croissance >100%/an, hyper-croissance      │
+╰────────────────────────────────────────────────╯
+
+Statut: ❌ ÉCHEC - 3 erreurs critiques détectées
+```
+
+#### Correction Automatique
+
+Si des incohérences sont détectées, utiliser le script de correction :
+
+```bash
+python scripts/8_fix_coherence.py
+```
+
+Ce script :
+1. Lit les corrections proposées dans `data/structured/corrections_proposed.yaml`
+2. Applique automatiquement les corrections recommandées
+3. Sauvegarde le document Word corrigé
+4. Génère un rapport de corrections
+
+**⚠️ Workflow recommandé :**
+```bash
+# 1. Valider cohérence
+python scripts/7_validate_coherence.py
+
+# 2. Si erreurs, corriger automatiquement
+python scripts/8_fix_coherence.py
+
+# 3. Re-valider
+python scripts/7_validate_coherence.py
+
+# 4. Vérifier que Status: ✅ SUCCÈS
+```
+
+#### Règles de Valorisation - Exemples Concrets
+
+**❌ INCORRECT** (Multiple 300x)
+```
+"Valorisation cible de 200-300M€ en 2028"
+ARR 2028: 827K€
+→ Multiple: 300x (INCOHÉRENT pour SaaS B2B)
+```
+
+**✅ CORRECT** (Multiple 10x)
+```
+"Valorisation cible de 8M€ en 2028"
+ARR 2028: 827K€
+→ Multiple: 10x (RÉALISTE pour croissance 30-60%/an)
+```
+
+**⚠️ AGRESSIF** (Multiple 15x)
+```
+"Valorisation cible de 12M€ en 2028"
+ARR 2028: 827K€
+→ Multiple: 15x (OK si croissance >100%/an démontrée)
+```
+
+#### Fichiers Générés
+
+- `logs/coherence_report_YYYYMMDD_HHMMSS.txt` : Rapport détaillé
+- `data/structured/corrections_proposed.yaml` : Corrections proposées
 
 ## 🧪 Tests
 

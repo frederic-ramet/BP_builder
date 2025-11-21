@@ -1,0 +1,5171 @@
+[
+  {
+    "month": 1,
+    "date": "2025-11",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 1.5,
+        "price_unit": 18000.0,
+        "revenue": 27000.0
+      },
+      "factory": {
+        "volume": 0,
+        "price_unit": 0,
+        "revenue": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 0.75,
+        "price_unit": 10000,
+        "revenue": 7500.0
+      },
+      "total": 34500.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20416.666666666668
+    },
+    "metrics": {
+      "ebitda": 14083.333333333332,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 164083.33333333334,
+      "funding": 150000,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 2,
+    "date": "2025-12",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 2,
+        "price_unit": 18000.0,
+        "revenue": 36000.0
+      },
+      "factory": {
+        "volume": 0,
+        "price_unit": 0,
+        "revenue": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.0,
+        "price_unit": 10000,
+        "revenue": 10000.0
+      },
+      "total": 46000.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20416.666666666668
+    },
+    "metrics": {
+      "ebitda": 25583.333333333332,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 189666.6666666667,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 3,
+    "date": "2026-01",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 2,
+        "price_unit": 18000.0,
+        "revenue": 36000.0
+      },
+      "factory": {
+        "volume": 0.44999999999999996,
+        "price_unit": 75000.0,
+        "revenue": 33750.0,
+        "source_month": 1,
+        "source_hackathons": 1.5
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.09,
+        "price_unit": 10000,
+        "revenue": 10900.0
+      },
+      "total": 80650.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 3000,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 6500
+      },
+      "admin": 3000,
+      "total": 23416.666666666668
+    },
+    "metrics": {
+      "ebitda": 57233.33333333333,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 246900.00000000003,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 4,
+    "date": "2026-02",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 2.5,
+        "price_unit": 18000.0,
+        "revenue": 45000.0
+      },
+      "factory": {
+        "volume": 0.6,
+        "price_unit": 75000.0,
+        "revenue": 45000.0,
+        "source_month": 2,
+        "source_hackathons": 2
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.37,
+        "price_unit": 10000,
+        "revenue": 13700.000000000002
+      },
+      "total": 103700.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20416.666666666668
+    },
+    "metrics": {
+      "ebitda": 83283.33333333333,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 330183.3333333333,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 5,
+    "date": "2026-03",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 2.5,
+        "price_unit": 18000.0,
+        "revenue": 45000.0
+      },
+      "factory": {
+        "volume": 0.6,
+        "price_unit": 75000.0,
+        "revenue": 45000.0,
+        "source_month": 3,
+        "source_hackathons": 2
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.37,
+        "price_unit": 10000,
+        "revenue": 13700.000000000002
+      },
+      "total": 103700.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20416.666666666668
+    },
+    "metrics": {
+      "ebitda": 83283.33333333333,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 413466.6666666666,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 6,
+    "date": "2026-04",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 3,
+        "price_unit": 18000.0,
+        "revenue": 54000.0
+      },
+      "factory": {
+        "volume": 0.75,
+        "price_unit": 75000.0,
+        "revenue": 56250.0,
+        "source_month": 4,
+        "source_hackathons": 2.5
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.65,
+        "price_unit": 10000,
+        "revenue": 16500.0
+      },
+      "total": 126750.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 3000,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 6500
+      },
+      "admin": 3000,
+      "total": 23416.666666666668
+    },
+    "metrics": {
+      "ebitda": 103333.33333333333,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 516799.99999999994,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 7,
+    "date": "2026-05",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 3,
+        "price_unit": 19800,
+        "revenue": 59400
+      },
+      "factory": {
+        "volume": 0.75,
+        "price_unit": 82500,
+        "revenue": 61875.0,
+        "source_month": 5,
+        "source_hackathons": 2.5
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.65,
+        "price_unit": 17500,
+        "revenue": 28875.0
+      },
+      "total": 150150.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20416.666666666668
+    },
+    "metrics": {
+      "ebitda": 129733.33333333333,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 646533.3333333334,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 8,
+    "date": "2026-06",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 3,
+        "price_unit": 19800,
+        "revenue": 59400
+      },
+      "factory": {
+        "volume": 0.8999999999999999,
+        "price_unit": 82500,
+        "revenue": 74249.99999999999,
+        "source_month": 6,
+        "source_hackathons": 3
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 1.8,
+          "business": 0.9,
+          "enterprise": 0.3,
+          "total": 3.0
+        },
+        "new_customers": 3,
+        "mrr": 5700.0,
+        "arr": 68400.0
+      },
+      "services": {
+        "volume": 1.68,
+        "price_unit": 17500,
+        "revenue": 29400.0
+      },
+      "total": 168750.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1150.0,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1575.0
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20566.666666666668
+    },
+    "metrics": {
+      "ebitda": 148183.33333333334,
+      "burn_rate": 0,
+      "arr": 68400.0,
+      "mrr": 5700.0,
+      "cash": 794716.6666666667,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 9,
+    "date": "2026-07",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 3,
+        "price_unit": 19800,
+        "revenue": 59400
+      },
+      "factory": {
+        "volume": 0.8999999999999999,
+        "price_unit": 82500,
+        "revenue": 74249.99999999999,
+        "source_month": 7,
+        "source_hackathons": 3
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 3.59,
+          "business": 1.79,
+          "enterprise": 0.6,
+          "total": 5.98
+        },
+        "new_customers": 3,
+        "mrr": 11354.4,
+        "arr": 136252.8
+      },
+      "services": {
+        "volume": 1.68,
+        "price_unit": 17500,
+        "revenue": 29400.0
+      },
+      "total": 174404.4
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1299.0,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1724.0
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 3000,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 6500
+      },
+      "admin": 3000,
+      "total": 23715.666666666668
+    },
+    "metrics": {
+      "ebitda": 150688.73333333334,
+      "burn_rate": 0,
+      "arr": 136252.8,
+      "mrr": 11354.4,
+      "cash": 945405.4000000001,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 10,
+    "date": "2026-08",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 3,
+        "price_unit": 19800,
+        "revenue": 59400
+      },
+      "factory": {
+        "volume": 0.8999999999999999,
+        "price_unit": 82500,
+        "revenue": 74249.99999999999,
+        "source_month": 8,
+        "source_hackathons": 3
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 5.96,
+          "business": 2.98,
+          "enterprise": 1.0,
+          "total": 9.93
+        },
+        "new_customers": 4,
+        "mrr": 18884.0,
+        "arr": 226608.0
+      },
+      "services": {
+        "volume": 1.68,
+        "price_unit": 17500,
+        "revenue": 29400.0
+      },
+      "total": 181934.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1496.5,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1921.5
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20913.166666666668
+    },
+    "metrics": {
+      "ebitda": 161020.83333333334,
+      "burn_rate": 0,
+      "arr": 226608.0,
+      "mrr": 18884.0,
+      "cash": 1106426.2333333334,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 11,
+    "date": "2026-09",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 4,
+        "price_unit": 19800,
+        "revenue": 79200
+      },
+      "factory": {
+        "volume": 0.8999999999999999,
+        "price_unit": 82500,
+        "revenue": 74249.99999999999,
+        "source_month": 9,
+        "source_hackathons": 3
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 8.73,
+          "business": 4.63,
+          "enterprise": 1.49,
+          "total": 14.86
+        },
+        "new_customers": 5,
+        "mrr": 28555.8496,
+        "arr": 342670.1952
+      },
+      "services": {
+        "volume": 2.18,
+        "price_unit": 17500,
+        "revenue": 38150.0
+      },
+      "total": 220155.84960000002
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1743.0,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 2168.0
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 21159.666666666668
+    },
+    "metrics": {
+      "ebitda": 198996.18293333336,
+      "burn_rate": 0,
+      "arr": 342670.1952,
+      "mrr": 28555.8496,
+      "cash": 1805422.4162666667,
+      "funding": 500000,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 12,
+    "date": "2026-10",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 4,
+        "price_unit": 19800,
+        "revenue": 79200
+      },
+      "factory": {
+        "volume": 0.8999999999999999,
+        "price_unit": 82500,
+        "revenue": 74249.99999999999,
+        "source_month": 10,
+        "source_hackathons": 3
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 12.01,
+          "business": 6.64,
+          "enterprise": 2.08,
+          "total": 20.73
+        },
+        "new_customers": 6,
+        "mrr": 40064.6048,
+        "arr": 480775.2576
+      },
+      "services": {
+        "volume": 2.18,
+        "price_unit": 17500,
+        "revenue": 38150.0
+      },
+      "total": 231664.6048
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 2036.5,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 2461.5
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 3000,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 6500
+      },
+      "admin": 3000,
+      "total": 24453.166666666668
+    },
+    "metrics": {
+      "ebitda": 207211.43813333334,
+      "burn_rate": 0,
+      "arr": 480775.2576,
+      "mrr": 40064.6048,
+      "cash": 2012633.8544,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 13,
+    "date": "2026-11",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 4,
+        "price_unit": 19800,
+        "revenue": 79200
+      },
+      "factory": {
+        "volume": 1.2,
+        "price_unit": 82500,
+        "revenue": 99000.0,
+        "source_month": 11,
+        "source_hackathons": 4
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 15.79,
+          "business": 9.01,
+          "enterprise": 2.76,
+          "total": 27.56
+        },
+        "new_customers": 7,
+        "mrr": 53547.73760000001,
+        "arr": 642572.8512000002
+      },
+      "services": {
+        "volume": 2.24,
+        "price_unit": 17500,
+        "revenue": 39200.00000000001
+      },
+      "total": 270947.7376
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 2378.0,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 2803.0
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 21794.666666666668
+    },
+    "metrics": {
+      "ebitda": 249153.07093333334,
+      "burn_rate": 0,
+      "arr": 642572.8512000002,
+      "mrr": 53547.73760000001,
+      "cash": 2261786.9253333337,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 14,
+    "date": "2026-12",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 4,
+        "price_unit": 19800,
+        "revenue": 79200
+      },
+      "factory": {
+        "volume": 1.2,
+        "price_unit": 82500,
+        "revenue": 99000.0,
+        "source_month": 12,
+        "source_hackathons": 4
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 20.05,
+          "business": 11.75,
+          "enterprise": 3.54,
+          "total": 35.34
+        },
+        "new_customers": 8,
+        "mrr": 68900.7904,
+        "arr": 826809.4848
+      },
+      "services": {
+        "volume": 2.24,
+        "price_unit": 17500,
+        "revenue": 39200.00000000001
+      },
+      "total": 286300.7904
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 2767.0,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 3192.0
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 22183.666666666668
+    },
+    "metrics": {
+      "ebitda": 264117.1237333333,
+      "burn_rate": 0,
+      "arr": 826809.4848,
+      "mrr": 68900.7904,
+      "cash": 2525904.049066667,
+      "funding": 0,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 15,
+    "date": "2027-01",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 1.2,
+        "price_unit": 75000.0,
+        "revenue": 90000.0,
+        "source_month": 13,
+        "source_hackathons": 4
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 24.2,
+          "business": 14.55,
+          "enterprise": 4.31,
+          "total": 43.06
+        },
+        "new_customers": 8,
+        "mrr": 84314.288,
+        "arr": 1011771.456
+      },
+      "services": {
+        "volume": 0.24,
+        "price_unit": 10000,
+        "revenue": 2400.0
+      },
+      "total": 176714.288
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 3153.0,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 3723.0
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 15000,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 30000
+      },
+      "admin": 3000,
+      "total": 94043.83333333333
+    },
+    "metrics": {
+      "ebitda": 82670.45466666667,
+      "burn_rate": 0,
+      "arr": 1011771.456,
+      "mrr": 84314.288,
+      "cash": 2608574.5037333337,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 16,
+    "date": "2027-02",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 1.2,
+        "price_unit": 75000.0,
+        "revenue": 90000.0,
+        "source_month": 14,
+        "source_hackathons": 4
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 28.23,
+          "business": 17.41,
+          "enterprise": 5.08,
+          "total": 50.72
+        },
+        "new_customers": 8,
+        "mrr": 99689.79199999999,
+        "arr": 1196277.5039999997
+      },
+      "services": {
+        "volume": 0.24,
+        "price_unit": 10000,
+        "revenue": 2400.0
+      },
+      "total": 192089.792
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 3028.8,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 3598.8
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 78919.63333333333
+    },
+    "metrics": {
+      "ebitda": 113170.15866666666,
+      "burn_rate": 0,
+      "arr": 1196277.5039999997,
+      "mrr": 99689.79199999999,
+      "cash": 2721744.6624000003,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 17,
+    "date": "2027-03",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 15,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 32.15,
+          "business": 20.33,
+          "enterprise": 5.84,
+          "total": 58.31
+        },
+        "new_customers": 8,
+        "mrr": 115121.2448,
+        "arr": 1381454.9376
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 115121.2448
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 3332.4,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 3902.4
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 79223.23333333334
+    },
+    "metrics": {
+      "ebitda": 35898.01146666666,
+      "burn_rate": 0,
+      "arr": 1381454.9376,
+      "mrr": 115121.2448,
+      "cash": 2757642.673866667,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 18,
+    "date": "2027-04",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 16,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 35.96,
+          "business": 23.3,
+          "enterprise": 6.59,
+          "total": 65.85
+        },
+        "new_customers": 8,
+        "mrr": 130514.704,
+        "arr": 1566176.4479999999
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 130514.704
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 3634.0,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 4204.0
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 15000,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 30000
+      },
+      "admin": 3000,
+      "total": 94524.83333333333
+    },
+    "metrics": {
+      "ebitda": 35989.87066666667,
+      "burn_rate": 0,
+      "arr": 1566176.4479999999,
+      "mrr": 130514.704,
+      "cash": 2793632.5445333333,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 19,
+    "date": "2027-05",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 17,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 39.66,
+          "business": 26.32,
+          "enterprise": 7.34,
+          "total": 73.32
+        },
+        "new_customers": 8,
+        "mrr": 145850.3296,
+        "arr": 1750203.9552
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 145850.3296
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 3932.7999999999997,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 4502.799999999999
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 79823.63333333333
+    },
+    "metrics": {
+      "ebitda": 66026.69626666667,
+      "burn_rate": 0,
+      "arr": 1750203.9552,
+      "mrr": 145850.3296,
+      "cash": 2859659.2408,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 20,
+    "date": "2027-06",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 18,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 43.26,
+          "business": 29.39,
+          "enterprise": 8.08,
+          "total": 80.73
+        },
+        "new_customers": 8,
+        "mrr": 161227.3216,
+        "arr": 1934727.8591999998
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 161227.3216
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4229.200000000001,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 4799.200000000001
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 80120.03333333333
+    },
+    "metrics": {
+      "ebitda": 81107.28826666667,
+      "burn_rate": 0,
+      "arr": 1934727.8591999998,
+      "mrr": 161227.3216,
+      "cash": 2940766.5290666665,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 21,
+    "date": "2027-07",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 19,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 46.76,
+          "business": 32.51,
+          "enterprise": 8.82,
+          "total": 88.08
+        },
+        "new_customers": 8,
+        "mrr": 176551.7376,
+        "arr": 2118620.8512
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 176551.7376
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4523.2,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 5093.2
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 15000,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 30000
+      },
+      "admin": 3000,
+      "total": 95414.03333333333
+    },
+    "metrics": {
+      "ebitda": 81137.70426666667,
+      "burn_rate": 0,
+      "arr": 2118620.8512,
+      "mrr": 176551.7376,
+      "cash": 3021904.2333333334,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 22,
+    "date": "2027-08",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 20,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 50.16,
+          "business": 35.67,
+          "enterprise": 9.55,
+          "total": 95.39
+        },
+        "new_customers": 8,
+        "mrr": 191922.7776,
+        "arr": 2303073.3312
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 191922.7776
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4815.6,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 5385.6
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 80706.43333333332
+    },
+    "metrics": {
+      "ebitda": 111216.34426666668,
+      "burn_rate": 0,
+      "arr": 2303073.3312,
+      "mrr": 191922.7776,
+      "cash": 3133120.5776000004,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 23,
+    "date": "2027-09",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 21,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 53.47,
+          "business": 38.88,
+          "enterprise": 10.27,
+          "total": 102.62
+        },
+        "new_customers": 8,
+        "mrr": 207221.40160000004,
+        "arr": 2486656.8192000007
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 207221.40160000004
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4078.6000000000004,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 4648.6
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 79969.43333333332
+    },
+    "metrics": {
+      "ebitda": 127251.96826666672,
+      "burn_rate": 0,
+      "arr": 2486656.8192000007,
+      "mrr": 207221.40160000004,
+      "cash": 3260372.5458666673,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 24,
+    "date": "2027-10",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 22,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 56.69,
+          "business": 42.13,
+          "enterprise": 10.99,
+          "total": 109.8
+        },
+        "new_customers": 8,
+        "mrr": 222472.7072,
+        "arr": 2669672.4864
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 222472.7072
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4294.0,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 4864.0
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 15000,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 30000
+      },
+      "admin": 3000,
+      "total": 95184.83333333333
+    },
+    "metrics": {
+      "ebitda": 127287.87386666668,
+      "burn_rate": 0,
+      "arr": 2669672.4864,
+      "mrr": 222472.7072,
+      "cash": 3387660.419733334,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 25,
+    "date": "2027-11",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 23,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 59.82,
+          "business": 45.41,
+          "enterprise": 11.7,
+          "total": 116.93
+        },
+        "new_customers": 8,
+        "mrr": 237756.0544,
+        "arr": 2853072.6528
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 237756.0544
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4507.9,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 5077.9
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 80398.73333333334
+    },
+    "metrics": {
+      "ebitda": 157357.32106666666,
+      "burn_rate": 0,
+      "arr": 2853072.6528,
+      "mrr": 237756.0544,
+      "cash": 3545017.7408000003,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 26,
+    "date": "2027-12",
+    "year": 2027,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 24,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 62.86,
+          "business": 48.73,
+          "enterprise": 12.41,
+          "total": 123.99
+        },
+        "new_customers": 8,
+        "mrr": 252952.4032,
+        "arr": 3035428.8384
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 252952.4032
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 10,
+        "fte_total": 9.5,
+        "salary_brut": 36083.33333333333,
+        "charges_sociales": 16237.499999999998,
+        "freelance": 5000,
+        "total": 57320.83333333333,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 2.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 8333.333333333334
+          },
+          "tech_senior": {
+            "fte": 1.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 5416.666666666667
+          },
+          "tech_junior": {
+            "fte": 1.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 3333.3333333333335
+          },
+          "commercial": {
+            "fte": 1.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 4583.333333333333
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          },
+          "consultant": {
+            "fte": 0.5,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 2916.6666666666665
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4719.7,
+        "saas_tools": 570,
+        "rd_external": 0,
+        "total": 5289.7
+      },
+      "marketing": {
+        "digital_ads": 10000,
+        "events": 0,
+        "content": 3000,
+        "partnerships": 2000,
+        "total": 15000
+      },
+      "admin": 3000,
+      "total": 80610.53333333333
+    },
+    "metrics": {
+      "ebitda": 172341.86986666668,
+      "burn_rate": 0,
+      "arr": 3035428.8384,
+      "mrr": 252952.4032,
+      "cash": 3717359.610666667,
+      "funding": 0,
+      "team_size": 10
+    }
+  },
+  {
+    "month": 27,
+    "date": "2028-01",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 25,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 65.81,
+          "business": 52.08,
+          "enterprise": 13.11,
+          "total": 131.01
+        },
+        "new_customers": 8,
+        "mrr": 268180.7936,
+        "arr": 3218169.5231999997
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 268180.7936
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 4930.299999999999,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 5675.299999999999
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 24000,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 46000
+      },
+      "admin": 3000,
+      "total": 143050.3
+    },
+    "metrics": {
+      "ebitda": 125130.49359999999,
+      "burn_rate": 0,
+      "arr": 3218169.5231999997,
+      "mrr": 268180.7936,
+      "cash": 3842490.1042666673,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 28,
+    "date": "2028-02",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 26,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 68.68,
+          "business": 55.47,
+          "enterprise": 13.81,
+          "total": 137.95
+        },
+        "new_customers": 8,
+        "mrr": 283322.18559999997,
+        "arr": 3399866.2271999996
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 283322.18559999997
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 5138.5,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 5883.5
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 119258.5
+    },
+    "metrics": {
+      "ebitda": 164063.68559999997,
+      "burn_rate": 0,
+      "arr": 3399866.2271999996,
+      "mrr": 283322.18559999997,
+      "cash": 4006553.7898666672,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 29,
+    "date": "2028-03",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 27,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 71.47,
+          "business": 58.88,
+          "enterprise": 14.5,
+          "total": 144.86
+        },
+        "new_customers": 8,
+        "mrr": 298500.8768,
+        "arr": 3582010.5216000006
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 298500.8768
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 5345.8,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 6090.8
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 119465.8
+    },
+    "metrics": {
+      "ebitda": 179035.07680000004,
+      "burn_rate": 0,
+      "arr": 3582010.5216000006,
+      "mrr": 298500.8768,
+      "cash": 4185588.866666667,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 30,
+    "date": "2028-04",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 28,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 74.18,
+          "business": 62.32,
+          "enterprise": 15.18,
+          "total": 151.69
+        },
+        "new_customers": 8,
+        "mrr": 313577.9872,
+        "arr": 3762935.8463999997
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 313577.9872
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 5550.7,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 6295.7
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 24000,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 46000
+      },
+      "admin": 3000,
+      "total": 143670.7
+    },
+    "metrics": {
+      "ebitda": 169907.28719999996,
+      "burn_rate": 0,
+      "arr": 3762935.8463999997,
+      "mrr": 313577.9872,
+      "cash": 4355496.153866667,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 31,
+    "date": "2028-05",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 29,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 76.82,
+          "business": 65.79,
+          "enterprise": 15.86,
+          "total": 158.47
+        },
+        "new_customers": 8,
+        "mrr": 328573.3568,
+        "arr": 3942880.2816000003
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 328573.3568
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 5754.1,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 6499.1
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 119874.1
+    },
+    "metrics": {
+      "ebitda": 208699.2568,
+      "burn_rate": 0,
+      "arr": 3942880.2816000003,
+      "mrr": 328573.3568,
+      "cash": 4564195.410666668,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 32,
+    "date": "2028-06",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 30,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 79.39,
+          "business": 69.28,
+          "enterprise": 16.53,
+          "total": 165.2
+        },
+        "new_customers": 8,
+        "mrr": 343591.44320000004,
+        "arr": 4123097.3184
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 343591.44320000004
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 5956.0,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 6701.0
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 120076.0
+    },
+    "metrics": {
+      "ebitda": 223515.44320000004,
+      "burn_rate": 0,
+      "arr": 4123097.3184,
+      "mrr": 343591.44320000004,
+      "cash": 4787710.8538666675,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 33,
+    "date": "2028-07",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 31,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 81.88,
+          "business": 72.8,
+          "enterprise": 17.2,
+          "total": 171.88
+        },
+        "new_customers": 8,
+        "mrr": 358513.2064,
+        "arr": 4302158.4768
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 358513.2064
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 6156.4,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 6901.4
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 24000,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 46000
+      },
+      "admin": 3000,
+      "total": 144276.4
+    },
+    "metrics": {
+      "ebitda": 214236.80640000003,
+      "burn_rate": 0,
+      "arr": 4302158.4768,
+      "mrr": 358513.2064,
+      "cash": 5001947.660266668,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 34,
+    "date": "2028-08",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 32,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 84.3,
+          "business": 76.34,
+          "enterprise": 17.86,
+          "total": 178.5
+        },
+        "new_customers": 8,
+        "mrr": 373452.4288,
+        "arr": 4481429.1456
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 373452.4288
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 6355.0,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 7100.0
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 120475.0
+    },
+    "metrics": {
+      "ebitda": 252977.4288,
+      "burn_rate": 0,
+      "arr": 4481429.1456,
+      "mrr": 373452.4288,
+      "cash": 5254925.0890666675,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 35,
+    "date": "2028-09",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 33,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 86.66,
+          "business": 79.9,
+          "enterprise": 18.52,
+          "total": 185.07
+        },
+        "new_customers": 8,
+        "mrr": 388295.328,
+        "arr": 4659543.936
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 388295.328
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 6552.099999999999,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 7297.099999999999
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 120672.1
+    },
+    "metrics": {
+      "ebitda": 267623.228,
+      "burn_rate": 0,
+      "arr": 4659543.936,
+      "mrr": 388295.328,
+      "cash": 5522548.317066668,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 36,
+    "date": "2028-10",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 34,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 88.95,
+          "business": 83.48,
+          "enterprise": 19.17,
+          "total": 191.6
+        },
+        "new_customers": 8,
+        "mrr": 403146.3616,
+        "arr": 4837756.3392
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 403146.3616
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 6748.0,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 7493.0
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 24000,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 46000
+      },
+      "admin": 3000,
+      "total": 144868.0
+    },
+    "metrics": {
+      "ebitda": 258278.3616,
+      "burn_rate": 0,
+      "arr": 4837756.3392,
+      "mrr": 403146.3616,
+      "cash": 5780826.678666668,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 37,
+    "date": "2028-11",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 35,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 91.18,
+          "business": 87.07,
+          "enterprise": 19.82,
+          "total": 198.07
+        },
+        "new_customers": 8,
+        "mrr": 417901.07200000004,
+        "arr": 5014812.864
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 417901.07200000004
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 6942.099999999999,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 7687.099999999999
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 121062.1
+    },
+    "metrics": {
+      "ebitda": 296838.97200000007,
+      "burn_rate": 0,
+      "arr": 5014812.864,
+      "mrr": 417901.07200000004,
+      "cash": 6077665.650666668,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 38,
+    "date": "2028-12",
+    "year": 2028,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 36,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 93.35,
+          "business": 90.68,
+          "enterprise": 20.46,
+          "total": 204.49
+        },
+        "new_customers": 8,
+        "mrr": 432644.0768,
+        "arr": 5191728.9216
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 432644.0768
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 15,
+        "fte_total": 15.0,
+        "salary_brut": 57500.0,
+        "charges_sociales": 25875.0,
+        "freelance": 5000,
+        "total": 88375.0,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 2.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 10833.333333333334
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 2.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 9166.666666666666
+          },
+          "bd_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 6333.333333333333
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 7134.700000000001,
+        "saas_tools": 745,
+        "rd_external": 0,
+        "total": 7879.700000000001
+      },
+      "marketing": {
+        "digital_ads": 15000,
+        "events": 0,
+        "content": 4000,
+        "partnerships": 3000,
+        "total": 22000
+      },
+      "admin": 3000,
+      "total": 121254.7
+    },
+    "metrics": {
+      "ebitda": 311389.37679999997,
+      "burn_rate": 0,
+      "arr": 5191728.9216,
+      "mrr": 432644.0768,
+      "cash": 6389055.027466668,
+      "funding": 0,
+      "team_size": 15
+    }
+  },
+  {
+    "month": 39,
+    "date": "2029-01",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 37,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 95.46,
+          "business": 94.3,
+          "enterprise": 21.1,
+          "total": 210.85
+        },
+        "new_customers": 8,
+        "mrr": 447296.01600000006,
+        "arr": 5367552.192000001
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 447296.01600000006
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 7325.5,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 8211.5
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 30000,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 59000
+      },
+      "admin": 3000,
+      "total": 177678.1666666667
+    },
+    "metrics": {
+      "ebitda": 269617.8493333334,
+      "burn_rate": 0,
+      "arr": 5367552.192000001,
+      "mrr": 447296.01600000006,
+      "cash": 6658672.876800001,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 40,
+    "date": "2029-02",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 38,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 97.51,
+          "business": 97.94,
+          "enterprise": 21.73,
+          "total": 217.17
+        },
+        "new_customers": 8,
+        "mrr": 461936.2496,
+        "arr": 5543234.9952
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 461936.2496
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 7515.099999999999,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 8401.099999999999
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 147867.76666666666
+    },
+    "metrics": {
+      "ebitda": 314068.4829333333,
+      "burn_rate": 0,
+      "arr": 5543234.9952,
+      "mrr": 461936.2496,
+      "cash": 6972741.359733334,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 41,
+    "date": "2029-03",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 39,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 99.5,
+          "business": 101.59,
+          "enterprise": 22.36,
+          "total": 223.44
+        },
+        "new_customers": 8,
+        "mrr": 476485.41760000004,
+        "arr": 5717825.0112000005
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 476485.41760000004
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 7703.2,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 8589.2
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 148055.86666666667
+    },
+    "metrics": {
+      "ebitda": 328429.55093333335,
+      "burn_rate": 0,
+      "arr": 5717825.0112000005,
+      "mrr": 476485.41760000004,
+      "cash": 7301170.910666668,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 42,
+    "date": "2029-04",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 40,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 101.43,
+          "business": 105.25,
+          "enterprise": 22.98,
+          "total": 229.66
+        },
+        "new_customers": 8,
+        "mrr": 491022.88,
+        "arr": 5892274.5600000005
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 491022.88
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 7889.8,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 8775.8
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 30000,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 59000
+      },
+      "admin": 3000,
+      "total": 178242.46666666667
+    },
+    "metrics": {
+      "ebitda": 312780.41333333333,
+      "burn_rate": 0,
+      "arr": 5892274.5600000005,
+      "mrr": 491022.88,
+      "cash": 7613951.324000001,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 43,
+    "date": "2029-05",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 41,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 103.31,
+          "business": 108.92,
+          "enterprise": 23.6,
+          "total": 235.82
+        },
+        "new_customers": 8,
+        "mrr": 505449.4368,
+        "arr": 6065393.2416
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 505449.4368
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 8074.599999999999,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 8960.599999999999
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 148427.26666666666
+    },
+    "metrics": {
+      "ebitda": 357022.17013333336,
+      "burn_rate": 0,
+      "arr": 6065393.2416,
+      "mrr": 505449.4368,
+      "cash": 7970973.494133335,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 44,
+    "date": "2029-06",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 42,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 105.14,
+          "business": 112.59,
+          "enterprise": 24.21,
+          "total": 241.94
+        },
+        "new_customers": 8,
+        "mrr": 519869.54560000007,
+        "arr": 6238434.547200001
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 519869.54560000007
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 8258.2,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 9144.2
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 148610.86666666667
+    },
+    "metrics": {
+      "ebitda": 371258.6789333334,
+      "burn_rate": 0,
+      "arr": 6238434.547200001,
+      "mrr": 519869.54560000007,
+      "cash": 8342232.173066669,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 45,
+    "date": "2029-07",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 43,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 106.92,
+          "business": 116.27,
+          "enterprise": 24.82,
+          "total": 248.0
+        },
+        "new_customers": 8,
+        "mrr": 534164.1664,
+        "arr": 6409969.9968
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 534164.1664
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 8440.0,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 9326.0
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 30000,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 59000
+      },
+      "admin": 3000,
+      "total": 178792.6666666667
+    },
+    "metrics": {
+      "ebitda": 355371.4997333333,
+      "burn_rate": 0,
+      "arr": 6409969.9968,
+      "mrr": 534164.1664,
+      "cash": 8697603.672800003,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 46,
+    "date": "2029-08",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 44,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 108.65,
+          "business": 119.96,
+          "enterprise": 25.42,
+          "total": 254.03
+        },
+        "new_customers": 8,
+        "mrr": 548452.3391999999,
+        "arr": 6581428.0704
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 548452.3391999999
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 8620.9,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 9506.9
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 148973.56666666665
+    },
+    "metrics": {
+      "ebitda": 399478.7725333333,
+      "burn_rate": 0,
+      "arr": 6581428.0704,
+      "mrr": 548452.3391999999,
+      "cash": 9097082.445333336,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 47,
+    "date": "2029-09",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 45,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 110.33,
+          "business": 123.65,
+          "enterprise": 26.02,
+          "total": 260.0
+        },
+        "new_customers": 8,
+        "mrr": 562634.8640000001,
+        "arr": 6751618.368000001
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 562634.8640000001
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 8800.0,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 9686.0
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 149152.6666666667
+    },
+    "metrics": {
+      "ebitda": 413482.1973333334,
+      "burn_rate": 0,
+      "arr": 6751618.368000001,
+      "mrr": 562634.8640000001,
+      "cash": 9510564.64266667,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 48,
+    "date": "2029-10",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 46,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 111.96,
+          "business": 127.35,
+          "enterprise": 26.61,
+          "total": 265.92
+        },
+        "new_customers": 8,
+        "mrr": 576791.1008,
+        "arr": 6921493.2096
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 576791.1008
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 8977.6,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 9863.6
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 30000,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 59000
+      },
+      "admin": 3000,
+      "total": 179330.26666666666
+    },
+    "metrics": {
+      "ebitda": 397460.83413333335,
+      "burn_rate": 0,
+      "arr": 6921493.2096,
+      "mrr": 576791.1008,
+      "cash": 9908025.476800002,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 49,
+    "date": "2029-11",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 47,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 113.55,
+          "business": 131.05,
+          "enterprise": 27.2,
+          "total": 271.79
+        },
+        "new_customers": 8,
+        "mrr": 590841.6895999999,
+        "arr": 7090100.275199999
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 590841.6895999999
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 9153.7,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 10039.7
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 149506.36666666667
+    },
+    "metrics": {
+      "ebitda": 441335.3229333332,
+      "burn_rate": 0,
+      "arr": 7090100.275199999,
+      "mrr": 590841.6895999999,
+      "cash": 10349360.799733335,
+      "funding": 0,
+      "team_size": 18
+    }
+  },
+  {
+    "month": 50,
+    "date": "2029-12",
+    "year": 2029,
+    "revenue": {
+      "hackathon": {
+        "volume": 0,
+        "price_unit": 18000.0,
+        "revenue": 0.0
+      },
+      "factory": {
+        "volume": 0.0,
+        "price_unit": 75000.0,
+        "revenue": 0.0,
+        "source_month": 48,
+        "source_hackathons": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 115.09,
+          "business": 134.75,
+          "enterprise": 27.78,
+          "total": 277.63
+        },
+        "new_customers": 8,
+        "mrr": 604871.248,
+        "arr": 7258454.976
+      },
+      "services": {
+        "volume": 0.0,
+        "price_unit": 10000,
+        "revenue": 0.0
+      },
+      "total": 604871.248
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 18,
+        "fte_total": 18.0,
+        "salary_brut": 70666.66666666667,
+        "charges_sociales": 31800.000000000004,
+        "freelance": 5000,
+        "total": 107466.66666666667,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "product_owner": {
+            "fte": 3.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 12500.0
+          },
+          "tech_senior": {
+            "fte": 3.0,
+            "salary_monthly": 5416.666666666667,
+            "cost_monthly": 16250.0
+          },
+          "tech_junior": {
+            "fte": 2.0,
+            "salary_monthly": 3333.3333333333335,
+            "cost_monthly": 6666.666666666667
+          },
+          "commercial": {
+            "fte": 3.0,
+            "salary_monthly": 4583.333333333333,
+            "cost_monthly": 13750.0
+          },
+          "bd_junior": {
+            "fte": 3.0,
+            "salary_monthly": 3166.6666666666665,
+            "cost_monthly": 9500.0
+          },
+          "stagiaire": {
+            "fte": 2.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 2000.0
+          },
+          "consultant": {
+            "fte": 1.0,
+            "salary_monthly": 5833.333333333333,
+            "cost_monthly": 5833.333333333333
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 9328.9,
+        "saas_tools": 886,
+        "rd_external": 0,
+        "total": 10214.9
+      },
+      "marketing": {
+        "digital_ads": 20000,
+        "events": 0,
+        "content": 5000,
+        "partnerships": 4000,
+        "total": 29000
+      },
+      "admin": 3000,
+      "total": 149681.56666666665
+    },
+    "metrics": {
+      "ebitda": 455189.68133333337,
+      "burn_rate": 0,
+      "arr": 7258454.976,
+      "mrr": 604871.248,
+      "cash": 10804550.481066668,
+      "funding": 0,
+      "team_size": 18
+    }
+  }
+]
