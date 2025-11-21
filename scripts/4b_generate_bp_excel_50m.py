@@ -495,19 +495,609 @@ class BPExcel50MGenerator:
 
         logger.info(f"✓ Sheet Charges Personnel créée: {len(roles_order)} rôles")
 
+    def create_infrastructure_sheet(self):
+        """Créer sheet Infrastructure Technique (Cloud + SaaS)"""
+        logger.info("☁️ Création sheet Infrastructure Technique...")
+
+        ws = self.wb.create_sheet("Infrastructure")
+
+        # Titre
+        ws['A1'] = "Infrastructure Technique - Cloud & SaaS Tools"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        # Headers
+        ws['D1'] = "2025-2026"
+        ws.merge_cells('D1:Q1')
+        self.apply_style(ws['D1'], self.style_header_year)
+
+        ws['S1'] = "2027"
+        ws.merge_cells('S1:AD1')
+        self.apply_style(ws['S1'], self.style_header_year)
+
+        ws['AF1'] = "2028"
+        ws.merge_cells('AF1:AQ1')
+        self.apply_style(ws['AF1'], self.style_header_year)
+
+        ws['AS1'] = "2029"
+        ws.merge_cells('AS1:BD1')
+        self.apply_style(ws['AS1'], self.style_header_year)
+
+        ws['A2'] = "Poste de coût"
+        ws['B2'] = "Type"
+        ws['C2'] = "Total 25-26"
+
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            ws[f'{col}2'] = f"M{month}"
+            self.apply_style(ws[f'{col}2'], self.style_header_month)
+
+        row = 3
+
+        # Cloud costs
+        ws[f'A{row}'] = "INFRASTRUCTURE CLOUD"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "  Cloud (AWS/Azure)"
+        ws[f'B{row}'] = "Variable"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            infra = self.projections[month - 1]['costs']['infrastructure']
+            if isinstance(infra, dict) and 'cloud' in infra:
+                value = infra['cloud']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # SaaS tools
+        row += 1
+        ws[f'A{row}'] = "OUTILS SAAS"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "  SaaS Tools (Notion, Slack, etc.)"
+        ws[f'B{row}'] = "Par user"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            infra = self.projections[month - 1]['costs']['infrastructure']
+            if isinstance(infra, dict) and 'saas_tools' in infra:
+                value = infra['saas_tools']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # R&D externe
+        ws[f'A{row}'] = "  R&D Externe"
+        ws[f'B{row}'] = "Fixe"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            infra = self.projections[month - 1]['costs']['infrastructure']
+            if isinstance(infra, dict) and 'rd_external' in infra:
+                value = infra['rd_external']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Total
+        row += 1
+        ws[f'A{row}'] = "TOTAL INFRASTRUCTURE"
+        self.apply_style(ws[f'A{row}'], self.style_total)
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            infra = self.projections[month - 1]['costs']['infrastructure']
+            value = infra if isinstance(infra, (int, float)) else infra.get('total', 0)
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].font = Font(bold=True)
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        ws.column_dimensions['A'].width = 35
+        ws.column_dimensions['B'].width = 15
+
+        logger.info("✓ Sheet Infrastructure créée")
+
+    def create_marketing_sheet(self):
+        """Créer sheet Marketing (budget par canal)"""
+        logger.info("📢 Création sheet Marketing...")
+
+        ws = self.wb.create_sheet("Marketing")
+
+        # Titre
+        ws['A1'] = "Marketing & Acquisition - Budget par Canal"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        # Headers
+        ws['D1'] = "2025-2026"
+        ws.merge_cells('D1:Q1')
+        self.apply_style(ws['D1'], self.style_header_year)
+
+        ws['S1'] = "2027"
+        ws.merge_cells('S1:AD1')
+        self.apply_style(ws['S1'], self.style_header_year)
+
+        ws['AF1'] = "2028"
+        ws.merge_cells('AF1:AQ1')
+        self.apply_style(ws['AF1'], self.style_header_year)
+
+        ws['AS1'] = "2029"
+        ws.merge_cells('AS1:BD1')
+        self.apply_style(ws['AS1'], self.style_header_year)
+
+        ws['A2'] = "Canal Marketing"
+        ws['B2'] = "Type"
+        ws['C2'] = "Total 25-26"
+
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            ws[f'{col}2'] = f"M{month}"
+            self.apply_style(ws[f'{col}2'], self.style_header_month)
+
+        row = 3
+
+        ws[f'A{row}'] = "BUDGET MARKETING"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        # Digital ads
+        ws[f'A{row}'] = "  Digital Ads (Google, LinkedIn)"
+        ws[f'B{row}'] = "Mensuel"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            marketing = self.projections[month - 1]['costs']['marketing']
+            if isinstance(marketing, dict) and 'digital_ads' in marketing:
+                value = marketing['digital_ads']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Events
+        ws[f'A{row}'] = "  Events & Salons"
+        ws[f'B{row}'] = "Trimestriel"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            marketing = self.projections[month - 1]['costs']['marketing']
+            if isinstance(marketing, dict) and 'events' in marketing:
+                value = marketing['events']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Content
+        ws[f'A{row}'] = "  Content Marketing"
+        ws[f'B{row}'] = "Mensuel"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            marketing = self.projections[month - 1]['costs']['marketing']
+            if isinstance(marketing, dict) and 'content' in marketing:
+                value = marketing['content']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Partnerships
+        ws[f'A{row}'] = "  Partenariats"
+        ws[f'B{row}'] = "Mensuel"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            marketing = self.projections[month - 1]['costs']['marketing']
+            if isinstance(marketing, dict) and 'partnerships' in marketing:
+                value = marketing['partnerships']
+            else:
+                value = 0
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Total
+        row += 1
+        ws[f'A{row}'] = "TOTAL MARKETING"
+        self.apply_style(ws[f'A{row}'], self.style_total)
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            marketing = self.projections[month - 1]['costs']['marketing']
+            value = marketing if isinstance(marketing, (int, float)) else marketing.get('total', 0)
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].font = Font(bold=True)
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        ws.column_dimensions['A'].width = 35
+        ws.column_dimensions['B'].width = 15
+
+        logger.info("✓ Sheet Marketing créée")
+
+    def create_ventes_sheet(self):
+        """Créer sheet Ventes (pipeline commercial)"""
+        logger.info("💼 Création sheet Ventes...")
+
+        ws = self.wb.create_sheet("Ventes")
+
+        # Titre
+        ws['A1'] = "Prévisions de Ventes - Pipeline Commercial"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        # Headers
+        ws['D1'] = "2025-2026"
+        ws.merge_cells('D1:Q1')
+        self.apply_style(ws['D1'], self.style_header_year)
+
+        ws['S1'] = "2027"
+        ws.merge_cells('S1:AD1')
+        self.apply_style(ws['S1'], self.style_header_year)
+
+        ws['AF1'] = "2028"
+        ws.merge_cells('AF1:AQ1')
+        self.apply_style(ws['AF1'], self.style_header_year)
+
+        ws['AS1'] = "2029"
+        ws.merge_cells('AS1:BD1')
+        self.apply_style(ws['AS1'], self.style_header_year)
+
+        ws['A2'] = "Segment / Métrique"
+        ws['B2'] = "Prix unitaire"
+        ws['C2'] = "Total 25-26"
+
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            ws[f'{col}2'] = f"M{month}"
+            self.apply_style(ws[f'{col}2'], self.style_header_month)
+
+        row = 3
+
+        # Hackathons
+        ws[f'A{row}'] = "HACKATHONS"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "  Nombre de hackathons"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['hackathon']['volume']
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].number_format = '0'
+        row += 1
+
+        ws[f'A{row}'] = "  CA Hackathons"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['hackathon']['revenue']
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Factory
+        row += 1
+        ws[f'A{row}'] = "FACTORY PROJECTS"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "  Nombre de projets Factory"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['factory']['volume']
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].number_format = '0.0'
+        row += 1
+
+        ws[f'A{row}'] = "  CA Factory"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['factory']['revenue']
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Hub
+        row += 1
+        ws[f'A{row}'] = "ENTERPRISE HUB"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "  Clients Hub actifs"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['enterprise_hub']['customers']['total']
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].number_format = '0.0'
+        row += 1
+
+        ws[f'A{row}'] = "  Nouveaux clients Hub"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['enterprise_hub'].get('new_customers', 0)
+            ws[f'{col}{row}'] = value
+            ws[f'{col}{row}'].number_format = '0'
+        row += 1
+
+        ws[f'A{row}'] = "  MRR Hub"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['enterprise_hub']['mrr']
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        ws[f'A{row}'] = "  ARR Hub"
+        for month in range(1, 51):
+            col = self.columns_map[month]
+            value = self.projections[month - 1]['revenue']['enterprise_hub']['arr']
+            ws[f'{col}{row}'] = value
+            self.apply_style(ws[f'{col}{row}'], self.style_arr)
+        row += 1
+
+        ws.column_dimensions['A'].width = 35
+        ws.column_dimensions['B'].width = 15
+
+        logger.info("✓ Sheet Ventes créée")
+
+    def create_synthese_sheet(self):
+        """Créer sheet Synthèse (dashboard annuel)"""
+        logger.info("📊 Création sheet Synthèse...")
+
+        ws = self.wb.create_sheet("Synthèse", 0)  # Insert at beginning
+
+        # Titre
+        ws['A1'] = "Business Plan GenieFactory - Synthèse 2025-2029"
+        ws['A1'].font = Font(bold=True, size=16, color='1F4E78')
+
+        row = 3
+        ws[f'A{row}'] = "Vue Annuelle Consolidée"
+        ws[f'A{row}'].font = Font(bold=True, size=14)
+        row += 2
+
+        # Headers
+        ws['A5'] = "Métrique"
+        ws['B5'] = "2025-2026 (14M)"
+        ws['C5'] = "2027"
+        ws['D5'] = "2028"
+        ws['E5'] = "2029"
+        ws['F5'] = "TOTAL 50M"
+
+        for col in ['A', 'B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}5'], self.style_header_month)
+
+        row = 6
+
+        # CA total
+        ws[f'A{row}'] = "Chiffre d'Affaires"
+        ca_2025_2026 = sum(p['revenue']['total'] for p in self.projections[:14])
+        ca_2027 = sum(p['revenue']['total'] for p in self.projections[14:26])
+        ca_2028 = sum(p['revenue']['total'] for p in self.projections[26:38])
+        ca_2029 = sum(p['revenue']['total'] for p in self.projections[38:50])
+        ca_total = ca_2025_2026 + ca_2027 + ca_2028 + ca_2029
+
+        ws[f'B{row}'] = ca_2025_2026
+        ws[f'C{row}'] = ca_2027
+        ws[f'D{row}'] = ca_2028
+        ws[f'E{row}'] = ca_2029
+        ws[f'F{row}'] = ca_total
+        for col in ['B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+            ws[f'{col}{row}'].font = Font(bold=True)
+        row += 1
+
+        # ARR fin de période
+        ws[f'A{row}'] = "ARR (fin période)"
+        arr_m14 = self.projections[13]['metrics']['arr']
+        arr_m26 = self.projections[25]['metrics']['arr']
+        arr_m38 = self.projections[37]['metrics']['arr']
+        arr_m50 = self.projections[49]['metrics']['arr']
+
+        ws[f'B{row}'] = arr_m14
+        ws[f'C{row}'] = arr_m26
+        ws[f'D{row}'] = arr_m38
+        ws[f'E{row}'] = arr_m50
+        ws[f'F{row}'] = arr_m50  # Dernière valeur
+        for col in ['B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}{row}'], self.style_arr)
+        row += 1
+
+        # Charges totales
+        ws[f'A{row}'] = "Charges totales"
+        charges_2025_2026 = sum(p['costs']['total'] for p in self.projections[:14])
+        charges_2027 = sum(p['costs']['total'] for p in self.projections[14:26])
+        charges_2028 = sum(p['costs']['total'] for p in self.projections[26:38])
+        charges_2029 = sum(p['costs']['total'] for p in self.projections[38:50])
+        charges_total = charges_2025_2026 + charges_2027 + charges_2028 + charges_2029
+
+        ws[f'B{row}'] = charges_2025_2026
+        ws[f'C{row}'] = charges_2027
+        ws[f'D{row}'] = charges_2028
+        ws[f'E{row}'] = charges_2029
+        ws[f'F{row}'] = charges_total
+        for col in ['B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # EBITDA
+        ws[f'A{row}'] = "EBITDA"
+        ws[f'B{row}'] = ca_2025_2026 - charges_2025_2026
+        ws[f'C{row}'] = ca_2027 - charges_2027
+        ws[f'D{row}'] = ca_2028 - charges_2028
+        ws[f'E{row}'] = ca_2029 - charges_2029
+        ws[f'F{row}'] = ca_total - charges_total
+        for col in ['B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+            ws[f'{col}{row}'].font = Font(bold=True, color='00B050' if ws[f'{col}{row}'].value > 0 else 'C00000')
+        row += 1
+
+        # Cash fin de période
+        ws[f'A{row}'] = "Cash (fin période)"
+        ws[f'B{row}'] = self.projections[13]['metrics']['cash']
+        ws[f'C{row}'] = self.projections[25]['metrics']['cash']
+        ws[f'D{row}'] = self.projections[37]['metrics']['cash']
+        ws[f'E{row}'] = self.projections[49]['metrics']['cash']
+        ws[f'F{row}'] = self.projections[49]['metrics']['cash']
+        for col in ['B', 'C', 'D', 'E', 'F']:
+            self.apply_style(ws[f'{col}{row}'], self.style_currency)
+        row += 1
+
+        # Équipe
+        ws[f'A{row}'] = "Équipe (ETP)"
+        ws[f'B{row}'] = self.projections[13]['metrics']['team_size']
+        ws[f'C{row}'] = self.projections[25]['metrics']['team_size']
+        ws[f'D{row}'] = self.projections[37]['metrics']['team_size']
+        ws[f'E{row}'] = self.projections[49]['metrics']['team_size']
+        for col in ['B', 'C', 'D', 'E']:
+            ws[f'{col}{row}'].number_format = '0'
+        row += 1
+
+        # Largeurs
+        ws.column_dimensions['A'].width = 25
+        for col in ['B', 'C', 'D', 'E', 'F']:
+            ws.column_dimensions[col].width = 15
+
+        logger.info("✓ Sheet Synthèse créée")
+
+    def create_parametres_sheet(self):
+        """Créer sheet Paramètres (pricing et assumptions)"""
+        logger.info("⚙️ Création sheet Paramètres...")
+
+        ws = self.wb.create_sheet("Paramètres")
+
+        ws['A1'] = "Paramètres et Hypothèses Clés"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "PRICING"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        # Hackathon pricing
+        ws[f'A{row}'] = "Hackathon"
+        ws[f'B{row}'] = "20,000 €"
+        row += 1
+
+        ws[f'A{row}'] = "Factory Project"
+        ws[f'B{row}'] = "82,000 €"
+        row += 1
+
+        ws[f'A{row}'] = "Hub Starter (mensuel)"
+        ws[f'B{row}'] = "500 €"
+        row += 1
+
+        ws[f'A{row}'] = "Hub Business (mensuel)"
+        ws[f'B{row}'] = "2,000 €"
+        row += 1
+
+        ws[f'A{row}'] = "Hub Enterprise (mensuel)"
+        ws[f'B{row}'] = "10,000 €"
+        row += 1
+
+        # KPIs
+        row += 2
+        ws[f'A{row}'] = "KPIS CLES"
+        self.apply_style(ws[f'A{row}'], self.style_section_header)
+        row += 1
+
+        ws[f'A{row}'] = "ARR Target M14"
+        ws[f'B{row}'] = f"{self.assumptions['financial_kpis']['target_arr_dec_2026']:,} €"
+        row += 1
+
+        ws[f'A{row}'] = "Churn Hub mensuel"
+        ws[f'B{row}'] = "10%"
+        row += 1
+
+        ws[f'A{row}'] = "Conversion Hack→Factory"
+        ws[f'B{row}'] = "30%"
+        row += 1
+
+        ws.column_dimensions['A'].width = 30
+        ws.column_dimensions['B'].width = 20
+
+        logger.info("✓ Sheet Paramètres créée")
+
+    def create_financement_sheet(self):
+        """Créer sheet Financement"""
+        logger.info("💰 Création sheet Financement...")
+
+        ws = self.wb.create_sheet("Financement")
+
+        ws['A1'] = "Plan de Financement"
+        ws['A1'].font = Font(bold=True, size=14)
+
+        row = 3
+        ws[f'A{row}'] = "Tour"
+        ws[f'B{row}'] = "Mois"
+        ws[f'C{row}'] = "Montant"
+        ws[f'D{row}'] = "Valorisation post"
+        for col in ['A', 'B', 'C', 'D']:
+            self.apply_style(ws[f'{col}{row}'], self.style_header_month)
+        row += 1
+
+        # Pre-seed
+        ws[f'A{row}'] = "Pre-seed"
+        ws[f'B{row}'] = "M1 (Nov 2025)"
+        ws[f'C{row}'] = 250000
+        ws[f'D{row}'] = 1500000
+        self.apply_style(ws[f'C{row}'], self.style_currency)
+        self.apply_style(ws[f'D{row}'], self.style_currency)
+        row += 1
+
+        # Seed
+        ws[f'A{row}'] = "Seed"
+        ws[f'B{row}'] = "M11 (Sept 2026)"
+        ws[f'C{row}'] = 500000
+        ws[f'D{row}'] = 4000000
+        self.apply_style(ws[f'C{row}'], self.style_currency)
+        self.apply_style(ws[f'D{row}'], self.style_currency)
+        row += 1
+
+        ws.column_dimensions['A'].width = 20
+        ws.column_dimensions['B'].width = 20
+        ws.column_dimensions['C'].width = 15
+        ws.column_dimensions['D'].width = 20
+
+        logger.info("✓ Sheet Financement créée")
+
     def generate(self):
         """Générer le workbook complet"""
-        logger.info("\n🔨 Génération workbook BP 50 mois...")
+        logger.info("\n🔨 Génération workbook BP 50 mois complet...")
 
         self.create_styles()
 
         # Créer les sheets dans l'ordre
-        # Phase 1: Sheets critiques
+        logger.info("\n📑 Création de 8 sheets principales...")
+
+        # 1. Synthèse (en premier pour être la première tab)
+        self.create_synthese_sheet()
+
+        # 2. P&L (sheet principale)
         self.create_pl_sheet()
+
+        # 3. Ventes (pipeline commercial)
+        self.create_ventes_sheet()
+
+        # 4. Charges Personnel (détail par rôle)
         self.create_charges_personnel_sheet()
 
-        logger.info("\n✓ Workbook Phase 1 généré (P&L + Personnel)")
+        # 5. Infrastructure (Cloud + SaaS)
+        self.create_infrastructure_sheet()
+
+        # 6. Marketing (budget par canal)
+        self.create_marketing_sheet()
+
+        # 7. Paramètres (pricing et KPIs)
+        self.create_parametres_sheet()
+
+        # 8. Financement (funding rounds)
+        self.create_financement_sheet()
+
+        logger.info("\n✓ Workbook complet généré")
         logger.info(f"  Sheets: {len(self.wb.sheetnames)}")
+        logger.info(f"  Ordre: {', '.join(self.wb.sheetnames)}")
         return self.wb
 
 
@@ -558,8 +1148,8 @@ def main():
     logger.info(f"📑 Sheets: {len(wb.sheetnames)} - {', '.join(wb.sheetnames)}")
 
     logger.info("\n✓ Excel prêt à ouvrir dans MS Excel ou LibreOffice")
-    logger.info("   → Phase 1: P&L + Personnel créés")
-    logger.info("   → Prochaines phases: 13 sheets restants")
+    logger.info(f"   → {len(wb.sheetnames)} sheets créés")
+    logger.info("   → Couverture complète: 50 mois (Nov 2025 - Dec 2029)")
 
     return 0
 
