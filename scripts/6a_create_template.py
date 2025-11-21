@@ -125,6 +125,142 @@ class TemplateCreator:
 
         logger.info("✓ Financement adapté avec funding YAML")
 
+    def update_strategie_vente_sheet(self):
+        """
+        Adapter le sheet Stratégie de vente selon assumptions.yaml
+        - Taux de conversion Hackathon→Factory
+        """
+        logger.info("\n🎯 Adaptation sheet Stratégie de vente...")
+
+        ws = self.wb['Stratégie de vente']
+
+        conversion_rates = self.assumptions.get('conversion_rates', {})
+        hackathon_to_factory = conversion_rates.get('hackathon_to_factory', 0.30)
+
+        # Ajouter un indicateur des taux de conversion en haut du sheet
+        # Ligne 1 col A-B: Taux de conversion
+        ws['A1'].value = "Taux de conversion Hackathon→Factory"
+        ws['B1'].value = f"{hackathon_to_factory*100:.0f}%"
+
+        logger.info(f"✓ Stratégie de vente adaptée (conversion: {hackathon_to_factory*100:.0f}%)")
+
+    def update_charges_personnel_sheet(self):
+        """
+        Adapter le sheet Charges de personnel et FG selon assumptions.yaml
+        - Structure 8 rôles
+        - Charges sociales 45%
+        """
+        logger.info("\n👥 Adaptation sheet Charges de personnel et FG...")
+
+        ws = self.wb['Charges de personnel et FG']
+
+        personnel = self.assumptions.get('personnel_details', {})
+        charges_rate = personnel.get('charges_sociales_rate', 0.45)
+        roles = personnel.get('roles', {})
+
+        # Section info en haut (lignes 1-10)
+        ws['A1'].value = "CHARGES DE PERSONNEL"
+        ws['A2'].value = f"Charges sociales: {charges_rate*100:.0f}%"
+        ws['A3'].value = f"Nombre de rôles: {len(roles)}"
+
+        # Lister les rôles (lignes 5+)
+        row = 5
+        ws[f'A{row}'].value = "RÔLES DÉFINIS:"
+        row += 1
+
+        for role_name, role_data in roles.items():
+            salary = role_data.get('salary_brut_annual', 0)
+            ws[f'A{row}'].value = role_name.replace('_', ' ').title()
+            ws[f'B{row}'].value = f"{salary:,.0f}€/an"
+            row += 1
+
+        logger.info(f"✓ Charges Personnel adaptées ({len(roles)} rôles, {charges_rate*100:.0f}% charges)")
+
+    def update_infrastructure_detailed_sheet(self):
+        """
+        Adapter le sheet Infrastructure technique selon assumptions.yaml
+        - Pricing cloud (base + tiers)
+        - Pricing SaaS tools
+        """
+        logger.info("\n☁️ Adaptation sheet Infrastructure technique...")
+
+        ws = self.wb['Infrastructure technique']
+
+        infra = self.assumptions.get('infrastructure_costs', {})
+        cloud = infra.get('cloud', {})
+        saas = infra.get('saas_tools', {})
+
+        # Section cloud (lignes 1-7)
+        ws['A1'].value = "CLOUD INFRASTRUCTURE"
+        ws['A2'].value = "Base mensuel"
+        ws['B2'].value = cloud.get('base_monthly', 1000)
+
+        ws['A3'].value = "Scaling tiers (coût par client):"
+
+        scaling_tiers = cloud.get('scaling_tiers', {})
+        ws['A4'].value = "  < 50 clients"
+        ws['B4'].value = scaling_tiers.get('tier1', {}).get('cost_per_client', 50)
+
+        ws['A5'].value = "  50-100 clients"
+        ws['B5'].value = scaling_tiers.get('tier2', {}).get('cost_per_client', 40)
+
+        ws['A6'].value = "  > 100 clients"
+        ws['B6'].value = scaling_tiers.get('tier3', {}).get('cost_per_client', 30)
+
+        # Section SaaS (lignes 9+)
+        ws['A9'].value = "SAAS TOOLS"
+        row = 10
+
+        for tool_name, tool_data in saas.items():
+            if isinstance(tool_data, dict):
+                cost = tool_data.get('cost_per_user', 0) or tool_data.get('cost_per_developer', 0)
+                min_users = tool_data.get('min_users', 1)
+                ws[f'A{row}'].value = tool_name.title()
+                ws[f'B{row}'].value = f"{cost}€/user (min {min_users})"
+                row += 1
+
+        logger.info("✓ Infrastructure technique adaptée (cloud + SaaS)")
+
+    def update_marketing_detailed_sheet(self):
+        """
+        Adapter le sheet Marketing selon assumptions.yaml
+        - 4 canaux avec budgets annuels
+        """
+        logger.info("\n📢 Adaptation sheet Marketing...")
+
+        ws = self.wb['Marketing']
+
+        marketing = self.assumptions.get('marketing_budgets', {})
+
+        # Section budgets par canal (lignes 1+)
+        ws['A1'].value = "BUDGETS MARKETING PAR CANAL"
+
+        channels = ['digital_ads', 'events', 'content', 'partnerships']
+        row = 3
+
+        for channel in channels:
+            if channel not in marketing:
+                continue
+
+            channel_data = marketing[channel]
+            monthly_budgets = channel_data.get('monthly_budgets', {})
+
+            ws[f'A{row}'].value = channel.replace('_', ' ').title()
+            ws[f'B{row}'].value = "2025"
+            ws[f'C{row}'].value = monthly_budgets.get('y2025', 0)
+            ws[f'D{row}'].value = "2026"
+            ws[f'E{row}'].value = monthly_budgets.get('y2026', 0)
+            ws[f'F{row}'].value = "2027"
+            ws[f'G{row}'].value = monthly_budgets.get('y2027', 0)
+            ws[f'H{row}'].value = "2028"
+            ws[f'I{row}'].value = monthly_budgets.get('y2028', 0)
+            ws[f'J{row}'].value = "2029"
+            ws[f'K{row}'].value = monthly_budgets.get('y2029', 0)
+
+            row += 2
+
+        logger.info(f"✓ Marketing adapté ({len(channels)} canaux)")
+
     def clean_data_cells(self):
         """
         Nettoyer les cellules de données (pas les formules)
@@ -197,6 +333,10 @@ class TemplateCreator:
         # 1. Adapter structure selon YAML
         self.update_parametres_sheet()
         self.update_financement_sheet()
+        self.update_strategie_vente_sheet()
+        self.update_charges_personnel_sheet()
+        self.update_infrastructure_detailed_sheet()
+        self.update_marketing_detailed_sheet()
 
         # 2. Nettoyer les données
         self.clean_data_cells()
