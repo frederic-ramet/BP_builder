@@ -159,7 +159,76 @@ class TemplateCreator:
             ws[f'P{row}'].value = value
             row += 1
 
-        logger.info("✓ Paramètres enrichis avec financial_kpis, validation_rules, et hypothèses business")
+        # NOUVELLE SECTION: Coûts RH (colonne R+) - PHASE 4
+        ws['R1'].value = "COÛTS RH"
+        ws['R1'].font = openpyxl.styles.Font(bold=True, size=12, color="FFFFFF")
+        ws['R1'].fill = openpyxl.styles.PatternFill(start_color="9966FF", end_color="9966FF", fill_type="solid")
+
+        ws['R2'].value = "Paramètre"
+        ws['S2'].value = "Valeur"
+
+        for col in ['R', 'S']:
+            ws[f'{col}2'].font = openpyxl.styles.Font(bold=True)
+
+        costs = self.assumptions.get('costs', {})
+        social_charges = costs.get('social_charges_rate', 0.45)
+        avg_salary = 60000  # Salaire moyen brut annuel (peut être ajouté au YAML si nécessaire)
+
+        row = 3
+        hr_data = [
+            ("Charges sociales (%)", f"{social_charges*100}%"),
+            ("Salaire moyen brut (€/an)", avg_salary),
+            ("Coût total ETP (€/an)", f"=S4*(1+{social_charges})"),  # Formule dynamique
+        ]
+
+        for label, value in hr_data:
+            ws[f'R{row}'].value = label
+            if isinstance(value, str) and value.startswith('='):
+                # C'est une formule
+                ws[f'S{row}'].value = value
+            else:
+                ws[f'S{row}'].value = value
+            row += 1
+
+        # NOUVELLE SECTION: Volumes Commerciaux (colonne R+) - PHASE 4
+        ws[f'R{row+1}'].value = "VOLUMES COMMERCIAUX"
+        ws[f'R{row+1}'].font = openpyxl.styles.Font(bold=True, size=12, color="FFFFFF")
+        ws[f'R{row+1}'].fill = openpyxl.styles.PatternFill(start_color="FF9900", end_color="FF9900", fill_type="solid")
+
+        row = row + 2
+        ws[f'R{row}'].value = "Produit"
+        ws[f'S{row}'].value = "Volume/mois (moy)"
+        ws[f'R{row}'].font = openpyxl.styles.Font(bold=True)
+        ws[f'S{row}'].font = openpyxl.styles.Font(bold=True)
+
+        row += 1
+
+        # Calculer volumes moyens hackathons
+        sales_assumptions = self.assumptions.get('sales_assumptions', {})
+        hackathons_volumes = sales_assumptions.get('hackathon', {}).get('volumes_monthly', {})
+        if hackathons_volumes and isinstance(hackathons_volumes, dict):
+            volumes = [hackathons_volumes.get(f'm{i}', 0) for i in range(1, 13)]
+            avg_hackathons = sum(volumes) / len(volumes) if volumes else 7.3
+        else:
+            avg_hackathons = 7.3
+
+        factory_conversion = sales_assumptions.get('factory', {}).get('conversion_rate', 0.35)
+
+        volumes_data = [
+            ("Hackathons", f"{avg_hackathons:.1f}"),
+            ("Factory conversions", f"={avg_hackathons:.1f}*{factory_conversion}"),  # Formule
+            ("Hub nouveaux clients", "Variable (launch M8)"),
+        ]
+
+        for label, value in volumes_data:
+            ws[f'R{row}'].value = label
+            if isinstance(value, str) and value.startswith('='):
+                ws[f'S{row}'].value = value
+            else:
+                ws[f'S{row}'].value = value
+            row += 1
+
+        logger.info("✓ Paramètres enrichis avec financial_kpis, validation_rules, hypothèses business, coûts RH, et volumes commerciaux")
 
     def update_financement_sheet(self):
         """
@@ -1050,6 +1119,128 @@ class TemplateCreator:
 
         logger.info("✓ Métriques granulaires ajoutées dans Ventes")
 
+    def add_productivity_ia_to_ventes(self):
+        """
+        Ajouter productivité IA dans Ventes - PHASE 4
+        Total ETP, Ratio productivité IA, Équivalent ETP trad.
+        Illustre le pitch core GenieFactory: IA qui décuple productivité
+        """
+        logger.info("\n🤖 Ajout productivité IA dans Ventes...")
+
+        if 'Ventes' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Ventes' introuvable, skip")
+            return
+
+        ws = self.wb['Ventes']
+
+        # Ajouter section PRODUCTIVITÉ IA (avant volumes Hub, ligne 45)
+        row = 45
+        ws[f'A{row}'].value = "PRODUCTIVITÉ IA (GenieFactory)"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, size=12, color="FFFFFF")
+        ws[f'A{row}'].fill = openpyxl.styles.PatternFill(start_color="FF3366", end_color="FF3366", fill_type="solid")
+        row += 1
+
+        ws[f'A{row}'].value = "Métrique"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+
+        # Total ETP
+        ws[f'A{row}'].value = "Total ETP"
+        ws[f'A{row}'].font = openpyxl.styles.Font(italic=True)
+        # Note: Les valeurs seront injectées par le script d'injection
+        row += 1
+
+        # Ratio productivité IA
+        ws[f'A{row}'].value = "Productivité IA (ratio)"
+        ws[f'A{row}'].font = openpyxl.styles.Font(italic=True)
+        # Valeur fixe: 3.0× (peut être ajustée selon assumptions.yaml)
+        productivity_ratio = 3.0
+        ws[f'B{row}'].value = f"{productivity_ratio}×"
+        row += 1
+
+        # Équivalent ETP trad.
+        ws[f'A{row}'].value = "Équivalent ETP trad."
+        ws[f'A{row}'].font = openpyxl.styles.Font(italic=True)
+        # Formule: Total ETP × Ratio IA (sera ajustée lors injection)
+        row += 1
+
+        # Ajouter note explicative
+        ws[f'A{row}'].value = "Note: GenieFactory permet à 1 ETP de faire le travail de 3 ETP traditionnels"
+        ws[f'A{row}'].font = openpyxl.styles.Font(size=9, italic=True, color="666666")
+
+        logger.info("✓ Productivité IA ajoutée dans Ventes (pitch core GenieFactory)")
+
+    def improve_infrastructure_labels(self):
+        """
+        Améliorer labels Infrastructure - PHASE 5
+        Ajouter labels manquants: Hosting, Licences logicielles, total
+        """
+        logger.info("\n☁️ Amélioration labels Infrastructure...")
+
+        if 'Infrastructure technique' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Infrastructure technique' introuvable, skip")
+            return
+
+        ws = self.wb['Infrastructure technique']
+
+        # Modifier label ligne 1 pour plus de clarté
+        current_label = ws['A1'].value
+        if current_label and 'CLOUD' in str(current_label):
+            ws['A1'].value = "Hosting (CLOUD INFRASTRUCTURE)"
+
+        # Modifier label ligne 9 pour plus de clarté
+        if ws['A9'].value and 'SAAS' in str(ws['A9'].value):
+            ws['A9'].value = "Licences logicielles (SAAS TOOLS)"
+
+        # Ajouter ligne "total" si pas déjà présente
+        # Trouver la dernière ligne utilisée
+        last_row = 20
+        ws[f'A{last_row}'].value = "Total Infrastructure (mensuel)"
+        ws[f'A{last_row}'].font = openpyxl.styles.Font(bold=True)
+        # Formule sera ajoutée si nécessaire
+
+        logger.info("✓ Labels Infrastructure améliorés (Hosting, Licences, total)")
+
+    def improve_marketing_labels(self):
+        """
+        Améliorer labels Marketing - PHASE 5
+        Ajouter labels manquants: Ventes, Campagnes Collaboration, Campagnes Ciblées
+        """
+        logger.info("\n📢 Amélioration labels Marketing...")
+
+        if 'Marketing' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Marketing' introuvable, skip")
+            return
+
+        ws = self.wb['Marketing']
+
+        # Ajouter section "Ventes" (ligne 25+)
+        row = 25
+        ws[f'A{row}'].value = "Ventes (Support Marketing)"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True, color="FFFFFF")
+        ws[f'A{row}'].fill = openpyxl.styles.PatternFill(start_color="00CC66", end_color="00CC66", fill_type="solid")
+        row += 1
+
+        ws[f'A{row}'].value = "Support ventes (docs, présent., démos)"
+        row += 1
+
+        # Ajouter "Campagnes Collaboration" (ligne 28+)
+        row = 28
+        ws[f'A{row}'].value = "Campagnes Collaboration"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+        ws[f'A{row}'].value = "Partenariats tech, co-marketing"
+        row += 1
+
+        # Ajouter "Campagnes Ciblées" (ligne 31+)
+        row = 31
+        ws[f'A{row}'].value = "Campagnes Ciblées"
+        ws[f'A{row}'].font = openpyxl.styles.Font(bold=True)
+        row += 1
+        ws[f'A{row}'].value = "ABM (Account-Based Marketing)"
+
+        logger.info("✓ Labels Marketing améliorés (Ventes, Campagnes)")
+
     def enhance_fundings_visualization(self):
         """
         Améliorer visualisation dilution dans Fundings
@@ -1441,12 +1632,12 @@ class TemplateCreator:
             logger.info(f"  {sheet_name}: {formula_count} formules")
 
     def create_template(self):
-        """Créer le template complet avec toutes les améliorations Phase 1 + Phase 2 + Phase 3"""
-        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1 + Phase 2 + Phase 3)")
+        """Créer le template complet avec toutes les améliorations Phase 1 + 2 + 3 + 4"""
+        logger.info("\n🔨 CRÉATION TEMPLATE ENRICHI (Phase 1 + 2 + 3 + 4)")
         logger.info("=" * 60)
 
         # 1. Adapter structure selon YAML (existant + enrichi)
-        self.update_parametres_sheet()  # ✅ Enrichi avec financial_kpis, validation_rules, hypothèses
+        self.update_parametres_sheet()  # ✅ Enrichi avec financial_kpis, validation_rules, hypothèses, RH, volumes
         self.update_financement_sheet()
         self.update_fundings_sheet_with_captable()  # ✅ Cap table détaillée
         self.update_strategie_vente_sheet()
@@ -1469,20 +1660,27 @@ class TemplateCreator:
         self.create_data_quality_sheet()  # ✅ NEW: Data Quality checks
         self.create_documentation_sheet()  # ✅ NEW: Documentation
 
-        # 5. Supprimer sheets inutiles
+        # 5. PHASE 4 - Corrections GAP ANALYSIS HAUTE PRIORITÉ
+        self.add_productivity_ia_to_ventes()  # ✅ NEW: Productivité IA (pitch core GenieFactory)
+
+        # 6. PHASE 5 - Corrections GAP ANALYSIS MOYENNE PRIORITÉ
+        self.improve_infrastructure_labels()  # ✅ NEW: Labels Hosting, Licences, total
+        self.improve_marketing_labels()  # ✅ NEW: Labels Ventes, Campagnes
+
+        # 7. Supprimer sheets inutiles
         self.remove_gtmarket_sheet()  # ✅ Suppression GTMarket
 
-        # 6. Nettoyer les données
+        # 8. Nettoyer les données
         self.clean_data_cells()
 
-        # 7. Ajouter marqueurs
+        # 9. Ajouter marqueurs
         self.add_template_markers()
 
-        # 8. Vérifier formules
+        # 10. Vérifier formules
         self.preserve_formulas_info()
 
         logger.info("\n" + "=" * 60)
-        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 + Phase 2 + Phase 3 complètes)")
+        logger.info("✅ TEMPLATE ENRICHI CRÉÉ (Phase 1 + 2 + 3 + 4 + 5 complètes)")
         logger.info("   PHASE 1:")
         logger.info("   • Paramètres: financial_kpis + validation_rules + hypothèses")
         logger.info("   • P&L: ARR/MRR ajoutés")
@@ -1496,6 +1694,12 @@ class TemplateCreator:
         logger.info("   • Fundings: visualisation dilution enrichie")
         logger.info("   • Data Quality: checks automatiques créés")
         logger.info("   • Documentation: meta + history + notes créés")
+        logger.info("   PHASE 4 (GAP ANALYSIS HAUTE):")
+        logger.info("   • Paramètres: coûts RH (charges sociales 45%) + volumes commerciaux")
+        logger.info("   • Ventes: productivité IA (pitch core GenieFactory)")
+        logger.info("   PHASE 5 (GAP ANALYSIS MOYENNE):")
+        logger.info("   • Infrastructure: labels Hosting, Licences logicielles, total")
+        logger.info("   • Marketing: labels Ventes, Campagnes Collaboration/Ciblées")
 
     def save(self, output_path: Path):
         """Sauvegarder le template"""
