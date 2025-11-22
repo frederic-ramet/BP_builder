@@ -1,0 +1,7 @@
+RAPPORT VALIDATION COHÉRENCE
+Date: 2025-11-22T15:52:33.893389
+Status: PASSED
+
+Erreurs: 0
+Warnings: 1
+
