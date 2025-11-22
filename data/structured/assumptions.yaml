@@ -598,6 +598,83 @@ marketing_budgets:
     y2028: 30000
     y2029: 39000
 
+# PHASE 6: Pilotage Personnel par YAML
+personnel_details:
+  social_charges_rate: 0.45  # Charges sociales (45%)
+
+  # Frais généraux par ETP
+  overhead_per_etp_monthly: 300  # Frais de gestion
+  postal_per_etp_monthly: 250    # Postes
+  rent_per_etp_monthly: 250      # Loyer
+
+  # Définition des rôles avec timeline de croissance
+  # Format headcount_timeline: {m1: count, m4: count, ...}
+  # → Expansion automatique: M1-M3: count1, M4-M50: count2, etc.
+  roles:
+    - name: "CEO/CTO"
+      profile_raw: "Directeur (cible)"  # Mapping vers profil RAW
+      annual_salary_gross: 70000
+      headcount_timeline:
+        m1: 1
+      notes: "Fondateur technique - temps plein dès M1"
+
+    - name: "Tech Senior"
+      profile_raw: "Tech Senior"
+      annual_salary_gross: 65000
+      headcount_timeline:
+        m1: 2
+        m12: 3
+        m24: 4
+      notes: "Développeurs expérimentés - croissance progressive"
+
+    - name: "Product Owner"
+      profile_raw: "Product owner"
+      annual_salary_gross: 45000
+      headcount_timeline:
+        m3: 1
+        m18: 2
+      notes: "PO startup M3, scaling M18"
+
+    - name: "Commercial"
+      profile_raw: "Responsable Commercial"
+      annual_salary_gross: 60000
+      headcount_timeline:
+        m6: 1
+        m12: 2
+      notes: "Responsable commercial M6, team M12"
+
+    - name: "BD Junior"
+      profile_raw: "BD (junior)"
+      annual_salary_gross: 25000
+      headcount_timeline:
+        m8: 1
+        m18: 2
+      notes: "Business development junior"
+
+    - name: "Tech Junior"
+      profile_raw: "Tech Junior (intermédiaire)"
+      annual_salary_gross: 50000
+      headcount_timeline:
+        m12: 2
+        m24: 4
+      notes: "Développeurs juniors/intermédiaires"
+
+    - name: "Consultant"
+      profile_raw: "Consultant"
+      annual_salary_gross: 60000
+      headcount_timeline:
+        m6: 1
+      notes: "Consultant stratégie/produit ponctuel"
+
+    - name: "Stagiaire"
+      profile_raw: "Stagiaire"
+      annual_salary_gross: 13200  # 11*1100€
+      headcount_timeline:
+        m1: 1
+        m6: 2
+        m12: 3
+      notes: "Stagiaires support technique/commercial"
+
 revision_history:
 - version: '1.2'
   date: '2025-11-21'

@@ -266,11 +266,14 @@ class TemplateCreator:
 
     def update_fundings_sheet_with_captable(self):
         """
-        Adapter le sheet Fundings avec la cap table détaillée
-        - Dilution par phase (Bootstrap → Series A)
-        - ARR targets alignés avec funding rounds
+        RESTRUCTURATION FUNDINGS - État de l'Art PHASE 6
+        Structure complète pour fundraising/VC avec 4 sections:
+        A. Funding Rounds Timeline (type financeur + valorisations)
+        B. Cap Table Dynamique (dilution progressive)
+        C. Sources Non-Dilutives (subventions, aides)
+        D. Metrics Fundraising (runway, burn, multiples)
         """
-        logger.info("\n📊 Adaptation sheet Fundings avec Cap Table...")
+        logger.info("\n📊 Restructuration sheet Fundings (État de l'art)...")
 
         if 'Fundings' not in self.wb.sheetnames:
             logger.warning("⚠️ Sheet 'Fundings' introuvable, création skippée")
@@ -289,42 +292,78 @@ class TemplateCreator:
         with open(captable_path, 'r', encoding='utf-8') as f:
             captable_data = yaml.safe_load(f)
 
-        # Section 1: Timeline de financement avec ARR targets (lignes 1-10)
-        ws['A1'].value = "TIMELINE DE FINANCEMENT"
-        ws['A2'].value = "Phase"
-        ws['B2'].value = "Mois"
-        ws['C2'].value = "Montant Levé"
-        ws['D2'].value = "Valorisation Post"
-        ws['E2'].value = "ARR Target"
+        # ═══ SECTION A: FUNDING ROUNDS TIMELINE ═══
+        ws['A1'].value = "A. FUNDING ROUNDS TIMELINE (DILUTIF)"
+        ws['A1'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A1'].fill = openpyxl.styles.PatternFill(start_color="0066CC", end_color="0066CC", fill_type="solid")
+
+        ws['A3'].value = "Phase"
+        ws['B3'].value = "Timing"
+        ws['C3'].value = "Type Financeur"
+        ws['D3'].value = "Montant"
+        ws['E3'].value = "Valorisation Pre"
+        ws['F3'].value = "Valorisation Post"
+        ws['G3'].value = "ARR Target"
+        ws['H3'].value = "Multiple ARR"
+
+        for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+            ws[f'{col}3'].font = openpyxl.styles.Font(bold=True)
 
         funding_rounds = captable_data.get('funding_rounds', {})
-        row = 3
+        row = 4
 
-        for phase_key in ['bootstrap', 'love_money', 'pre_seed', 'seed', 'post_seed', 'series_a']:
+        rounds_data = [
+            ('love_money', 'Famille/Amis'),
+            ('pre_seed', 'BA + BPI'),
+            ('seed', 'VCs Tier 2'),
+            ('series_a', 'VCs Tier 1'),
+        ]
+
+        for phase_key, financeur_type in rounds_data:
             if phase_key not in funding_rounds:
                 continue
 
             phase_data = funding_rounds[phase_key]
+            amount = phase_data.get('amount', 0)
+            val_post = phase_data.get('valuation_post', 0)
+            arr_target = phase_data.get('arr_target', 0)
+
+            # Calculer val pre
+            val_pre = val_post - amount if val_post > amount else 0
+
+            # Calculer multiple ARR
+            multiple_arr = f"{val_post / arr_target:.1f}×" if arr_target > 0 else "-"
+
             ws[f'A{row}'].value = phase_data.get('phase', phase_key.upper())
             ws[f'B{row}'].value = f"M{phase_data.get('month', 0)}"
-            ws[f'C{row}'].value = phase_data.get('amount', 0)
-            ws[f'D{row}'].value = phase_data.get('valuation_post', 0)
-            ws[f'E{row}'].value = phase_data.get('arr_target', 0)
+            ws[f'C{row}'].value = financeur_type
+            ws[f'D{row}'].value = amount
+            ws[f'E{row}'].value = val_pre
+            ws[f'F{row}'].value = val_post
+            ws[f'G{row}'].value = arr_target
+            ws[f'H{row}'].value = multiple_arr
             row += 1
 
-        # Section 2: Cap table dilution (lignes 15+)
-        ws['A15'].value = "CAP TABLE - DILUTION PROGRESSIVE"
-        ws['A16'].value = "Phase"
-        ws['B16'].value = "FRT (%)"
-        ws['C16'].value = "PCO (%)"
-        ws['D16'].value = "MAM (%)"
-        ws['E16'].value = "BSPCE (%)"
-        ws['F16'].value = "Investisseurs"
+        # ═══ SECTION B: CAP TABLE DYNAMIQUE ═══
+        ws['A12'].value = "B. CAP TABLE - DILUTION PROGRESSIVE"
+        ws['A12'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A12'].fill = openpyxl.styles.PatternFill(start_color="FF6600", end_color="FF6600", fill_type="solid")
+
+        ws['A14'].value = "Phase"
+        ws['B14'].value = "FRT"
+        ws['C14'].value = "PCO"
+        ws['D14'].value = "MAM"
+        ws['E14'].value = "BSPCE"
+        ws['F14'].value = "Investisseurs"
+        ws['G14'].value = "Total"
+
+        for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
+            ws[f'{col}14'].font = openpyxl.styles.Font(bold=True)
 
         captable = captable_data.get('captable', {})
         dilution_stages = captable.get('dilution_stages', {})
 
-        row = 17
+        row = 15
         for stage_key in ['bootstrap', 'post_pre_seed', 'post_seed', 'post_series_a']:
             if stage_key not in dilution_stages:
                 continue
@@ -340,10 +379,15 @@ class TemplateCreator:
                     return value  # Déjà formaté
                 return f"{value:.1f}%" if value > 0 else "0.0%"
 
-            ws[f'B{row}'].value = format_equity(equity.get('FRT', 0))
-            ws[f'C{row}'].value = format_equity(equity.get('PCO', 0))
-            ws[f'D{row}'].value = format_equity(equity.get('MAM', 0))
-            ws[f'E{row}'].value = format_equity(equity.get('BSPCE', 0))
+            frt_val = equity.get('FRT', 0)
+            pco_val = equity.get('PCO', 0)
+            mam_val = equity.get('MAM', 0)
+            bspce_val = equity.get('BSPCE', 0)
+
+            ws[f'B{row}'].value = format_equity(frt_val)
+            ws[f'C{row}'].value = format_equity(pco_val)
+            ws[f'D{row}'].value = format_equity(mam_val)
+            ws[f'E{row}'].value = format_equity(bspce_val)
 
             # Investisseurs combinés
             inv_seed = equity.get('Investisseurs_Seed', 0)
@@ -358,42 +402,70 @@ class TemplateCreator:
             inv_total = inv_seed + inv_a + inv_b
             ws[f'F{row}'].value = f"{inv_total:.1f}%" if inv_total > 0 else "-"
 
+            # Total = 100%
+            ws[f'G{row}'].value = "100.0%"
             row += 1
 
-        # Section 3: ARR Milestones (lignes 25+)
-        ws['A25'].value = "ARR MILESTONES CRITIQUES"
-        ws['A26'].value = "Mois"
-        ws['B26'].value = "ARR Target"
-        ws['C26'].value = "Phase"
+        # ═══ SECTION C: SOURCES NON-DILUTIVES ═══
+        ws['A22'].value = "C. SOURCES NON-DILUTIVES (Subventions & Aides)"
+        ws['A22'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A22'].fill = openpyxl.styles.PatternFill(start_color="00CC66", end_color="00CC66", fill_type="solid")
 
-        arr_targets = captable_data.get('arr_targets', {})
-        row = 27
+        ws['A24'].value = "Source"
+        ws['B24'].value = "Timing"
+        ws['C24'].value = "Montant"
+        ws['D24'].value = "Organisme"
+        ws['E24'].value = "Type"
 
-        for month_key in ['M1', 'M6', 'M12', 'M18', 'M36', 'M48']:
-            if month_key in arr_targets:
-                ws[f'A{row}'].value = month_key
-                ws[f'B{row}'].value = arr_targets[month_key]
+        for col in ['A', 'B', 'C', 'D', 'E']:
+            ws[f'{col}24'].font = openpyxl.styles.Font(bold=True)
 
-                # Associer la phase
-                if month_key == 'M1':
-                    phase = "Bootstrap"
-                elif month_key == 'M6':
-                    phase = "PRE-SEED"
-                elif month_key == 'M12':
-                    phase = "SEED (contractuel)"
-                elif month_key == 'M18':
-                    phase = "Post Seed"
-                elif month_key == 'M36':
-                    phase = "SERIE A"
-                elif month_key == 'M48':
-                    phase = "Pre-Series B"
-                else:
-                    phase = "-"
+        row = 25
+        non_dilutive_sources = [
+            ("CIR/CII", "M1-M6", "25K€", "Impôts", "Crédit impôt"),
+            ("French Tech", "M6", "30K€", "BPI", "Bourse"),
+            ("BPI Innovation", "M12-M24", "100-150K€", "BPI", "Aide"),
+            ("Concours i-Nov", "M12-M24", "100-600K€", "BPI", "Concours"),
+            ("CIFRE", "Variable", "40K€/an", "ANRT", "Thèse"),
+        ]
 
-                ws[f'C{row}'].value = phase
-                row += 1
+        for source, timing, montant, organisme, type_aide in non_dilutive_sources:
+            ws[f'A{row}'].value = source
+            ws[f'B{row}'].value = timing
+            ws[f'C{row}'].value = montant
+            ws[f'D{row}'].value = organisme
+            ws[f'E{row}'].value = type_aide
+            row += 1
 
-        logger.info("✓ Cap Table intégrée dans Fundings (Timeline + Dilution + ARR targets)")
+        # ═══ SECTION D: METRICS FUNDRAISING ═══
+        ws['A33'].value = "D. METRICS FUNDRAISING CLÉS"
+        ws['A33'].font = openpyxl.styles.Font(bold=True, size=14, color="FFFFFF")
+        ws['A33'].fill = openpyxl.styles.PatternFill(start_color="9966FF", end_color="9966FF", fill_type="solid")
+
+        ws['A35'].value = "Métrique"
+        ws['B35'].value = "Valeur"
+        ws['C35'].value = "Commentaire"
+
+        for col in ['A', 'B', 'C']:
+            ws[f'{col}35'].font = openpyxl.styles.Font(bold=True)
+
+        row = 36
+        metrics_data = [
+            ("Total levé (dilutif)", "3.15M€", "Love Money + Pre-Seed + Seed + Series A"),
+            ("Total aides (non-dilutif)", "~300-800K€", "CIR/CII + BPI + Concours"),
+            ("Dilution totale FRT", "-60.4%", "70% → 27.7%"),
+            ("Valuation multiple Seed", "10.0×", "8M€ / 800K€ ARR"),
+            ("Valuation multiple Series A", "8.2×", "32.6M€ / 4M€ ARR"),
+            ("Runway post Seed", "12-18 mois", "Avec burn 30-50K€/mois"),
+        ]
+
+        for metric, value, comment in metrics_data:
+            ws[f'A{row}'].value = metric
+            ws[f'B{row}'].value = value
+            ws[f'C{row}'].value = comment
+            row += 1
+
+        logger.info("✓ Fundings restructuré (Timeline + Cap Table + Non-dilutif + Metrics)")
 
     def update_strategie_vente_sheet(self):
         """
@@ -414,37 +486,160 @@ class TemplateCreator:
 
         logger.info(f"✓ Stratégie de vente adaptée (conversion: {hackathon_to_factory*100:.0f}%)")
 
+    def expand_headcount_timeline(self, timeline_dict: dict, total_months: int = 50) -> list:
+        """
+        Expanse un timeline sparse en liste complète
+
+        Exemple:
+            Input: {m1: 1, m4: 2, m12: 3}
+            Output: [1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, ..., 3]  (50 valeurs)
+
+        Args:
+            timeline_dict: Dict avec format {m1: 1, m4: 2, ...}
+            total_months: Nombre total de mois (défaut 50)
+
+        Returns:
+            Liste de headcount pour chaque mois
+        """
+        if not timeline_dict:
+            return [0] * total_months
+
+        # Convertir les clés "m1", "m4" en nombres et trier
+        milestones = []
+        for key, value in timeline_dict.items():
+            month_num = int(key.replace('m', '').replace('M', ''))
+            milestones.append((month_num, value))
+
+        milestones.sort(key=lambda x: x[0])
+
+        # Expansion
+        result = []
+        milestone_idx = 0
+
+        for month in range(1, total_months + 1):
+            # Trouver le dernier milestone <= month actuel
+            while (milestone_idx < len(milestones) - 1 and
+                   milestones[milestone_idx + 1][0] <= month):
+                milestone_idx += 1
+
+            # Si on est avant le premier milestone, valeur = 0
+            if month < milestones[0][0]:
+                result.append(0)
+            else:
+                result.append(milestones[milestone_idx][1])
+
+        return result
+
     def update_charges_personnel_sheet(self):
         """
-        Adapter le sheet Charges de personnel et FG selon assumptions.yaml
-        - Structure 8 rôles
-        - Charges sociales 45%
+        PILOTAGE PERSONNEL PAR YAML - PHASE 6
+        Mapper rôles YAML → profils RAW et mettre à jour salaires + headcount
+        Structure RAW préservée (formules intactes)
         """
-        logger.info("\n👥 Adaptation sheet Charges de personnel et FG...")
+        logger.info("\n👥 Pilotage Personnel depuis assumptions.yaml...")
 
         ws = self.wb['Charges de personnel et FG']
 
         personnel = self.assumptions.get('personnel_details', {})
-        charges_rate = personnel.get('charges_sociales_rate', 0.45)
-        roles = personnel.get('roles', {})
+        if not personnel:
+            logger.warning("⚠️ Section personnel_details absente de assumptions.yaml, skip")
+            return
 
-        # Section info en haut (lignes 1-10)
-        ws['A1'].value = "CHARGES DE PERSONNEL"
-        ws['A2'].value = f"Charges sociales: {charges_rate*100:.0f}%"
-        ws['A3'].value = f"Nombre de rôles: {len(roles)}"
+        charges_rate = personnel.get('social_charges_rate', 0.45)
+        roles = personnel.get('roles', [])
 
-        # Lister les rôles (lignes 5+)
-        row = 5
-        ws[f'A{row}'].value = "RÔLES DÉFINIS:"
-        row += 1
+        if not roles:
+            logger.warning("⚠️ Aucun rôle défini dans personnel_details.roles, skip")
+            return
 
-        for role_name, role_data in roles.items():
-            salary = role_data.get('salary_brut_annual', 0)
-            ws[f'A{row}'].value = role_name.replace('_', ' ').title()
-            ws[f'B{row}'].value = f"{salary:,.0f}€/an"
-            row += 1
+        logger.info(f"  {len(roles)} rôle(s) défini(s) dans YAML")
 
-        logger.info(f"✓ Charges Personnel adaptées ({len(roles)} rôles, {charges_rate*100:.0f}% charges)")
+        # Mapping profils RAW (lignes dans le sheet) → Index
+        # Selon analyse RAW:
+        # Ligne 2: Directeur (mini) - 35K€
+        # Ligne 3: Directeur (intermédiaire) - 50K€
+        # Ligne 4: Directeur (cible) - 70K€
+        # Ligne 5: Consultant - 60K€
+        # Ligne 6: Responsable Commercial - 60K€
+        # Ligne 7: Product owner - 45K€
+        # Ligne 8: Tech Senior - 65K€
+        # Ligne 9: Tech Junior (intermédiaire) - 50K€
+        # Ligne 10: BD (junior) - 25K€
+        # Ligne 11: Stagiaire - 11*1100€
+
+        # Mapping nom profil RAW → ligne dans sheet
+        profile_mapping = {
+            "Directeur (mini)": 2,
+            "Directeur (intermédiaire)": 3,
+            "Directeur (cible)": 4,
+            "Consultant": 5,
+            "Responsable Commercial": 6,
+            "Product owner": 7,
+            "Tech Senior": 8,
+            "Tech Junior (intermédiaire)": 9,
+            "BD (junior)": 10,
+            "Stagiaire": 11,
+        }
+
+        # Aussi mettre à jour salaires dans section détails (lignes 16-25)
+        # Ligne 16: Directeur (mini) salaire brut
+        # Ligne 17: Directeur (intermédiaire)
+        # etc.
+        detail_mapping = {
+            "Directeur (mini)": 16,
+            "Directeur (intermédiaire)": 17,
+            "Directeur (cible)": 18,
+            "Consultant": 19,
+            "Responsable Commercial": 20,
+            "Product owner": 21,
+            "Tech Senior": 22,
+            "Tech Junior (intermédiaire)": 23,
+            "BD (junior)": 24,
+            "Stagiaire": 25,
+        }
+
+        # Pour chaque rôle YAML, mettre à jour le salaire ET headcount timeline
+        updated_count = 0
+        headcount_updated = 0
+
+        for role in roles:
+            profile_raw = role.get('profile_raw')
+            annual_salary = role.get('annual_salary_gross', 0)
+            headcount_timeline = role.get('headcount_timeline', {})
+
+            if not profile_raw:
+                logger.warning(f"  ⚠️ Rôle '{role.get('name')}' sans profile_raw, skip")
+                continue
+
+            # Mettre à jour dans section détails (colonne B = salaire brut)
+            if profile_raw in detail_mapping:
+                detail_row = detail_mapping[profile_raw]
+                ws[f'B{detail_row}'].value = annual_salary
+                updated_count += 1
+
+                # Mettre à jour headcount timeline (colonnes H onwards = M1, M2, ...)
+                if headcount_timeline:
+                    expanded_headcount = self.expand_headcount_timeline(headcount_timeline, 50)
+
+                    # Colonnes H à BG (indices 8 à 57 pour 50 mois)
+                    for month_idx, headcount in enumerate(expanded_headcount, start=1):
+                        col_idx = 7 + month_idx  # H=8, I=9, etc.
+                        col_letter = openpyxl.utils.get_column_letter(col_idx)
+                        ws[f'{col_letter}{detail_row}'].value = headcount
+
+                    headcount_updated += 1
+                    total_etp = sum(expanded_headcount)
+                    logger.info(f"  ✓ {profile_raw}: {annual_salary}€/an + {total_etp} ETP total sur 50 mois")
+                else:
+                    logger.info(f"  ✓ {profile_raw}: {annual_salary}€/an (pas de timeline)")
+            else:
+                logger.warning(f"  ⚠️ Profil '{profile_raw}' non trouvé dans mapping")
+
+        # Mettre à jour taux charges sociales (colonne C)
+        for detail_row in range(16, 26):  # Lignes 16-25
+            ws[f'C{detail_row}'].value = charges_rate
+
+        logger.info(f"✓ Personnel piloté depuis YAML ({updated_count} profils, {headcount_updated} avec timelines, charges {charges_rate*100:.0f}%)")
 
     def update_infrastructure_detailed_sheet(self):
         """
@@ -1571,6 +1766,7 @@ class TemplateCreator:
         """
         Nettoyer les cellules de données (pas les formules)
         Mettre des valeurs par défaut pour les placeholders
+        SAUF lignes 16-25 dans Personnel (pilotées par YAML)
         """
         logger.info("\n🧹 Nettoyage cellules de données...")
 
@@ -1587,6 +1783,10 @@ class TemplateCreator:
             cleaned = 0
             for row in ws.iter_rows(min_row=4, max_row=100, min_col=4, max_col=150):
                 for cell in row:
+                    # SKIP lignes 16-25 dans Personnel (données YAML headcount)
+                    if sheet_name == 'Charges de personnel et FG' and 16 <= cell.row <= 25:
+                        continue
+
                     # Si c'est une valeur numérique (pas formule), mettre 0
                     if isinstance(cell.value, (int, float)) and cell.value != 0:
                         cell.value = 0
@@ -1700,6 +1900,9 @@ class TemplateCreator:
         logger.info("   PHASE 5 (GAP ANALYSIS MOYENNE):")
         logger.info("   • Infrastructure: labels Hosting, Licences logicielles, total")
         logger.info("   • Marketing: labels Ventes, Campagnes Collaboration/Ciblées")
+        logger.info("   PHASE 6 (RESTRUCTURATION FINALE):")
+        logger.info("   • Fundings: État de l'art (Timeline + Cap Table + Non-dilutif + Metrics)")
+        logger.info("   • Personnel: Piloté par assumptions.yaml (8 rôles avec timeline)")
 
     def save(self, output_path: Path):
         """Sauvegarder le template"""
