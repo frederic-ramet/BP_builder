@@ -94,10 +94,22 @@ class ProjectionCalculator:
 
     def calculate_hackathon_revenue(self, month: int) -> Dict[str, Any]:
         """Calculer revenus hackathons"""
+        # M1-M14: short term
         volumes = self.assumptions['sales_assumptions']['hackathon']['volumes_monthly']
-        nb_hackathons = volumes.get(f'm{month}', 0)
-        price = self.get_hackathon_price(month)
+        nb_hackathons = volumes.get(f'm{month}', None)
 
+        # M15-M50: long term sales
+        if nb_hackathons is None and month > 14:
+            long_term = self.assumptions.get('sales_assumptions', {}).get('long_term_sales', {})
+            if long_term:
+                nb_hackathons = long_term['hackathon'].get(f'm{month}', 0)
+            else:
+                nb_hackathons = 0
+
+        if nb_hackathons is None:
+            nb_hackathons = 0
+
+        price = self.get_hackathon_price(month)
         revenue = nb_hackathons * price
 
         return {
@@ -108,17 +120,33 @@ class ProjectionCalculator:
 
     def calculate_factory_revenue(self, month: int) -> Dict[str, Any]:
         """Calculer revenus factory (conversion hackathons avec délai)"""
-        conversion_rate = self.assumptions['sales_assumptions']['factory']['conversion_rate']
-        delay = self.assumptions['sales_assumptions']['factory']['delay_months']
+        # Check both short and long term for conversion rate
+        long_term_sales = self.assumptions.get('sales_assumptions', {}).get('long_term_sales', {})
+        if long_term_sales and 'factory' in long_term_sales:
+            conversion_rate = long_term_sales['factory'].get('conversion_rate', 0.35)
+        else:
+            conversion_rate = self.assumptions['sales_assumptions']['factory']['conversion_rate']
+
+        delay = self.assumptions['sales_assumptions']['factory'].get('delay_months', 2)
 
         # Factory M = conversion des hackathons (M - delay)
         source_month = month - delay
         if source_month < 1:
             return {'volume': 0, 'price_unit': 0, 'revenue': 0}
 
-        # Hackathons source
+        # Hackathons source - check both short and long term
         hackathon_volumes = self.assumptions['sales_assumptions']['hackathon']['volumes_monthly']
-        source_hackathons = hackathon_volumes.get(f'm{source_month}', 0)
+        source_hackathons = hackathon_volumes.get(f'm{source_month}', None)
+
+        # If not found in short term and source_month > 14, check long term
+        if source_hackathons is None and source_month > 14:
+            if long_term_sales and 'hackathon' in long_term_sales:
+                source_hackathons = long_term_sales['hackathon'].get(f'm{source_month}', 0)
+            else:
+                source_hackathons = 0
+
+        if source_hackathons is None:
+            source_hackathons = 0
 
         # Conversion
         nb_factory = source_hackathons * conversion_rate
@@ -158,17 +186,22 @@ class ProjectionCalculator:
 
         # Nouveaux clients ce mois
         # Pour M1-M14: utiliser volumes définis
-        # Pour M15+: utiliser long_term_projections
+        # Pour M15-M50: utiliser long_term_sales
         new_customers = hub_config['new_customers_monthly'].get(f'm{month}', None)
 
         if new_customers is None and month > 14:
-            # Extension long terme
-            if 'long_term_projections' in self.assumptions:
+            # Check long_term_sales first (more specific)
+            long_term_sales = self.assumptions.get('sales_assumptions', {}).get('long_term_sales', {})
+            if long_term_sales and 'enterprise_hub' in long_term_sales:
+                new_customers = long_term_sales['enterprise_hub'].get(f'm{month}', None)
+
+            # Fallback to long_term_projections by year
+            if new_customers is None and 'long_term_projections' in self.assumptions:
                 year = self.get_year_for_month(month)
                 lt_proj = self.assumptions['long_term_projections']['years'].get(str(year), {})
                 new_customers = lt_proj.get('new_customers_hub_monthly', 8)  # Défaut 8/mois
-            else:
-                # Fallback: croissance linéaire basée sur M14
+
+            if new_customers is None:
                 new_customers = 8  # Conservateur
         elif new_customers is None:
             new_customers = 0

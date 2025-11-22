@@ -5,85 +5,6 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 1.5,
-        "price_unit": 18000.0,
-        "revenue": 27000.0
-      },
-      "factory": {
-        "volume": 0,
-        "price_unit": 0,
-        "revenue": 0
-      },
-      "enterprise_hub": {
-        "customers": {
-          "starter": 0,
-          "business": 0,
-          "enterprise": 0,
-          "total": 0
-        },
-        "mrr": 0,
-        "arr": 0
-      },
-      "services": {
-        "volume": 0.75,
-        "price_unit": 10000,
-        "revenue": 7500.0
-      },
-      "total": 34500.0
-    },
-    "costs": {
-      "personnel": {
-        "team_size": 2,
-        "fte_total": 2.0,
-        "salary_brut": 5166.666666666667,
-        "charges_sociales": 2325.0,
-        "freelance": 5000,
-        "total": 12491.666666666668,
-        "roles": {
-          "directeur_general": {
-            "fte": 1.0,
-            "salary_monthly": 4166.666666666667,
-            "cost_monthly": 4166.666666666667
-          },
-          "stagiaire": {
-            "fte": 1.0,
-            "salary_monthly": 1000.0,
-            "cost_monthly": 1000.0
-          }
-        }
-      },
-      "infrastructure": {
-        "cloud": 1000,
-        "saas_tools": 425,
-        "rd_external": 0,
-        "total": 1425
-      },
-      "marketing": {
-        "digital_ads": 2000,
-        "events": 0,
-        "content": 1000,
-        "partnerships": 500,
-        "total": 3500
-      },
-      "admin": 3000,
-      "total": 20416.666666666668
-    },
-    "metrics": {
-      "ebitda": 14083.333333333332,
-      "burn_rate": 0,
-      "arr": 0,
-      "mrr": 0,
-      "cash": 164083.33333333334,
-      "funding": 150000,
-      "team_size": 2
-    }
-  },
-  {
-    "month": 2,
-    "date": "2025-12",
-    "year": 2025,
-    "revenue": {
-      "hackathon": {
         "volume": 2,
         "price_unit": 18000.0,
         "revenue": 36000.0
@@ -152,7 +73,86 @@
       "burn_rate": 0,
       "arr": 0,
       "mrr": 0,
-      "cash": 189666.6666666667,
+      "cash": 175583.33333333334,
+      "funding": 150000,
+      "team_size": 2
+    }
+  },
+  {
+    "month": 2,
+    "date": "2025-12",
+    "year": 2025,
+    "revenue": {
+      "hackathon": {
+        "volume": 3,
+        "price_unit": 18000.0,
+        "revenue": 54000.0
+      },
+      "factory": {
+        "volume": 0,
+        "price_unit": 0,
+        "revenue": 0
+      },
+      "enterprise_hub": {
+        "customers": {
+          "starter": 0,
+          "business": 0,
+          "enterprise": 0,
+          "total": 0
+        },
+        "mrr": 0,
+        "arr": 0
+      },
+      "services": {
+        "volume": 1.5,
+        "price_unit": 10000,
+        "revenue": 15000.0
+      },
+      "total": 69000.0
+    },
+    "costs": {
+      "personnel": {
+        "team_size": 2,
+        "fte_total": 2.0,
+        "salary_brut": 5166.666666666667,
+        "charges_sociales": 2325.0,
+        "freelance": 5000,
+        "total": 12491.666666666668,
+        "roles": {
+          "directeur_general": {
+            "fte": 1.0,
+            "salary_monthly": 4166.666666666667,
+            "cost_monthly": 4166.666666666667
+          },
+          "stagiaire": {
+            "fte": 1.0,
+            "salary_monthly": 1000.0,
+            "cost_monthly": 1000.0
+          }
+        }
+      },
+      "infrastructure": {
+        "cloud": 1000,
+        "saas_tools": 425,
+        "rd_external": 0,
+        "total": 1425
+      },
+      "marketing": {
+        "digital_ads": 2000,
+        "events": 0,
+        "content": 1000,
+        "partnerships": 500,
+        "total": 3500
+      },
+      "admin": 3000,
+      "total": 20416.666666666668
+    },
+    "metrics": {
+      "ebitda": 48583.33333333333,
+      "burn_rate": 0,
+      "arr": 0,
+      "mrr": 0,
+      "cash": 224166.6666666667,
       "funding": 0,
       "team_size": 2
     }
@@ -163,16 +163,16 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 2,
+        "volume": 4,
         "price_unit": 18000.0,
-        "revenue": 36000.0
+        "revenue": 72000.0
       },
       "factory": {
-        "volume": 0.44999999999999996,
+        "volume": 0.7,
         "price_unit": 75000.0,
-        "revenue": 33750.0,
+        "revenue": 52500.0,
         "source_month": 1,
-        "source_hackathons": 1.5
+        "source_hackathons": 2
       },
       "enterprise_hub": {
         "customers": {
@@ -185,11 +185,11 @@
         "arr": 0
       },
       "services": {
-        "volume": 1.09,
+        "volume": 2.14,
         "price_unit": 10000,
-        "revenue": 10900.0
+        "revenue": 21400.0
       },
-      "total": 80650.0
+      "total": 145900.0
     },
     "costs": {
       "personnel": {
@@ -229,11 +229,11 @@
       "total": 23416.666666666668
     },
     "metrics": {
-      "ebitda": 57233.33333333333,
+      "ebitda": 122483.33333333333,
       "burn_rate": 0,
       "arr": 0,
       "mrr": 0,
-      "cash": 246900.00000000003,
+      "cash": 346650.0,
       "funding": 0,
       "team_size": 2
     }
@@ -244,16 +244,16 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 2.5,
+        "volume": 5,
         "price_unit": 18000.0,
-        "revenue": 45000.0
+        "revenue": 90000.0
       },
       "factory": {
-        "volume": 0.6,
+        "volume": 1.0499999999999998,
         "price_unit": 75000.0,
-        "revenue": 45000.0,
+        "revenue": 78749.99999999999,
         "source_month": 2,
-        "source_hackathons": 2
+        "source_hackathons": 3
       },
       "enterprise_hub": {
         "customers": {
@@ -266,11 +266,11 @@
         "arr": 0
       },
       "services": {
-        "volume": 1.37,
+        "volume": 2.71,
         "price_unit": 10000,
-        "revenue": 13700.000000000002
+        "revenue": 27100.0
       },
-      "total": 103700.0
+      "total": 195850.0
     },
     "costs": {
       "personnel": {
@@ -310,11 +310,11 @@
       "total": 20416.666666666668
     },
     "metrics": {
-      "ebitda": 83283.33333333333,
+      "ebitda": 175433.33333333334,
       "burn_rate": 0,
       "arr": 0,
       "mrr": 0,
-      "cash": 330183.3333333333,
+      "cash": 522083.3333333333,
       "funding": 0,
       "team_size": 2
     }
@@ -325,16 +325,16 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 2.5,
+        "volume": 6,
         "price_unit": 18000.0,
-        "revenue": 45000.0
+        "revenue": 108000.0
       },
       "factory": {
-        "volume": 0.6,
+        "volume": 1.4,
         "price_unit": 75000.0,
-        "revenue": 45000.0,
+        "revenue": 105000.0,
         "source_month": 3,
-        "source_hackathons": 2
+        "source_hackathons": 4
       },
       "enterprise_hub": {
         "customers": {
@@ -347,11 +347,11 @@
         "arr": 0
       },
       "services": {
-        "volume": 1.37,
+        "volume": 3.28,
         "price_unit": 10000,
-        "revenue": 13700.000000000002
+        "revenue": 32800.0
       },
-      "total": 103700.0
+      "total": 245800.0
     },
     "costs": {
       "personnel": {
@@ -391,11 +391,11 @@
       "total": 20416.666666666668
     },
     "metrics": {
-      "ebitda": 83283.33333333333,
+      "ebitda": 225383.33333333334,
       "burn_rate": 0,
       "arr": 0,
       "mrr": 0,
-      "cash": 413466.6666666666,
+      "cash": 747466.6666666666,
       "funding": 0,
       "team_size": 2
     }
@@ -406,16 +406,16 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 3,
+        "volume": 7,
         "price_unit": 18000.0,
-        "revenue": 54000.0
+        "revenue": 126000.0
       },
       "factory": {
-        "volume": 0.75,
+        "volume": 1.75,
         "price_unit": 75000.0,
-        "revenue": 56250.0,
+        "revenue": 131250.0,
         "source_month": 4,
-        "source_hackathons": 2.5
+        "source_hackathons": 5
       },
       "enterprise_hub": {
         "customers": {
@@ -428,11 +428,11 @@
         "arr": 0
       },
       "services": {
-        "volume": 1.65,
+        "volume": 3.85,
         "price_unit": 10000,
-        "revenue": 16500.0
+        "revenue": 38500.0
       },
-      "total": 126750.0
+      "total": 295750.0
     },
     "costs": {
       "personnel": {
@@ -472,11 +472,11 @@
       "total": 23416.666666666668
     },
     "metrics": {
-      "ebitda": 103333.33333333333,
+      "ebitda": 272333.3333333333,
       "burn_rate": 0,
       "arr": 0,
       "mrr": 0,
-      "cash": 516799.99999999994,
+      "cash": 1019800.0,
       "funding": 0,
       "team_size": 2
     }
@@ -487,16 +487,16 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 3,
+        "volume": 8,
         "price_unit": 19800,
-        "revenue": 59400
+        "revenue": 158400
       },
       "factory": {
-        "volume": 0.75,
+        "volume": 2.0999999999999996,
         "price_unit": 82500,
-        "revenue": 61875.0,
+        "revenue": 173249.99999999997,
         "source_month": 5,
-        "source_hackathons": 2.5
+        "source_hackathons": 6
       },
       "enterprise_hub": {
         "customers": {
@@ -509,11 +509,11 @@
         "arr": 0
       },
       "services": {
-        "volume": 1.65,
+        "volume": 4.42,
         "price_unit": 17500,
-        "revenue": 28875.0
+        "revenue": 77350.0
       },
-      "total": 150150.0
+      "total": 409000.0
     },
     "costs": {
       "personnel": {
@@ -553,11 +553,11 @@
       "total": 20416.666666666668
     },
     "metrics": {
-      "ebitda": 129733.33333333333,
+      "ebitda": 388583.3333333333,
       "burn_rate": 0,
       "arr": 0,
       "mrr": 0,
-      "cash": 646533.3333333334,
+      "cash": 1408383.3333333333,
       "funding": 0,
       "team_size": 2
     }
@@ -568,34 +568,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 3,
+        "volume": 9,
         "price_unit": 19800,
-        "revenue": 59400
+        "revenue": 178200
       },
       "factory": {
-        "volume": 0.8999999999999999,
+        "volume": 2.4499999999999997,
         "price_unit": 82500,
-        "revenue": 74249.99999999999,
+        "revenue": 202124.99999999997,
         "source_month": 6,
-        "source_hackathons": 3
+        "source_hackathons": 7
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 1.8,
-          "business": 0.9,
-          "enterprise": 0.3,
-          "total": 3.0
+          "starter": 4.8,
+          "business": 2.4,
+          "enterprise": 0.8,
+          "total": 8.0
         },
-        "new_customers": 3,
-        "mrr": 5700.0,
-        "arr": 68400.0
+        "new_customers": 8,
+        "mrr": 15200.0,
+        "arr": 182400.0
       },
       "services": {
-        "volume": 1.68,
+        "volume": 4.99,
         "price_unit": 17500,
-        "revenue": 29400.0
+        "revenue": 87325.0
       },
-      "total": 168750.0
+      "total": 482850.0
     },
     "costs": {
       "personnel": {
@@ -619,10 +619,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 1150.0,
+        "cloud": 1400.0,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 1575.0
+        "total": 1825.0
       },
       "marketing": {
         "digital_ads": 2000,
@@ -632,14 +632,14 @@
         "total": 3500
       },
       "admin": 3000,
-      "total": 20566.666666666668
+      "total": 20816.666666666668
     },
     "metrics": {
-      "ebitda": 148183.33333333334,
+      "ebitda": 462033.3333333333,
       "burn_rate": 0,
-      "arr": 68400.0,
-      "mrr": 5700.0,
-      "cash": 794716.6666666667,
+      "arr": 182400.0,
+      "mrr": 15200.0,
+      "cash": 1870416.6666666665,
       "funding": 0,
       "team_size": 2
     }
@@ -650,34 +650,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 3,
+        "volume": 10,
         "price_unit": 19800,
-        "revenue": 59400
+        "revenue": 198000
       },
       "factory": {
-        "volume": 0.8999999999999999,
+        "volume": 2.8,
         "price_unit": 82500,
-        "revenue": 74249.99999999999,
+        "revenue": 230999.99999999997,
         "source_month": 7,
-        "source_hackathons": 3
+        "source_hackathons": 8
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 3.59,
-          "business": 1.79,
-          "enterprise": 0.6,
-          "total": 5.98
+          "starter": 10.76,
+          "business": 5.38,
+          "enterprise": 1.79,
+          "total": 17.94
         },
-        "new_customers": 3,
-        "mrr": 11354.4,
-        "arr": 136252.8
+        "new_customers": 10,
+        "mrr": 34078.4,
+        "arr": 408940.80000000005
       },
       "services": {
-        "volume": 1.68,
+        "volume": 5.56,
         "price_unit": 17500,
-        "revenue": 29400.0
+        "revenue": 97300.0
       },
-      "total": 174404.4
+      "total": 560378.4
     },
     "costs": {
       "personnel": {
@@ -701,10 +701,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 1299.0,
+        "cloud": 1897.0,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 1724.0
+        "total": 2322.0
       },
       "marketing": {
         "digital_ads": 2000,
@@ -714,14 +714,14 @@
         "total": 6500
       },
       "admin": 3000,
-      "total": 23715.666666666668
+      "total": 24313.666666666668
     },
     "metrics": {
-      "ebitda": 150688.73333333334,
+      "ebitda": 536064.7333333334,
       "burn_rate": 0,
-      "arr": 136252.8,
-      "mrr": 11354.4,
-      "cash": 945405.4000000001,
+      "arr": 408940.80000000005,
+      "mrr": 34078.4,
+      "cash": 2406481.4,
       "funding": 0,
       "team_size": 2
     }
@@ -732,34 +732,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 3,
+        "volume": 10,
         "price_unit": 19800,
-        "revenue": 59400
+        "revenue": 198000
       },
       "factory": {
-        "volume": 0.8999999999999999,
+        "volume": 3.15,
         "price_unit": 82500,
-        "revenue": 74249.99999999999,
+        "revenue": 259875.0,
         "source_month": 8,
-        "source_hackathons": 3
+        "source_hackathons": 9
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 5.96,
-          "business": 2.98,
-          "enterprise": 1.0,
-          "total": 9.93
+          "starter": 17.87,
+          "business": 8.94,
+          "enterprise": 2.98,
+          "total": 29.79
         },
-        "new_customers": 4,
-        "mrr": 18884.0,
-        "arr": 226608.0
+        "new_customers": 12,
+        "mrr": 56567.67999999999,
+        "arr": 678812.1599999999
       },
       "services": {
-        "volume": 1.68,
+        "volume": 5.63,
         "price_unit": 17500,
-        "revenue": 29400.0
+        "revenue": 98525.0
       },
-      "total": 181934.0
+      "total": 612967.6799999999
     },
     "costs": {
       "personnel": {
@@ -783,10 +783,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 1496.5,
+        "cloud": 2489.5,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 1921.5
+        "total": 2914.5
       },
       "marketing": {
         "digital_ads": 2000,
@@ -796,14 +796,14 @@
         "total": 3500
       },
       "admin": 3000,
-      "total": 20913.166666666668
+      "total": 21906.166666666668
     },
     "metrics": {
-      "ebitda": 161020.83333333334,
+      "ebitda": 591061.5133333333,
       "burn_rate": 0,
-      "arr": 226608.0,
-      "mrr": 18884.0,
-      "cash": 1106426.2333333334,
+      "arr": 678812.1599999999,
+      "mrr": 56567.67999999999,
+      "cash": 2997542.9133333336,
       "funding": 0,
       "team_size": 2
     }
@@ -814,34 +814,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 4,
+        "volume": 12,
         "price_unit": 19800,
-        "revenue": 79200
+        "revenue": 237600
       },
       "factory": {
-        "volume": 0.8999999999999999,
+        "volume": 3.5,
         "price_unit": 82500,
-        "revenue": 74249.99999999999,
+        "revenue": 288750.0,
         "source_month": 9,
-        "source_hackathons": 3
+        "source_hackathons": 10
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 8.73,
-          "business": 4.63,
-          "enterprise": 1.49,
-          "total": 14.86
+          "starter": 26.19,
+          "business": 13.9,
+          "enterprise": 4.46,
+          "total": 44.55
         },
-        "new_customers": 5,
-        "mrr": 28555.8496,
-        "arr": 342670.1952
+        "new_customers": 15,
+        "mrr": 85463.89120000001,
+        "arr": 1025566.6944000002
       },
       "services": {
-        "volume": 2.18,
+        "volume": 6.7,
         "price_unit": 17500,
-        "revenue": 38150.0
+        "revenue": 117250.0
       },
-      "total": 220155.84960000002
+      "total": 729063.8912
     },
     "costs": {
       "personnel": {
@@ -865,10 +865,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 1743.0,
+        "cloud": 3227.5,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 2168.0
+        "total": 3652.5
       },
       "marketing": {
         "digital_ads": 2000,
@@ -878,14 +878,14 @@
         "total": 3500
       },
       "admin": 3000,
-      "total": 21159.666666666668
+      "total": 22644.166666666668
     },
     "metrics": {
-      "ebitda": 198996.18293333336,
+      "ebitda": 706419.7245333333,
       "burn_rate": 0,
-      "arr": 342670.1952,
-      "mrr": 28555.8496,
-      "cash": 1805422.4162666667,
+      "arr": 1025566.6944000002,
+      "mrr": 85463.89120000001,
+      "cash": 4203962.637866667,
       "funding": 500000,
       "team_size": 2
     }
@@ -896,34 +896,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 4,
+        "volume": 12,
         "price_unit": 19800,
-        "revenue": 79200
+        "revenue": 237600
       },
       "factory": {
-        "volume": 0.8999999999999999,
+        "volume": 3.5,
         "price_unit": 82500,
-        "revenue": 74249.99999999999,
+        "revenue": 288750.0,
         "source_month": 10,
-        "source_hackathons": 3
+        "source_hackathons": 10
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 12.01,
-          "business": 6.64,
-          "enterprise": 2.08,
-          "total": 20.73
+          "starter": 36.04,
+          "business": 19.92,
+          "enterprise": 6.22,
+          "total": 62.19
         },
-        "new_customers": 6,
-        "mrr": 40064.6048,
-        "arr": 480775.2576
+        "new_customers": 18,
+        "mrr": 120114.45439999999,
+        "arr": 1441373.4527999999
       },
       "services": {
-        "volume": 2.18,
+        "volume": 6.7,
         "price_unit": 17500,
-        "revenue": 38150.0
+        "revenue": 117250.0
       },
-      "total": 231664.6048
+      "total": 763714.4543999999
     },
     "costs": {
       "personnel": {
@@ -947,10 +947,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 2036.5,
+        "cloud": 3487.6,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 2461.5
+        "total": 3912.6
       },
       "marketing": {
         "digital_ads": 2000,
@@ -960,14 +960,14 @@
         "total": 6500
       },
       "admin": 3000,
-      "total": 24453.166666666668
+      "total": 25904.266666666666
     },
     "metrics": {
-      "ebitda": 207211.43813333334,
+      "ebitda": 737810.1877333332,
       "burn_rate": 0,
-      "arr": 480775.2576,
-      "mrr": 40064.6048,
-      "cash": 2012633.8544,
+      "arr": 1441373.4527999999,
+      "mrr": 120114.45439999999,
+      "cash": 4941772.8256,
       "funding": 0,
       "team_size": 2
     }
@@ -978,34 +978,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 4,
+        "volume": 12,
         "price_unit": 19800,
-        "revenue": 79200
+        "revenue": 237600
       },
       "factory": {
-        "volume": 1.2,
+        "volume": 4.199999999999999,
         "price_unit": 82500,
-        "revenue": 99000.0,
+        "revenue": 346499.99999999994,
         "source_month": 11,
-        "source_hackathons": 4
+        "source_hackathons": 12
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 15.79,
-          "business": 9.01,
-          "enterprise": 2.76,
-          "total": 27.56
+          "starter": 46.8,
+          "business": 26.72,
+          "enterprise": 8.17,
+          "total": 81.68
         },
-        "new_customers": 7,
-        "mrr": 53547.73760000001,
-        "arr": 642572.8512000002
+        "new_customers": 20,
+        "mrr": 158532.0704,
+        "arr": 1902384.8448
       },
       "services": {
-        "volume": 2.24,
+        "volume": 6.84,
         "price_unit": 17500,
-        "revenue": 39200.00000000001
+        "revenue": 119700.0
       },
-      "total": 270947.7376
+      "total": 862332.0704
     },
     "costs": {
       "personnel": {
@@ -1029,10 +1029,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 2378.0,
+        "cloud": 4267.200000000001,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 2803.0
+        "total": 4692.200000000001
       },
       "marketing": {
         "digital_ads": 2000,
@@ -1042,14 +1042,14 @@
         "total": 3500
       },
       "admin": 3000,
-      "total": 21794.666666666668
+      "total": 23683.86666666667
     },
     "metrics": {
-      "ebitda": 249153.07093333334,
+      "ebitda": 838648.2037333333,
       "burn_rate": 0,
-      "arr": 642572.8512000002,
-      "mrr": 53547.73760000001,
-      "cash": 2261786.9253333337,
+      "arr": 1902384.8448,
+      "mrr": 158532.0704,
+      "cash": 5780421.0293333335,
       "funding": 0,
       "team_size": 2
     }
@@ -1060,34 +1060,34 @@
     "year": 2025,
     "revenue": {
       "hackathon": {
-        "volume": 4,
+        "volume": 14,
         "price_unit": 19800,
-        "revenue": 79200
+        "revenue": 277200
       },
       "factory": {
-        "volume": 1.2,
+        "volume": 4.199999999999999,
         "price_unit": 82500,
-        "revenue": 99000.0,
+        "revenue": 346499.99999999994,
         "source_month": 12,
-        "source_hackathons": 4
+        "source_hackathons": 12
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 20.05,
-          "business": 11.75,
-          "enterprise": 3.54,
-          "total": 35.34
+          "starter": 58.43,
+          "business": 34.3,
+          "enterprise": 10.3,
+          "total": 103.04
         },
-        "new_customers": 8,
-        "mrr": 68900.7904,
-        "arr": 826809.4848
+        "new_customers": 22,
+        "mrr": 200860.44799999997,
+        "arr": 2410325.3759999997
       },
       "services": {
-        "volume": 2.24,
+        "volume": 7.84,
         "price_unit": 17500,
-        "revenue": 39200.00000000001
+        "revenue": 137200.0
       },
-      "total": 286300.7904
+      "total": 961760.448
     },
     "costs": {
       "personnel": {
@@ -1111,10 +1111,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 2767.0,
+        "cloud": 4091.2000000000003,
         "saas_tools": 425,
         "rd_external": 0,
-        "total": 3192.0
+        "total": 4516.200000000001
       },
       "marketing": {
         "digital_ads": 2000,
@@ -1124,14 +1124,14 @@
         "total": 3500
       },
       "admin": 3000,
-      "total": 22183.666666666668
+      "total": 23507.86666666667
     },
     "metrics": {
-      "ebitda": 264117.1237333333,
+      "ebitda": 938252.5813333333,
       "burn_rate": 0,
-      "arr": 826809.4848,
-      "mrr": 68900.7904,
-      "cash": 2525904.049066667,
+      "arr": 2410325.3759999997,
+      "mrr": 200860.44799999997,
+      "cash": 6718673.610666667,
       "funding": 0,
       "team_size": 2
     }
@@ -1142,34 +1142,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 14,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 252000.0
       },
       "factory": {
-        "volume": 1.2,
+        "volume": 4.199999999999999,
         "price_unit": 75000.0,
-        "revenue": 90000.0,
+        "revenue": 314999.99999999994,
         "source_month": 13,
-        "source_hackathons": 4
+        "source_hackathons": 12
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 24.2,
-          "business": 14.55,
-          "enterprise": 4.31,
-          "total": 43.06
+          "starter": 70.92,
+          "business": 42.67,
+          "enterprise": 12.62,
+          "total": 126.21
         },
-        "new_customers": 8,
-        "mrr": 84314.288,
-        "arr": 1011771.456
+        "new_customers": 24,
+        "mrr": 246979.3568,
+        "arr": 2963752.2816000003
       },
       "services": {
-        "volume": 0.24,
+        "volume": 7.84,
         "price_unit": 10000,
-        "revenue": 2400.0
+        "revenue": 78400.0
       },
-      "total": 176714.288
+      "total": 892379.3568
     },
     "costs": {
       "personnel": {
@@ -1223,10 +1223,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 3153.0,
+        "cloud": 4786.299999999999,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 3723.0
+        "total": 5356.299999999999
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1236,14 +1236,14 @@
         "total": 30000
       },
       "admin": 3000,
-      "total": 94043.83333333333
+      "total": 95677.13333333333
     },
     "metrics": {
-      "ebitda": 82670.45466666667,
+      "ebitda": 796702.2234666666,
       "burn_rate": 0,
-      "arr": 1011771.456,
-      "mrr": 84314.288,
-      "cash": 2608574.5037333337,
+      "arr": 2963752.2816000003,
+      "mrr": 246979.3568,
+      "cash": 7515375.8341333335,
       "funding": 0,
       "team_size": 10
     }
@@ -1254,34 +1254,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 15,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 270000.0
       },
       "factory": {
-        "volume": 1.2,
+        "volume": 4.8999999999999995,
         "price_unit": 75000.0,
-        "revenue": 90000.0,
+        "revenue": 367499.99999999994,
         "source_month": 14,
-        "source_hackathons": 4
+        "source_hackathons": 14
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 28.23,
-          "business": 17.41,
-          "enterprise": 5.08,
-          "total": 50.72
+          "starter": 84.23,
+          "business": 51.85,
+          "enterprise": 15.12,
+          "total": 151.2
         },
-        "new_customers": 8,
-        "mrr": 99689.79199999999,
-        "arr": 1196277.5039999997
+        "new_customers": 26,
+        "mrr": 297002.57920000004,
+        "arr": 3564030.9504000004
       },
       "services": {
-        "volume": 0.24,
+        "volume": 8.48,
         "price_unit": 10000,
-        "revenue": 2400.0
+        "revenue": 84800.0
       },
-      "total": 192089.792
+      "total": 1019302.5792
     },
     "costs": {
       "personnel": {
@@ -1335,10 +1335,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 3028.8,
+        "cloud": 5536.0,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 3598.8
+        "total": 6106.0
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1348,14 +1348,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 78919.63333333333
+      "total": 81426.83333333333
     },
     "metrics": {
-      "ebitda": 113170.15866666666,
+      "ebitda": 937875.7458666667,
       "burn_rate": 0,
-      "arr": 1196277.5039999997,
-      "mrr": 99689.79199999999,
-      "cash": 2721744.6624000003,
+      "arr": 3564030.9504000004,
+      "mrr": 297002.57920000004,
+      "cash": 8453251.58,
       "funding": 0,
       "team_size": 10
     }
@@ -1366,34 +1366,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 16,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 288000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 4.8999999999999995,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 367499.99999999994,
         "source_month": 15,
-        "source_hackathons": 0
+        "source_hackathons": 14
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 32.15,
-          "business": 20.33,
-          "enterprise": 5.84,
-          "total": 58.31
+          "starter": 98.35,
+          "business": 61.84,
+          "enterprise": 17.8,
+          "total": 177.99
         },
-        "new_customers": 8,
-        "mrr": 115121.2448,
-        "arr": 1381454.9376
+        "new_customers": 28,
+        "mrr": 350849.56480000005,
+        "arr": 4210194.777600001
       },
       "services": {
-        "volume": 0.0,
+        "volume": 8.98,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 89800.0
       },
-      "total": 115121.2448
+      "total": 1096149.5648
     },
     "costs": {
       "personnel": {
@@ -1447,10 +1447,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 3332.4,
+        "cloud": 6339.700000000001,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 3902.4
+        "total": 6909.700000000001
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1460,14 +1460,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 79223.23333333334
+      "total": 82230.53333333333
     },
     "metrics": {
-      "ebitda": 35898.01146666666,
+      "ebitda": 1013919.0314666667,
       "burn_rate": 0,
-      "arr": 1381454.9376,
-      "mrr": 115121.2448,
-      "cash": 2757642.673866667,
+      "arr": 4210194.777600001,
+      "mrr": 350849.56480000005,
+      "cash": 9467170.611466667,
       "funding": 0,
       "team_size": 10
     }
@@ -1478,34 +1478,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 18,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 324000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 5.25,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 393750.0,
         "source_month": 16,
-        "source_hackathons": 0
+        "source_hackathons": 15
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 35.96,
-          "business": 23.3,
-          "enterprise": 6.59,
-          "total": 65.85
+          "starter": 113.25,
+          "business": 72.66,
+          "enterprise": 20.66,
+          "total": 206.57
         },
-        "new_customers": 8,
-        "mrr": 130514.704,
-        "arr": 1566176.4479999999
+        "new_customers": 30,
+        "mrr": 408515.056,
+        "arr": 4902180.672
       },
       "services": {
-        "volume": 0.0,
+        "volume": 10.05,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 100500.0
       },
-      "total": 130514.704
+      "total": 1226765.0559999999
     },
     "costs": {
       "personnel": {
@@ -1559,10 +1559,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 3634.0,
+        "cloud": 7197.099999999999,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 4204.0
+        "total": 7767.099999999999
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1572,14 +1572,14 @@
         "total": 30000
       },
       "admin": 3000,
-      "total": 94524.83333333333
+      "total": 98087.93333333332
     },
     "metrics": {
-      "ebitda": 35989.87066666667,
+      "ebitda": 1128677.1226666665,
       "burn_rate": 0,
-      "arr": 1566176.4479999999,
-      "mrr": 130514.704,
-      "cash": 2793632.5445333333,
+      "arr": 4902180.672,
+      "mrr": 408515.056,
+      "cash": 10595847.734133333,
       "funding": 0,
       "team_size": 10
     }
@@ -1590,34 +1590,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 18,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 324000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 5.6,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 420000.0,
         "source_month": 17,
-        "source_hackathons": 0
+        "source_hackathons": 16
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 39.66,
-          "business": 26.32,
-          "enterprise": 7.34,
-          "total": 73.32
+          "starter": 128.91,
+          "business": 84.31,
+          "enterprise": 23.69,
+          "total": 236.92
         },
-        "new_customers": 8,
-        "mrr": 145850.3296,
-        "arr": 1750203.9552
+        "new_customers": 32,
+        "mrr": 470022.95999999996,
+        "arr": 5640275.52
       },
       "services": {
-        "volume": 0.0,
+        "volume": 10.12,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 101199.99999999999
       },
-      "total": 145850.3296
+      "total": 1315222.96
     },
     "costs": {
       "personnel": {
@@ -1671,10 +1671,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 3932.7999999999997,
+        "cloud": 8107.599999999999,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 4502.799999999999
+        "total": 8677.599999999999
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1684,14 +1684,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 79823.63333333333
+      "total": 83998.43333333332
     },
     "metrics": {
-      "ebitda": 66026.69626666667,
+      "ebitda": 1231224.5266666666,
       "burn_rate": 0,
-      "arr": 1750203.9552,
-      "mrr": 145850.3296,
-      "cash": 2859659.2408,
+      "arr": 5640275.52,
+      "mrr": 470022.95999999996,
+      "cash": 11827072.2608,
       "funding": 0,
       "team_size": 10
     }
@@ -1702,34 +1702,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 20,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 360000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 6.3,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 472500.0,
         "source_month": 18,
-        "source_hackathons": 0
+        "source_hackathons": 18
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 43.26,
-          "business": 29.39,
-          "enterprise": 8.08,
-          "total": 80.73
+          "starter": 145.31,
+          "business": 96.8,
+          "enterprise": 26.9,
+          "total": 269.01
         },
-        "new_customers": 8,
-        "mrr": 161227.3216,
-        "arr": 1934727.8591999998
+        "new_customers": 34,
+        "mrr": 535263.5615999999,
+        "arr": 6423162.739199999
       },
       "services": {
-        "volume": 0.0,
+        "volume": 11.26,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 112600.0
       },
-      "total": 161227.3216
+      "total": 1480363.5616
     },
     "costs": {
       "personnel": {
@@ -1783,10 +1783,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4229.200000000001,
+        "cloud": 9070.3,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 4799.200000000001
+        "total": 9640.3
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1796,14 +1796,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 80120.03333333333
+      "total": 84961.13333333333
     },
     "metrics": {
-      "ebitda": 81107.28826666667,
+      "ebitda": 1395402.4282666666,
       "burn_rate": 0,
-      "arr": 1934727.8591999998,
-      "mrr": 161227.3216,
-      "cash": 2940766.5290666665,
+      "arr": 6423162.739199999,
+      "mrr": 535263.5615999999,
+      "cash": 13222474.689066667,
       "funding": 0,
       "team_size": 10
     }
@@ -1814,34 +1814,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 20,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 360000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 6.3,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 472500.0,
         "source_month": 19,
-        "source_hackathons": 0
+        "source_hackathons": 18
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 46.76,
-          "business": 32.51,
-          "enterprise": 8.82,
-          "total": 88.08
+          "starter": 162.43,
+          "business": 110.14,
+          "enterprise": 30.28,
+          "total": 302.86
         },
-        "new_customers": 8,
-        "mrr": 176551.7376,
-        "arr": 2118620.8512
+        "new_customers": 36,
+        "mrr": 604345.3855999999,
+        "arr": 7252144.627199999
       },
       "services": {
-        "volume": 0.0,
+        "volume": 11.26,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 112600.0
       },
-      "total": 176551.7376
+      "total": 1549445.3856
     },
     "costs": {
       "personnel": {
@@ -1895,10 +1895,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4523.2,
+        "cloud": 10085.800000000001,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 5093.2
+        "total": 10655.800000000001
       },
       "marketing": {
         "digital_ads": 10000,
@@ -1908,14 +1908,14 @@
         "total": 30000
       },
       "admin": 3000,
-      "total": 95414.03333333333
+      "total": 100976.63333333333
     },
     "metrics": {
-      "ebitda": 81137.70426666667,
+      "ebitda": 1448468.7522666666,
       "burn_rate": 0,
-      "arr": 2118620.8512,
-      "mrr": 176551.7376,
-      "cash": 3021904.2333333334,
+      "arr": 7252144.627199999,
+      "mrr": 604345.3855999999,
+      "cash": 14670943.441333335,
       "funding": 0,
       "team_size": 10
     }
@@ -1926,34 +1926,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 22,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 396000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 7.0,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 525000.0,
         "source_month": 20,
-        "source_hackathons": 0
+        "source_hackathons": 20
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 50.16,
-          "business": 35.67,
-          "enterprise": 9.55,
-          "total": 95.39
+          "starter": 180.25,
+          "business": 124.34,
+          "enterprise": 33.84,
+          "total": 338.43
         },
-        "new_customers": 8,
-        "mrr": 191922.7776,
-        "arr": 2303073.3312
+        "new_customers": 38,
+        "mrr": 677178.5568000001,
+        "arr": 8126142.681600002
       },
       "services": {
-        "volume": 0.0,
+        "volume": 12.4,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 124000.0
       },
-      "total": 191922.7776
+      "total": 1722178.5568000001
     },
     "costs": {
       "personnel": {
@@ -2007,10 +2007,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4815.6,
+        "cloud": 11152.9,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 5385.6
+        "total": 11722.9
       },
       "marketing": {
         "digital_ads": 10000,
@@ -2020,14 +2020,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 80706.43333333332
+      "total": 87043.73333333332
     },
     "metrics": {
-      "ebitda": 111216.34426666668,
+      "ebitda": 1635134.8234666667,
       "burn_rate": 0,
-      "arr": 2303073.3312,
-      "mrr": 191922.7776,
-      "cash": 3133120.5776000004,
+      "arr": 8126142.681600002,
+      "mrr": 677178.5568000001,
+      "cash": 16306078.264800003,
       "funding": 0,
       "team_size": 10
     }
@@ -2038,34 +2038,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 22,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 396000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 7.0,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 525000.0,
         "source_month": 21,
-        "source_hackathons": 0
+        "source_hackathons": 20
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 53.47,
-          "business": 38.88,
-          "enterprise": 10.27,
-          "total": 102.62
+          "starter": 198.75,
+          "business": 139.4,
+          "enterprise": 37.57,
+          "total": 375.72
         },
-        "new_customers": 8,
-        "mrr": 207221.40160000004,
-        "arr": 2486656.8192000007
+        "new_customers": 40,
+        "mrr": 753871.6000000001,
+        "arr": 9046459.200000001
       },
       "services": {
-        "volume": 0.0,
+        "volume": 12.4,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 124000.0
       },
-      "total": 207221.40160000004
+      "total": 1798871.6
     },
     "costs": {
       "personnel": {
@@ -2119,10 +2119,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4078.6000000000004,
+        "cloud": 12271.6,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 4648.6
+        "total": 12841.6
       },
       "marketing": {
         "digital_ads": 10000,
@@ -2132,14 +2132,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 79969.43333333332
+      "total": 88162.43333333333
     },
     "metrics": {
-      "ebitda": 127251.96826666672,
+      "ebitda": 1710709.1666666667,
       "burn_rate": 0,
-      "arr": 2486656.8192000007,
-      "mrr": 207221.40160000004,
-      "cash": 3260372.5458666673,
+      "arr": 9046459.200000001,
+      "mrr": 753871.6000000001,
+      "cash": 18016787.43146667,
       "funding": 0,
       "team_size": 10
     }
@@ -2150,34 +2150,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 24,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 432000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 7.699999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 577500.0,
         "source_month": 22,
-        "source_hackathons": 0
+        "source_hackathons": 22
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 56.69,
-          "business": 42.13,
-          "enterprise": 10.99,
-          "total": 109.8
+          "starter": 217.91,
+          "business": 155.33,
+          "enterprise": 41.47,
+          "total": 414.71
         },
-        "new_customers": 8,
-        "mrr": 222472.7072,
-        "arr": 2669672.4864
+        "new_customers": 42,
+        "mrr": 834314.8,
+        "arr": 10011777.600000001
       },
       "services": {
-        "volume": 0.0,
+        "volume": 13.54,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 135400.0
       },
-      "total": 222472.7072
+      "total": 1979214.8
     },
     "costs": {
       "personnel": {
@@ -2231,10 +2231,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4294.0,
+        "cloud": 13441.3,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 4864.0
+        "total": 14011.3
       },
       "marketing": {
         "digital_ads": 10000,
@@ -2244,14 +2244,14 @@
         "total": 30000
       },
       "admin": 3000,
-      "total": 95184.83333333333
+      "total": 104332.13333333333
     },
     "metrics": {
-      "ebitda": 127287.87386666668,
+      "ebitda": 1874882.6666666667,
       "burn_rate": 0,
-      "arr": 2669672.4864,
-      "mrr": 222472.7072,
-      "cash": 3387660.419733334,
+      "arr": 10011777.600000001,
+      "mrr": 834314.8,
+      "cash": 19891670.098133337,
       "funding": 0,
       "team_size": 10
     }
@@ -2262,34 +2262,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 25,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 450000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 7.699999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 577500.0,
         "source_month": 23,
-        "source_hackathons": 0
+        "source_hackathons": 22
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 59.82,
-          "business": 45.41,
-          "enterprise": 11.7,
-          "total": 116.93
+          "starter": 238.3,
+          "business": 172.45,
+          "enterprise": 45.64,
+          "total": 456.39
         },
-        "new_customers": 8,
-        "mrr": 237756.0544,
-        "arr": 2853072.6528
+        "new_customers": 45,
+        "mrr": 920435.4816,
+        "arr": 11045225.7792
       },
       "services": {
-        "volume": 0.0,
+        "volume": 14.04,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 140400.0
       },
-      "total": 237756.0544
+      "total": 2088335.4816
     },
     "costs": {
       "personnel": {
@@ -2343,10 +2343,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4507.9,
+        "cloud": 14691.699999999999,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 5077.9
+        "total": 15261.699999999999
       },
       "marketing": {
         "digital_ads": 10000,
@@ -2356,14 +2356,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 80398.73333333334
+      "total": 90582.53333333333
     },
     "metrics": {
-      "ebitda": 157357.32106666666,
+      "ebitda": 1997752.9482666668,
       "burn_rate": 0,
-      "arr": 2853072.6528,
-      "mrr": 237756.0544,
-      "cash": 3545017.7408000003,
+      "arr": 11045225.7792,
+      "mrr": 920435.4816,
+      "cash": 21889423.046400003,
       "funding": 0,
       "team_size": 10
     }
@@ -2374,34 +2374,34 @@
     "year": 2027,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 26,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 468000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 8.399999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 629999.9999999999,
         "source_month": 24,
-        "source_hackathons": 0
+        "source_hackathons": 24
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 62.86,
-          "business": 48.73,
-          "enterprise": 12.41,
-          "total": 123.99
+          "starter": 259.89,
+          "business": 190.77,
+          "enterprise": 50.07,
+          "total": 500.74
         },
-        "new_customers": 8,
-        "mrr": 252952.4032,
-        "arr": 3035428.8384
+        "new_customers": 48,
+        "mrr": 1012242.2080000001,
+        "arr": 12146906.496000001
       },
       "services": {
-        "volume": 0.0,
+        "volume": 14.68,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 146800.0
       },
-      "total": 252952.4032
+      "total": 2257042.208
     },
     "costs": {
       "personnel": {
@@ -2455,10 +2455,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4719.7,
+        "cloud": 16022.2,
         "saas_tools": 570,
         "rd_external": 0,
-        "total": 5289.7
+        "total": 16592.2
       },
       "marketing": {
         "digital_ads": 10000,
@@ -2468,14 +2468,14 @@
         "total": 15000
       },
       "admin": 3000,
-      "total": 80610.53333333333
+      "total": 91913.03333333333
     },
     "metrics": {
-      "ebitda": 172341.86986666668,
+      "ebitda": 2165129.174666667,
       "burn_rate": 0,
-      "arr": 3035428.8384,
-      "mrr": 252952.4032,
-      "cash": 3717359.610666667,
+      "arr": 12146906.496000001,
+      "mrr": 1012242.2080000001,
+      "cash": 24054552.22106667,
       "funding": 0,
       "team_size": 10
     }
@@ -2486,34 +2486,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 28,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 504000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 8.75,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 656250.0,
         "source_month": 25,
-        "source_hackathons": 0
+        "source_hackathons": 25
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 65.81,
-          "business": 52.08,
-          "enterprise": 13.11,
-          "total": 131.01
+          "starter": 282.05,
+          "business": 210.0,
+          "enterprise": 54.67,
+          "total": 546.72
         },
-        "new_customers": 8,
-        "mrr": 268180.7936,
-        "arr": 3218169.5231999997
+        "new_customers": 50,
+        "mrr": 1107721.8464000002,
+        "arr": 13292662.156800002
       },
       "services": {
-        "volume": 0.0,
+        "volume": 15.75,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 157500.0
       },
-      "total": 268180.7936
+      "total": 2425471.8464
     },
     "costs": {
       "personnel": {
@@ -2567,10 +2567,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 4930.299999999999,
+        "cloud": 17401.600000000002,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 5675.299999999999
+        "total": 18146.600000000002
       },
       "marketing": {
         "digital_ads": 15000,
@@ -2580,14 +2580,14 @@
         "total": 46000
       },
       "admin": 3000,
-      "total": 143050.3
+      "total": 155521.6
     },
     "metrics": {
-      "ebitda": 125130.49359999999,
+      "ebitda": 2269950.2464,
       "burn_rate": 0,
-      "arr": 3218169.5231999997,
-      "mrr": 268180.7936,
-      "cash": 3842490.1042666673,
+      "arr": 13292662.156800002,
+      "mrr": 1107721.8464000002,
+      "cash": 26324502.467466667,
       "funding": 0,
       "team_size": 15
     }
@@ -2598,34 +2598,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 28,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 504000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 9.1,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 682500.0,
         "source_month": 26,
-        "source_hackathons": 0
+        "source_hackathons": 26
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 68.68,
-          "business": 55.47,
-          "enterprise": 13.81,
-          "total": 137.95
+          "starter": 304.77,
+          "business": 230.14,
+          "enterprise": 59.43,
+          "total": 594.35
         },
-        "new_customers": 8,
-        "mrr": 283322.18559999997,
-        "arr": 3399866.2271999996
+        "new_customers": 52,
+        "mrr": 1206993.008,
+        "arr": 14483916.095999999
       },
       "services": {
-        "volume": 0.0,
+        "volume": 15.82,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 158200.0
       },
-      "total": 283322.18559999997
+      "total": 2551693.008
     },
     "costs": {
       "personnel": {
@@ -2679,10 +2679,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 5138.5,
+        "cloud": 18830.5,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 5883.5
+        "total": 19575.5
       },
       "marketing": {
         "digital_ads": 15000,
@@ -2692,14 +2692,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 119258.5
+      "total": 132950.5
     },
     "metrics": {
-      "ebitda": 164063.68559999997,
+      "ebitda": 2418742.508,
       "burn_rate": 0,
-      "arr": 3399866.2271999996,
-      "mrr": 283322.18559999997,
-      "cash": 4006553.7898666672,
+      "arr": 14483916.095999999,
+      "mrr": 1206993.008,
+      "cash": 28743244.97546667,
       "funding": 0,
       "team_size": 15
     }
@@ -2710,34 +2710,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 30,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 540000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 9.799999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 734999.9999999999,
         "source_month": 27,
-        "source_hackathons": 0
+        "source_hackathons": 28
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 71.47,
-          "business": 58.88,
-          "enterprise": 14.5,
-          "total": 144.86
+          "starter": 328.63,
+          "business": 251.51,
+          "enterprise": 64.45,
+          "total": 644.59
         },
-        "new_customers": 8,
-        "mrr": 298500.8768,
-        "arr": 3582010.5216000006
+        "new_customers": 55,
+        "mrr": 1311869.2352,
+        "arr": 15742430.8224
       },
       "services": {
-        "volume": 0.0,
+        "volume": 16.96,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 169600.0
       },
-      "total": 298500.8768
+      "total": 2756469.2352
     },
     "costs": {
       "personnel": {
@@ -2791,10 +2791,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 5345.8,
+        "cloud": 20337.7,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 6090.8
+        "total": 21082.7
       },
       "marketing": {
         "digital_ads": 15000,
@@ -2804,14 +2804,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 119465.8
+      "total": 134457.7
     },
     "metrics": {
-      "ebitda": 179035.07680000004,
+      "ebitda": 2622011.5352,
       "burn_rate": 0,
-      "arr": 3582010.5216000006,
-      "mrr": 298500.8768,
-      "cash": 4185588.866666667,
+      "arr": 15742430.8224,
+      "mrr": 1311869.2352,
+      "cash": 31365256.51066667,
       "funding": 0,
       "team_size": 15
     }
@@ -2822,34 +2822,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 30,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 540000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 9.799999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 734999.9999999999,
         "source_month": 28,
-        "source_hackathons": 0
+        "source_hackathons": 28
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 74.18,
-          "business": 62.32,
-          "enterprise": 15.18,
-          "total": 151.69
+          "starter": 353.58,
+          "business": 274.11,
+          "enterprise": 69.73,
+          "total": 697.43
         },
-        "new_customers": 8,
-        "mrr": 313577.9872,
-        "arr": 3762935.8463999997
+        "new_customers": 58,
+        "mrr": 1422364.3488000003,
+        "arr": 17068372.185600005
       },
       "services": {
-        "volume": 0.0,
+        "volume": 16.96,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 169600.0
       },
-      "total": 313577.9872
+      "total": 2866964.3488000003
     },
     "costs": {
       "personnel": {
@@ -2903,10 +2903,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 5550.7,
+        "cloud": 21922.899999999998,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 6295.7
+        "total": 22667.899999999998
       },
       "marketing": {
         "digital_ads": 15000,
@@ -2916,14 +2916,14 @@
         "total": 46000
       },
       "admin": 3000,
-      "total": 143670.7
+      "total": 160042.9
     },
     "metrics": {
-      "ebitda": 169907.28719999996,
+      "ebitda": 2706921.4488000004,
       "burn_rate": 0,
-      "arr": 3762935.8463999997,
-      "mrr": 313577.9872,
-      "cash": 4355496.153866667,
+      "arr": 17068372.185600005,
+      "mrr": 1422364.3488000003,
+      "cash": 34072177.95946667,
       "funding": 0,
       "team_size": 15
     }
@@ -2934,34 +2934,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 32,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 576000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 10.5,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 787500.0,
         "source_month": 29,
-        "source_hackathons": 0
+        "source_hackathons": 30
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 76.82,
-          "business": 65.79,
-          "enterprise": 15.86,
-          "total": 158.47
+          "starter": 379.02,
+          "business": 297.65,
+          "enterprise": 75.17,
+          "total": 751.84
         },
-        "new_customers": 8,
-        "mrr": 328573.3568,
-        "arr": 3942880.2816000003
+        "new_customers": 60,
+        "mrr": 1536534.0608,
+        "arr": 18438408.7296
       },
       "services": {
-        "volume": 0.0,
+        "volume": 18.1,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 181000.0
       },
-      "total": 328573.3568
+      "total": 3081034.0608
     },
     "costs": {
       "personnel": {
@@ -3015,10 +3015,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 5754.1,
+        "cloud": 23555.2,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 6499.1
+        "total": 24300.2
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3028,14 +3028,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 119874.1
+      "total": 137675.2
     },
     "metrics": {
-      "ebitda": 208699.2568,
+      "ebitda": 2943358.8608,
       "burn_rate": 0,
-      "arr": 3942880.2816000003,
-      "mrr": 328573.3568,
-      "cash": 4564195.410666668,
+      "arr": 18438408.7296,
+      "mrr": 1536534.0608,
+      "cash": 37015536.82026667,
       "funding": 0,
       "team_size": 15
     }
@@ -3046,34 +3046,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 32,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 576000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 10.5,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 787500.0,
         "source_month": 30,
-        "source_hackathons": 0
+        "source_hackathons": 30
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 79.39,
-          "business": 69.28,
-          "enterprise": 16.53,
-          "total": 165.2
+          "starter": 404.92,
+          "business": 322.13,
+          "enterprise": 80.77,
+          "total": 807.83
         },
-        "new_customers": 8,
-        "mrr": 343591.44320000004,
-        "arr": 4123097.3184
+        "new_customers": 62,
+        "mrr": 1654413.5552,
+        "arr": 19852962.6624
       },
       "services": {
-        "volume": 0.0,
+        "volume": 18.1,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 181000.0
       },
-      "total": 343591.44320000004
+      "total": 3198913.5552000003
     },
     "costs": {
       "personnel": {
@@ -3127,10 +3127,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 5956.0,
+        "cloud": 25234.9,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 6701.0
+        "total": 25979.9
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3140,14 +3140,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 120076.0
+      "total": 139354.9
     },
     "metrics": {
-      "ebitda": 223515.44320000004,
+      "ebitda": 3059558.6552000004,
       "burn_rate": 0,
-      "arr": 4123097.3184,
-      "mrr": 343591.44320000004,
-      "cash": 4787710.8538666675,
+      "arr": 19852962.6624,
+      "mrr": 1654413.5552,
+      "cash": 40075095.475466676,
       "funding": 0,
       "team_size": 15
     }
@@ -3158,34 +3158,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 34,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 612000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 11.2,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 840000.0,
         "source_month": 31,
-        "source_hackathons": 0
+        "source_hackathons": 32
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 81.88,
-          "business": 72.8,
-          "enterprise": 17.2,
-          "total": 171.88
+          "starter": 431.87,
+          "business": 347.87,
+          "enterprise": 86.62,
+          "total": 866.36
         },
-        "new_customers": 8,
-        "mrr": 358513.2064,
-        "arr": 4302158.4768
+        "new_customers": 65,
+        "mrr": 1777905.0592,
+        "arr": 21334860.7104
       },
       "services": {
-        "volume": 0.0,
+        "volume": 19.24,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 192399.99999999997
       },
-      "total": 358513.2064
+      "total": 3422305.0592
     },
     "costs": {
       "personnel": {
@@ -3239,10 +3239,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 6156.4,
+        "cloud": 26990.8,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 6901.4
+        "total": 27735.8
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3252,14 +3252,14 @@
         "total": 46000
       },
       "admin": 3000,
-      "total": 144276.4
+      "total": 165110.8
     },
     "metrics": {
-      "ebitda": 214236.80640000003,
+      "ebitda": 3257194.2592,
       "burn_rate": 0,
-      "arr": 4302158.4768,
-      "mrr": 358513.2064,
-      "cash": 5001947.660266668,
+      "arr": 21334860.7104,
+      "mrr": 1777905.0592,
+      "cash": 43332289.734666675,
       "funding": 0,
       "team_size": 15
     }
@@ -3270,34 +3270,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 34,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 612000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 11.2,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 840000.0,
         "source_month": 32,
-        "source_hackathons": 0
+        "source_hackathons": 32
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 84.3,
-          "business": 76.34,
-          "enterprise": 17.86,
-          "total": 178.5
+          "starter": 459.83,
+          "business": 374.87,
+          "enterprise": 92.73,
+          "total": 927.43
         },
-        "new_customers": 8,
-        "mrr": 373452.4288,
-        "arr": 4481429.1456
+        "new_customers": 68,
+        "mrr": 1906928.4512,
+        "arr": 22883141.4144
       },
       "services": {
-        "volume": 0.0,
+        "volume": 19.24,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 192399.99999999997
       },
-      "total": 373452.4288
+      "total": 3551328.4512
     },
     "costs": {
       "personnel": {
@@ -3351,10 +3351,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 6355.0,
+        "cloud": 28822.899999999998,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 7100.0
+        "total": 29567.899999999998
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3364,14 +3364,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 120475.0
+      "total": 142942.9
     },
     "metrics": {
-      "ebitda": 252977.4288,
+      "ebitda": 3408385.5512,
       "burn_rate": 0,
-      "arr": 4481429.1456,
-      "mrr": 373452.4288,
-      "cash": 5254925.0890666675,
+      "arr": 22883141.4144,
+      "mrr": 1906928.4512,
+      "cash": 46740675.28586668,
       "funding": 0,
       "team_size": 15
     }
@@ -3382,34 +3382,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 36,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 648000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 11.899999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 892499.9999999999,
         "source_month": 33,
-        "source_hackathons": 0
+        "source_hackathons": 34
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 86.66,
-          "business": 79.9,
-          "enterprise": 18.52,
-          "total": 185.07
+          "starter": 488.19,
+          "business": 402.83,
+          "enterprise": 98.99,
+          "total": 990.01
         },
-        "new_customers": 8,
-        "mrr": 388295.328,
-        "arr": 4659543.936
+        "new_customers": 70,
+        "mrr": 2039643.9008,
+        "arr": 24475726.8096
       },
       "services": {
-        "volume": 0.0,
+        "volume": 20.38,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 203800.0
       },
-      "total": 388295.328
+      "total": 3783943.9008
     },
     "costs": {
       "personnel": {
@@ -3463,10 +3463,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 6552.099999999999,
+        "cloud": 30700.3,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 7297.099999999999
+        "total": 31445.3
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3476,14 +3476,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 120672.1
+      "total": 144820.3
     },
     "metrics": {
-      "ebitda": 267623.228,
+      "ebitda": 3639123.6008,
       "burn_rate": 0,
-      "arr": 4659543.936,
-      "mrr": 388295.328,
-      "cash": 5522548.317066668,
+      "arr": 24475726.8096,
+      "mrr": 2039643.9008,
+      "cash": 50379798.88666668,
       "funding": 0,
       "team_size": 15
     }
@@ -3494,34 +3494,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 38,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 684000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 11.899999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 892499.9999999999,
         "source_month": 34,
-        "source_hackathons": 0
+        "source_hackathons": 34
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 88.95,
-          "business": 83.48,
-          "enterprise": 19.17,
-          "total": 191.6
+          "starter": 516.93,
+          "business": 431.76,
+          "enterprise": 105.4,
+          "total": 1054.09
         },
-        "new_customers": 8,
-        "mrr": 403146.3616,
-        "arr": 4837756.3392
+        "new_customers": 72,
+        "mrr": 2175962.2944,
+        "arr": 26111547.5328
       },
       "services": {
-        "volume": 0.0,
+        "volume": 21.38,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 213800.0
       },
-      "total": 403146.3616
+      "total": 3966262.2944
     },
     "costs": {
       "personnel": {
@@ -3575,10 +3575,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 6748.0,
+        "cloud": 32622.699999999997,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 7493.0
+        "total": 33367.7
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3588,14 +3588,14 @@
         "total": 46000
       },
       "admin": 3000,
-      "total": 144868.0
+      "total": 170742.7
     },
     "metrics": {
-      "ebitda": 258278.3616,
+      "ebitda": 3795519.5944,
       "burn_rate": 0,
-      "arr": 4837756.3392,
-      "mrr": 403146.3616,
-      "cash": 5780826.678666668,
+      "arr": 26111547.5328,
+      "mrr": 2175962.2944,
+      "cash": 54175318.481066674,
       "funding": 0,
       "team_size": 15
     }
@@ -3606,34 +3606,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 40,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 720000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 12.6,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 945000.0,
         "source_month": 35,
-        "source_hackathons": 0
+        "source_hackathons": 36
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 91.18,
-          "business": 87.07,
-          "enterprise": 19.82,
-          "total": 198.07
+          "starter": 546.64,
+          "business": 461.96,
+          "enterprise": 112.06,
+          "total": 1120.66
         },
-        "new_customers": 8,
-        "mrr": 417901.07200000004,
-        "arr": 5014812.864
+        "new_customers": 75,
+        "mrr": 2317810.9568,
+        "arr": 27813731.481599998
       },
       "services": {
-        "volume": 0.0,
+        "volume": 22.52,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 225200.0
       },
-      "total": 417901.07200000004
+      "total": 4208010.9568
     },
     "costs": {
       "personnel": {
@@ -3687,10 +3687,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 6942.099999999999,
+        "cloud": 34619.8,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 7687.099999999999
+        "total": 35364.8
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3700,14 +3700,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 121062.1
+      "total": 148739.8
     },
     "metrics": {
-      "ebitda": 296838.97200000007,
+      "ebitda": 4059271.1568,
       "burn_rate": 0,
-      "arr": 5014812.864,
-      "mrr": 417901.07200000004,
-      "cash": 6077665.650666668,
+      "arr": 27813731.481599998,
+      "mrr": 2317810.9568,
+      "cash": 58234589.637866676,
       "funding": 0,
       "team_size": 15
     }
@@ -3718,34 +3718,34 @@
     "year": 2028,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 42,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 756000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 13.299999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 997499.9999999999,
         "source_month": 36,
-        "source_hackathons": 0
+        "source_hackathons": 38
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 93.35,
-          "business": 90.68,
-          "enterprise": 20.46,
-          "total": 204.49
+          "starter": 577.29,
+          "business": 493.45,
+          "enterprise": 118.96,
+          "total": 1189.69
         },
-        "new_customers": 8,
-        "mrr": 432644.0768,
-        "arr": 5191728.9216
+        "new_customers": 78,
+        "mrr": 2465169.2863999996,
+        "arr": 29582031.436799996
       },
       "services": {
-        "volume": 0.0,
+        "volume": 23.66,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 236600.0
       },
-      "total": 432644.0768
+      "total": 4455269.2864
     },
     "costs": {
       "personnel": {
@@ -3799,10 +3799,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 7134.700000000001,
+        "cloud": 36690.700000000004,
         "saas_tools": 745,
         "rd_external": 0,
-        "total": 7879.700000000001
+        "total": 37435.700000000004
       },
       "marketing": {
         "digital_ads": 15000,
@@ -3812,14 +3812,14 @@
         "total": 22000
       },
       "admin": 3000,
-      "total": 121254.7
+      "total": 150810.7
     },
     "metrics": {
-      "ebitda": 311389.37679999997,
+      "ebitda": 4304458.586399999,
       "burn_rate": 0,
-      "arr": 5191728.9216,
-      "mrr": 432644.0768,
-      "cash": 6389055.027466668,
+      "arr": 29582031.436799996,
+      "mrr": 2465169.2863999996,
+      "cash": 62539048.22426667,
       "funding": 0,
       "team_size": 15
     }
@@ -3830,34 +3830,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 44,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 792000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 14.0,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1050000.0,
         "source_month": 37,
-        "source_hackathons": 0
+        "source_hackathons": 40
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 95.46,
-          "business": 94.3,
-          "enterprise": 21.1,
-          "total": 210.85
+          "starter": 608.26,
+          "business": 525.92,
+          "enterprise": 126.01,
+          "total": 1260.18
         },
-        "new_customers": 8,
-        "mrr": 447296.01600000006,
-        "arr": 5367552.192000001
+        "new_customers": 80,
+        "mrr": 2616043.9903999995,
+        "arr": 31392527.884799995
       },
       "services": {
-        "volume": 0.0,
+        "volume": 24.8,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 248000.0
       },
-      "total": 447296.01600000006
+      "total": 4706043.9904
     },
     "costs": {
       "personnel": {
@@ -3911,10 +3911,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 7325.5,
+        "cloud": 38805.4,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 8211.5
+        "total": 39691.4
       },
       "marketing": {
         "digital_ads": 20000,
@@ -3924,14 +3924,14 @@
         "total": 59000
       },
       "admin": 3000,
-      "total": 177678.1666666667
+      "total": 209158.06666666668
     },
     "metrics": {
-      "ebitda": 269617.8493333334,
+      "ebitda": 4496885.923733333,
       "burn_rate": 0,
-      "arr": 5367552.192000001,
-      "mrr": 447296.01600000006,
-      "cash": 6658672.876800001,
+      "arr": 31392527.884799995,
+      "mrr": 2616043.9903999995,
+      "cash": 67035934.147999994,
       "funding": 0,
       "team_size": 18
     }
@@ -3942,34 +3942,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 45,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 810000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 14.7,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1102500.0,
         "source_month": 38,
-        "source_hackathons": 0
+        "source_hackathons": 42
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 97.51,
-          "business": 97.94,
-          "enterprise": 21.73,
-          "total": 217.17
+          "starter": 639.54,
+          "business": 559.36,
+          "enterprise": 133.2,
+          "total": 1332.11
         },
-        "new_customers": 8,
-        "mrr": 461936.2496,
-        "arr": 5543234.9952
+        "new_customers": 82,
+        "mrr": 2770519.2576,
+        "arr": 33246231.0912
       },
       "services": {
-        "volume": 0.0,
+        "volume": 25.44,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 254400.0
       },
-      "total": 461936.2496
+      "total": 4937419.2576
     },
     "costs": {
       "personnel": {
@@ -4023,10 +4023,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 7515.099999999999,
+        "cloud": 40963.299999999996,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 8401.099999999999
+        "total": 41849.299999999996
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4036,14 +4036,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 147867.76666666666
+      "total": 181315.96666666667
     },
     "metrics": {
-      "ebitda": 314068.4829333333,
+      "ebitda": 4756103.290933333,
       "burn_rate": 0,
-      "arr": 5543234.9952,
-      "mrr": 461936.2496,
-      "cash": 6972741.359733334,
+      "arr": 33246231.0912,
+      "mrr": 2770519.2576,
+      "cash": 71792037.43893333,
       "funding": 0,
       "team_size": 18
     }
@@ -4054,34 +4054,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 46,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 828000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 15.399999999999999,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1155000.0,
         "source_month": 39,
-        "source_hackathons": 0
+        "source_hackathons": 44
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 99.5,
-          "business": 101.59,
-          "enterprise": 22.36,
-          "total": 223.44
+          "starter": 671.72,
+          "business": 594.09,
+          "enterprise": 140.63,
+          "total": 1406.44
         },
-        "new_customers": 8,
-        "mrr": 476485.41760000004,
-        "arr": 5717825.0112000005
+        "new_customers": 85,
+        "mrr": 2930388.7904000003,
+        "arr": 35164665.4848
       },
       "services": {
-        "volume": 0.0,
+        "volume": 26.08,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 260799.99999999997
       },
-      "total": 476485.41760000004
+      "total": 5174188.7904
     },
     "costs": {
       "personnel": {
@@ -4135,10 +4135,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 7703.2,
+        "cloud": 43193.200000000004,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 8589.2
+        "total": 44079.200000000004
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4148,14 +4148,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 148055.86666666667
+      "total": 183545.86666666667
     },
     "metrics": {
-      "ebitda": 328429.55093333335,
+      "ebitda": 4990642.923733334,
       "burn_rate": 0,
-      "arr": 5717825.0112000005,
-      "mrr": 476485.41760000004,
-      "cash": 7301170.910666668,
+      "arr": 35164665.4848,
+      "mrr": 2930388.7904000003,
+      "cash": 76782680.36266667,
       "funding": 0,
       "team_size": 18
     }
@@ -4166,34 +4166,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 48,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 864000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 15.749999999999998,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1181249.9999999998,
         "source_month": 40,
-        "source_hackathons": 0
+        "source_hackathons": 45
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 101.43,
-          "business": 105.25,
-          "enterprise": 22.98,
-          "total": 229.66
+          "starter": 704.76,
+          "business": 630.12,
+          "enterprise": 148.3,
+          "total": 1483.19
         },
-        "new_customers": 8,
-        "mrr": 491022.88,
-        "arr": 5892274.5600000005
+        "new_customers": 88,
+        "mrr": 3095671.6672,
+        "arr": 37148060.006400004
       },
       "services": {
-        "volume": 0.0,
+        "volume": 27.15,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 271500.0
       },
-      "total": 491022.88
+      "total": 5412421.6672
     },
     "costs": {
       "personnel": {
@@ -4247,10 +4247,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 7889.8,
+        "cloud": 45495.700000000004,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 8775.8
+        "total": 46381.700000000004
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4260,14 +4260,14 @@
         "total": 59000
       },
       "admin": 3000,
-      "total": 178242.46666666667
+      "total": 215848.36666666667
     },
     "metrics": {
-      "ebitda": 312780.41333333333,
+      "ebitda": 5196573.300533334,
       "burn_rate": 0,
-      "arr": 5892274.5600000005,
-      "mrr": 491022.88,
-      "cash": 7613951.324000001,
+      "arr": 37148060.006400004,
+      "mrr": 3095671.6672,
+      "cash": 81979253.6632,
       "funding": 0,
       "team_size": 18
     }
@@ -4278,34 +4278,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 50,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 900000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 16.099999999999998,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1207499.9999999998,
         "source_month": 41,
-        "source_hackathons": 0
+        "source_hackathons": 46
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 103.31,
-          "business": 108.92,
-          "enterprise": 23.6,
-          "total": 235.82
+          "starter": 738.06,
+          "business": 667.14,
+          "enterprise": 156.11,
+          "total": 1561.31
         },
-        "new_customers": 8,
-        "mrr": 505449.4368,
-        "arr": 6065393.2416
+        "new_customers": 90,
+        "mrr": 3264448.6976000005,
+        "arr": 39173384.37120001
       },
       "services": {
-        "volume": 0.0,
+        "volume": 28.22,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 282200.0
       },
-      "total": 505449.4368
+      "total": 5654148.697600001
     },
     "costs": {
       "personnel": {
@@ -4359,10 +4359,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 8074.599999999999,
+        "cloud": 47839.299999999996,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 8960.599999999999
+        "total": 48725.299999999996
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4372,14 +4372,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 148427.26666666666
+      "total": 188191.96666666667
     },
     "metrics": {
-      "ebitda": 357022.17013333336,
+      "ebitda": 5465956.730933334,
       "burn_rate": 0,
-      "arr": 6065393.2416,
-      "mrr": 505449.4368,
-      "cash": 7970973.494133335,
+      "arr": 39173384.37120001,
+      "mrr": 3264448.6976000005,
+      "cash": 87445210.39413334,
       "funding": 0,
       "team_size": 18
     }
@@ -4390,34 +4390,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 52,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 936000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 16.799999999999997,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1259999.9999999998,
         "source_month": 42,
-        "source_hackathons": 0
+        "source_hackathons": 48
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 105.14,
-          "business": 112.59,
-          "enterprise": 24.21,
-          "total": 241.94
+          "starter": 771.61,
+          "business": 705.15,
+          "enterprise": 164.06,
+          "total": 1640.82
         },
-        "new_customers": 8,
-        "mrr": 519869.54560000007,
-        "arr": 6238434.547200001
+        "new_customers": 92,
+        "mrr": 3436715.3855999997,
+        "arr": 41240584.62719999
       },
       "services": {
-        "volume": 0.0,
+        "volume": 29.36,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 293600.0
       },
-      "total": 519869.54560000007
+      "total": 5926315.3856
     },
     "costs": {
       "personnel": {
@@ -4471,10 +4471,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 8258.2,
+        "cloud": 50224.6,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 9144.2
+        "total": 51110.6
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4484,14 +4484,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 148610.86666666667
+      "total": 190577.26666666666
     },
     "metrics": {
-      "ebitda": 371258.6789333334,
+      "ebitda": 5735738.118933333,
       "burn_rate": 0,
-      "arr": 6238434.547200001,
-      "mrr": 519869.54560000007,
-      "cash": 8342232.173066669,
+      "arr": 41240584.62719999,
+      "mrr": 3436715.3855999997,
+      "cash": 93180948.51306668,
       "funding": 0,
       "team_size": 18
     }
@@ -4502,34 +4502,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 54,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 972000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 17.5,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1312500.0,
         "source_month": 43,
-        "source_hackathons": 0
+        "source_hackathons": 50
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 106.92,
-          "business": 116.27,
-          "enterprise": 24.82,
-          "total": 248.0
+          "starter": 805.99,
+          "business": 744.46,
+          "enterprise": 172.25,
+          "total": 1722.69
         },
-        "new_customers": 8,
-        "mrr": 534164.1664,
-        "arr": 6409969.9968
+        "new_customers": 95,
+        "mrr": 3614384.4736,
+        "arr": 43372613.6832
       },
       "services": {
-        "volume": 0.0,
+        "volume": 30.5,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 305000.0
       },
-      "total": 534164.1664
+      "total": 6203884.4736
     },
     "costs": {
       "personnel": {
@@ -4583,10 +4583,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 8440.0,
+        "cloud": 52680.700000000004,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 9326.0
+        "total": 53566.700000000004
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4596,14 +4596,14 @@
         "total": 59000
       },
       "admin": 3000,
-      "total": 178792.6666666667
+      "total": 223033.36666666667
     },
     "metrics": {
-      "ebitda": 355371.4997333333,
+      "ebitda": 5980851.106933334,
       "burn_rate": 0,
-      "arr": 6409969.9968,
-      "mrr": 534164.1664,
-      "cash": 8697603.672800003,
+      "arr": 43372613.6832,
+      "mrr": 3614384.4736,
+      "cash": 99161799.62000002,
       "funding": 0,
       "team_size": 18
     }
@@ -4614,34 +4614,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 56,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 1008000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 18.2,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1365000.0,
         "source_month": 44,
-        "source_hackathons": 0
+        "source_hackathons": 52
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 108.65,
-          "business": 119.96,
-          "enterprise": 25.42,
-          "total": 254.03
+          "starter": 841.18,
+          "business": 785.07,
+          "enterprise": 180.67,
+          "total": 1806.92
         },
-        "new_customers": 8,
-        "mrr": 548452.3391999999,
-        "arr": 6581428.0704
+        "new_customers": 98,
+        "mrr": 3797449.9424,
+        "arr": 45569399.3088
       },
       "services": {
-        "volume": 0.0,
+        "volume": 31.64,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 316400.0
       },
-      "total": 548452.3391999999
+      "total": 6486849.9424
     },
     "costs": {
       "personnel": {
@@ -4695,10 +4695,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 8620.9,
+        "cloud": 55207.600000000006,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 9506.9
+        "total": 56093.600000000006
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4708,14 +4708,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 148973.56666666665
+      "total": 195560.26666666666
     },
     "metrics": {
-      "ebitda": 399478.7725333333,
+      "ebitda": 6291289.675733333,
       "burn_rate": 0,
-      "arr": 6581428.0704,
-      "mrr": 548452.3391999999,
-      "cash": 9097082.445333336,
+      "arr": 45569399.3088,
+      "mrr": 3797449.9424,
+      "cash": 105453089.29573335,
       "funding": 0,
       "team_size": 18
     }
@@ -4726,34 +4726,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 58,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 1044000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 18.9,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1417500.0,
         "source_month": 45,
-        "source_hackathons": 0
+        "source_hackathons": 54
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 110.33,
-          "business": 123.65,
-          "enterprise": 26.02,
-          "total": 260.0
+          "starter": 876.56,
+          "business": 826.68,
+          "enterprise": 189.22,
+          "total": 1892.46
         },
-        "new_customers": 8,
-        "mrr": 562634.8640000001,
-        "arr": 6751618.368000001
+        "new_customers": 100,
+        "mrr": 3983884.0768,
+        "arr": 47806608.9216
       },
       "services": {
-        "volume": 0.0,
+        "volume": 32.78,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 327800.0
       },
-      "total": 562634.8640000001
+      "total": 6773184.0768
     },
     "costs": {
       "personnel": {
@@ -4807,10 +4807,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 8800.0,
+        "cloud": 57773.8,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 9686.0
+        "total": 58659.8
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4820,14 +4820,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 149152.6666666667
+      "total": 198126.46666666667
     },
     "metrics": {
-      "ebitda": 413482.1973333334,
+      "ebitda": 6575057.610133333,
       "burn_rate": 0,
-      "arr": 6751618.368000001,
-      "mrr": 562634.8640000001,
-      "cash": 9510564.64266667,
+      "arr": 47806608.9216,
+      "mrr": 3983884.0768,
+      "cash": 112028146.90586668,
       "funding": 0,
       "team_size": 18
     }
@@ -4838,34 +4838,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 60,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 1080000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 19.599999999999998,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1469999.9999999998,
         "source_month": 46,
-        "source_hackathons": 0
+        "source_hackathons": 56
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 111.96,
-          "business": 127.35,
-          "enterprise": 26.61,
-          "total": 265.92
+          "starter": 912.13,
+          "business": 869.28,
+          "enterprise": 197.91,
+          "total": 1979.32
         },
-        "new_customers": 8,
-        "mrr": 576791.1008,
-        "arr": 6921493.2096
+        "new_customers": 102,
+        "mrr": 4173691.7056,
+        "arr": 50084300.467199996
       },
       "services": {
-        "volume": 0.0,
+        "volume": 33.92,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 339200.0
       },
-      "total": 576791.1008
+      "total": 7062891.7056
     },
     "costs": {
       "personnel": {
@@ -4919,10 +4919,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 8977.6,
+        "cloud": 60379.6,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 9863.6
+        "total": 61265.6
       },
       "marketing": {
         "digital_ads": 20000,
@@ -4932,14 +4932,14 @@
         "total": 59000
       },
       "admin": 3000,
-      "total": 179330.26666666666
+      "total": 230732.26666666666
     },
     "metrics": {
-      "ebitda": 397460.83413333335,
+      "ebitda": 6832159.438933333,
       "burn_rate": 0,
-      "arr": 6921493.2096,
-      "mrr": 576791.1008,
-      "cash": 9908025.476800002,
+      "arr": 50084300.467199996,
+      "mrr": 4173691.7056,
+      "cash": 118860306.34480001,
       "funding": 0,
       "team_size": 18
     }
@@ -4950,34 +4950,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 62,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 1116000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 20.299999999999997,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1522499.9999999998,
         "source_month": 47,
-        "source_hackathons": 0
+        "source_hackathons": 58
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 113.55,
-          "business": 131.05,
-          "enterprise": 27.2,
-          "total": 271.79
+          "starter": 948.48,
+          "business": 913.18,
+          "enterprise": 206.83,
+          "total": 2068.49
         },
-        "new_customers": 8,
-        "mrr": 590841.6895999999,
-        "arr": 7090100.275199999
+        "new_customers": 105,
+        "mrr": 4368870.1888,
+        "arr": 52426442.265599996
       },
       "services": {
-        "volume": 0.0,
+        "volume": 35.06,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 350600.0
       },
-      "total": 590841.6895999999
+      "total": 7357970.1888
     },
     "costs": {
       "personnel": {
@@ -5031,10 +5031,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 9153.7,
+        "cloud": 63054.7,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 10039.7
+        "total": 63940.7
       },
       "marketing": {
         "digital_ads": 20000,
@@ -5044,14 +5044,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 149506.36666666667
+      "total": 203407.36666666667
     },
     "metrics": {
-      "ebitda": 441335.3229333332,
+      "ebitda": 7154562.822133333,
       "burn_rate": 0,
-      "arr": 7090100.275199999,
-      "mrr": 590841.6895999999,
-      "cash": 10349360.799733335,
+      "arr": 52426442.265599996,
+      "mrr": 4368870.1888,
+      "cash": 126014869.16693334,
       "funding": 0,
       "team_size": 18
     }
@@ -5062,34 +5062,34 @@
     "year": 2029,
     "revenue": {
       "hackathon": {
-        "volume": 0,
+        "volume": 64,
         "price_unit": 18000.0,
-        "revenue": 0.0
+        "revenue": 1152000.0
       },
       "factory": {
-        "volume": 0.0,
+        "volume": 21.0,
         "price_unit": 75000.0,
-        "revenue": 0.0,
+        "revenue": 1575000.0,
         "source_month": 48,
-        "source_hackathons": 0
+        "source_hackathons": 60
       },
       "enterprise_hub": {
         "customers": {
-          "starter": 115.09,
-          "business": 134.75,
-          "enterprise": 27.78,
-          "total": 277.63
+          "starter": 985.58,
+          "business": 958.39,
+          "enterprise": 215.98,
+          "total": 2159.94
         },
-        "new_customers": 8,
-        "mrr": 604871.248,
-        "arr": 7258454.976
+        "new_customers": 108,
+        "mrr": 4569319.5648,
+        "arr": 54831834.7776
       },
       "services": {
-        "volume": 0.0,
+        "volume": 36.2,
         "price_unit": 10000,
-        "revenue": 0.0
+        "revenue": 362000.0
       },
-      "total": 604871.248
+      "total": 7658319.5648
     },
     "costs": {
       "personnel": {
@@ -5143,10 +5143,10 @@
         }
       },
       "infrastructure": {
-        "cloud": 9328.9,
+        "cloud": 65798.20000000001,
         "saas_tools": 886,
         "rd_external": 0,
-        "total": 10214.9
+        "total": 66684.20000000001
       },
       "marketing": {
         "digital_ads": 20000,
@@ -5156,14 +5156,14 @@
         "total": 29000
       },
       "admin": 3000,
-      "total": 149681.56666666665
+      "total": 206150.8666666667
     },
     "metrics": {
-      "ebitda": 455189.68133333337,
+      "ebitda": 7452168.698133333,
       "burn_rate": 0,
-      "arr": 7258454.976,
-      "mrr": 604871.248,
-      "cash": 10804550.481066668,
+      "arr": 54831834.7776,
+      "mrr": 4569319.5648,
+      "cash": 133467037.86506668,
       "funding": 0,
       "team_size": 18
     }

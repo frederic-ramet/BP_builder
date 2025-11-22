@@ -250,6 +250,188 @@ class DataInjector:
 
         logger.info(f"✓ Sous-traitance: {injected} cellules injectées")
 
+    def inject_cash_flow_data(self):
+        """Injecter données Cash Flow"""
+        logger.info("\n💰 Injection Cash Flow...")
+
+        if 'Cash Flow' not in self.wb.sheetnames:
+            logger.warning("⚠️ Sheet 'Cash Flow' introuvable, skip injection")
+            return
+
+        ws = self.wb['Cash Flow']
+
+        # Trouver les lignes par labels
+        row_map = {}
+        for row in range(1, 30):
+            label = ws[f'A{row}'].value
+            if label and isinstance(label, str):
+                if 'CA Encaissé' in label:
+                    row_map['revenue'] = row
+                elif 'Charges Personnel' in label:
+                    row_map['personnel'] = row
+                elif 'Charges Infrastructure' in label:
+                    row_map['infrastructure'] = row
+                elif 'Charges Marketing' in label:
+                    row_map['marketing'] = row
+                elif 'Cash Flow Opérationnel' in label:
+                    row_map['operating_cf'] = row
+                elif 'Pre-Seed' in label:
+                    row_map['preseed'] = row
+                elif 'Seed' in label and 'Pre-' not in label:
+                    row_map['seed'] = row
+                elif 'Series A' in label:
+                    row_map['series_a'] = row
+                elif 'Cash Flow Financement' in label:
+                    row_map['financing_cf'] = row
+                elif 'TOTAL CASH FLOW' in label:
+                    row_map['total_cf'] = row
+                elif 'CASH BALANCE' in label:
+                    row_map['cash_balance'] = row
+                elif 'Burn Rate' in label:
+                    row_map['burn_rate'] = row
+                elif 'Cash Runway' in label:
+                    row_map['cash_runway'] = row
+
+        injected = 0
+
+        for month in range(1, 51):
+            if month not in self.month_to_col:
+                continue
+
+            col_idx = openpyxl.utils.column_index_from_string(self.month_to_col[month])
+            col_letter = openpyxl.utils.get_column_letter(col_idx + 2)  # +2 car Cash Flow a colonnes A,B de labels
+
+            proj = self.projections[month - 1]
+
+            # Revenue
+            if 'revenue' in row_map:
+                ws[f'{col_letter}{row_map["revenue"]}'].value = proj['revenue']['total']
+                injected += 1
+
+            # Personnel
+            if 'personnel' in row_map:
+                ws[f'{col_letter}{row_map["personnel"]}'].value = -proj['costs']['personnel']['total']
+                injected += 1
+
+            # Infrastructure
+            if 'infrastructure' in row_map:
+                infra_total = proj['costs']['infrastructure'].get('cloud', 0) + proj['costs']['infrastructure'].get('saas_tools', 0)
+                ws[f'{col_letter}{row_map["infrastructure"]}'].value = -infra_total
+                injected += 1
+
+            # Marketing
+            if 'marketing' in row_map:
+                ws[f'{col_letter}{row_map["marketing"]}'].value = -proj['costs']['marketing']['total']
+                injected += 1
+
+            # Operating CF
+            if 'operating_cf' in row_map:
+                operating_cf = (proj['revenue']['total'] -
+                               proj['costs']['personnel']['total'] -
+                               proj['costs']['infrastructure'].get('cloud', 0) -
+                               proj['costs']['infrastructure'].get('saas_tools', 0) -
+                               proj['costs']['marketing']['total'])
+                ws[f'{col_letter}{row_map["operating_cf"]}'].value = operating_cf
+                injected += 1
+
+            # Fundings (Pre-Seed M1, Seed M11, Series A M36)
+            if 'preseed' in row_map and month == 1:
+                ws[f'{col_letter}{row_map["preseed"]}'].value = 150000
+                injected += 1
+
+            if 'seed' in row_map and month == 11:
+                ws[f'{col_letter}{row_map["seed"]}'].value = 500000
+                injected += 1
+
+            if 'series_a' in row_map and month == 36:
+                ws[f'{col_letter}{row_map["series_a"]}'].value = 2500000
+                injected += 1
+
+            # Financing CF
+            if 'financing_cf' in row_map:
+                financing_cf = 0
+                if month == 1:
+                    financing_cf = 150000
+                elif month == 11:
+                    financing_cf = 500000
+                elif month == 36:
+                    financing_cf = 2500000
+                ws[f'{col_letter}{row_map["financing_cf"]}'].value = financing_cf
+                injected += 1
+
+            # Total CF
+            if 'total_cf' in row_map and 'operating_cf' in row_map and 'financing_cf' in row_map:
+                operating = ws[f'{col_letter}{row_map["operating_cf"]}'].value or 0
+                financing = ws[f'{col_letter}{row_map["financing_cf"]}'].value or 0
+                ws[f'{col_letter}{row_map["total_cf"]}'].value = operating + financing
+                injected += 1
+
+            # Cash Balance (cumul)
+            if 'cash_balance' in row_map:
+                ws[f'{col_letter}{row_map["cash_balance"]}'].value = proj.get('cash_balance', 0)
+                injected += 1
+
+            # Burn Rate (si operating CF négatif)
+            if 'burn_rate' in row_map and 'operating_cf' in row_map:
+                operating = ws[f'{col_letter}{row_map["operating_cf"]}'].value or 0
+                burn = -operating if operating < 0 else 0
+                ws[f'{col_letter}{row_map["burn_rate"]}'].value = burn
+                injected += 1
+
+            # Cash Runway
+            if 'cash_runway' in row_map and 'burn_rate' in row_map and 'cash_balance' in row_map:
+                cash = ws[f'{col_letter}{row_map["cash_balance"]}'].value or 0
+                burn = ws[f'{col_letter}{row_map["burn_rate"]}'].value or 0
+                runway = cash / burn if burn > 0 else 999
+                ws[f'{col_letter}{row_map["cash_runway"]}'].value = runway
+                injected += 1
+
+        logger.info(f"✓ Cash Flow: {injected} cellules injectées")
+
+    def inject_arr_mrr_in_pl(self):
+        """Injecter ARR/MRR dans P&L"""
+        logger.info("\n📈 Injection ARR/MRR dans P&L...")
+
+        ws = self.wb['P&L']
+
+        # Trouver les lignes ARR/MRR
+        arr_row = None
+        mrr_row = None
+
+        for row in range(1, 20):
+            label = ws[f'A{row}'].value
+            if label and isinstance(label, str):
+                if 'ARR' in label and 'Annual' in label:
+                    arr_row = row
+                elif 'MRR' in label and 'Monthly' in label:
+                    mrr_row = row
+
+        if not arr_row or not mrr_row:
+            logger.warning("⚠️ Lignes ARR/MRR introuvables dans P&L, skip")
+            return
+
+        injected = 0
+
+        for month in range(1, 51):
+            if month not in self.month_to_col:
+                continue
+
+            col = self.month_to_col[month]
+            proj = self.projections[month - 1]
+
+            # ARR
+            if arr_row:
+                ws[f'{col}{arr_row}'].value = proj.get('arr', 0)
+                injected += 1
+
+            # MRR
+            if mrr_row:
+                hub_mrr = proj['revenue']['enterprise_hub'].get('mrr', 0)
+                ws[f'{col}{mrr_row}'].value = hub_mrr
+                injected += 1
+
+        logger.info(f"✓ ARR/MRR: {injected} cellules injectées")
+
     def remove_template_marker(self):
         """Retirer le marqueur TEMPLATE"""
         logger.info("\n🏷️ Retrait marqueur TEMPLATE...")
@@ -263,20 +445,22 @@ class DataInjector:
             logger.info("✓ Marqueur retiré")
 
     def inject_all(self):
-        """Injecter toutes les données"""
-        logger.info("\n🔨 INJECTION DONNÉES")
+        """Injecter toutes les données + Phase 1 améliorations"""
+        logger.info("\n🔨 INJECTION DONNÉES (avec Phase 1)")
         logger.info("=" * 60)
 
         self.inject_pl_data()
+        self.inject_arr_mrr_in_pl()  # NEW: ARR/MRR dans P&L
         self.inject_ventes_data()
         self.inject_personnel_data()
         self.inject_infrastructure_data()
         self.inject_marketing_data()
         self.inject_sous_traitance_data()
+        self.inject_cash_flow_data()  # NEW: Cash Flow complet
         self.remove_template_marker()
 
         logger.info("\n" + "=" * 60)
-        logger.info("✅ INJECTION TERMINÉE")
+        logger.info("✅ INJECTION TERMINÉE (Phase 1 complète)")
 
     def save(self, output_path: Path):
         """Sauvegarder le fichier final"""
